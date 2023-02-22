@@ -1,6 +1,8 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:streaming_post_demo/common/size_config.dart';
+import 'package:streaming_post_demo/constants/string_constants.dart';
 
 import '../constants/app_colors.dart';
 
@@ -9,10 +11,7 @@ Widget headingText(String title, double size, Color color,
   return Text(
     title,
     overflow: TextOverflow.ellipsis,
-    style: TextStyle(
-        fontWeight: weight,
-        color: color,
-        fontSize: size),
+    style: TextStyle(fontWeight: weight, color: color, fontSize: size),
   );
 }
 
@@ -21,10 +20,7 @@ Widget normalText(String title, double size, Color color,
   return Text(
     title,
     textAlign: alignment,
-    style: TextStyle(
-        fontWeight: FontWeight.w300,
-        color: color,
-        fontSize: size),
+    style: TextStyle(fontWeight: FontWeight.w300, color: color, fontSize: size),
   );
 }
 
@@ -156,20 +152,36 @@ Drawer drawerLayout(BuildContext context) {
             Icons.home,
             color: colorRed,
           ),
-          title: const Text('Under Construction'),
+          title: headingText(home, SizeConfig.blockSizeHorizontal * 4, appColor,
+              weight: FontWeight.w400),
           onTap: () {
             Navigator.pop(context);
           },
         ),
-        /*ListTile(
-          leading: Icon(
-            Icons.train,
+        ListTile(
+          leading: const Icon(
+            Icons.account_circle_outlined,
+            color: colorRed,
           ),
-          title: const Text('Page 2'),
+          title: headingText(
+              aboutUs, SizeConfig.blockSizeHorizontal * 4, appColor,
+              weight: FontWeight.w400),
           onTap: () {
             Navigator.pop(context);
           },
-        ),*/
+        ),
+        ListTile(
+          leading: const Icon(
+            Icons.ad_units_rounded,
+            color: colorRed,
+          ),
+          title: headingText(
+              termsConditions, SizeConfig.blockSizeHorizontal * 4, appColor,
+              weight: FontWeight.w400),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
       ],
     ),
   );
