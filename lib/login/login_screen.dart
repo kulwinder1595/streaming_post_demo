@@ -30,14 +30,14 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Center(
                     child: headingText(
-                        login, SizeConfig.blockSizeHorizontal * 7, appColor,
+                        login.tr, SizeConfig.blockSizeHorizontal * 7, appColor,
                         weight: FontWeight.w600),
                   ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 5,
                   ),
                   headingText(
-                      name, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
+                      name.tr, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                       weight: FontWeight.w600),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,
@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                       textAlignVertical: TextAlignVertical.bottom,
                       style: const TextStyle(color: colorBlack),
                       decoration: InputDecoration(
-                        hintText: name,
+                        hintText: name.tr,
                         hintStyle: const TextStyle(color: colorGrey),
                         filled: true,
                         fillColor: colorWhite,
@@ -73,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                     height: SizeConfig.blockSizeVertical * 4,
                   ),
                    headingText(
-                      phoneNumber, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
+                      phoneNumber.tr, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                       weight: FontWeight.w600),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,
@@ -87,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                       textAlignVertical: TextAlignVertical.bottom,
                       style: const TextStyle(color: colorBlack),
                       decoration: InputDecoration(
-                        hintText: phoneNumberHint,
+                        hintText: phoneNumberHint.tr,
                         hintStyle: const TextStyle(color: colorGrey),
                         filled: true,
                         fillColor: colorWhite,
@@ -109,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                     height: SizeConfig.blockSizeVertical * 4,
                   ),
                   headingText(
-                      password, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
+                      password.tr, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                       weight: FontWeight.w600),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,
@@ -123,16 +123,16 @@ class LoginScreen extends StatelessWidget {
                       maxLines: 1,
                       textAlignVertical: TextAlignVertical.bottom,
                       style: const TextStyle(color: colorBlack),
-                      decoration: const InputDecoration(
-                        hintText: password,
-                        hintStyle: TextStyle(color: Colors.grey),
+                      decoration: InputDecoration(
+                        hintText: password.tr,
+                        hintStyle: const TextStyle(color: Colors.grey),
                         filled: true,
                         fillColor: colorWhite,
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(5.0)),
                           borderSide: BorderSide(color: colorGrey, width: 0.7),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(5.0)),
                           borderSide: BorderSide(color: colorGrey),
                         ),
@@ -159,7 +159,7 @@ class LoginScreen extends StatelessWidget {
                             height: SizeConfig.blockSizeVertical * 6,
                             child: Center(
                                 child: headingText(
-                                    login,
+                                    login.tr,
                                     SizeConfig.blockSizeHorizontal * 4,
                                     colorWhite)))),
                   ),
@@ -170,7 +170,7 @@ class LoginScreen extends StatelessWidget {
                           height: SizeConfig.blockSizeVertical * 5,
                         ),
                         headingText(
-                            otpCode, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
+                            otpCode.tr, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                             weight: FontWeight.w600),
                         SizedBox(
                           height: SizeConfig.blockSizeVertical * 2,
@@ -184,7 +184,7 @@ class LoginScreen extends StatelessWidget {
                             textAlignVertical: TextAlignVertical.bottom,
                             style: const TextStyle(color: colorBlack),
                             decoration: InputDecoration(
-                              hintText: otpCode,
+                              hintText: otpCode.tr,
                               hintStyle: const TextStyle(color: colorGrey),
                               filled: true,
                               fillColor: colorWhite,
@@ -222,7 +222,7 @@ class LoginScreen extends StatelessWidget {
                                   height: SizeConfig.blockSizeVertical * 6,
                                   child: Center(
                                       child: headingText(
-                                          verifyOtp,
+                                          verifyOtp.tr,
                                           SizeConfig.blockSizeHorizontal * 4,
                                           colorWhite)))),
                         ),]) :Container(),),
@@ -233,7 +233,7 @@ class LoginScreen extends StatelessWidget {
                     onTap: () {
                       Get.to(() => RegisterScreen());
                     },
-                    child: headingText(registerHere,
+                    child: headingText(registerHere.tr,
                         SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                         weight: FontWeight.w600),
                   ),

@@ -1,0 +1,4 @@
+#Thu Feb 23 20:49:36 IST 2023
+base.0=/Users/softuvo/streaming_post_demo/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

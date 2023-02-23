@@ -32,14 +32,14 @@ class RegisterScreen extends StatelessWidget{
                       ),
                       Center(
                         child: headingText(
-                            register, SizeConfig.blockSizeHorizontal * 7, appColor,
+                            register.tr, SizeConfig.blockSizeHorizontal * 7, appColor,
                             weight: FontWeight.w600),
                       ),
                       SizedBox(
                         height: SizeConfig.blockSizeVertical * 7,
                       ),
                       headingText(
-                          name, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
+                          name.tr, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                           weight: FontWeight.w600),
                       SizedBox(
                         height: SizeConfig.blockSizeVertical * 2,
@@ -53,7 +53,7 @@ class RegisterScreen extends StatelessWidget{
                           textAlignVertical: TextAlignVertical.bottom,
                           style: const TextStyle(color: colorBlack),
                           decoration: InputDecoration(
-                            hintText: name,
+                            hintText: name.tr,
                             hintStyle: const TextStyle(color: colorGrey),
                             filled: true,
                             fillColor: colorWhite,
@@ -76,7 +76,7 @@ class RegisterScreen extends StatelessWidget{
                       ),
 
                     headingText(
-                          phoneNumber, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
+                          phoneNumber.tr, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                           weight: FontWeight.w600),
                       SizedBox(
                         height: SizeConfig.blockSizeVertical * 2,
@@ -90,7 +90,7 @@ class RegisterScreen extends StatelessWidget{
                           textAlignVertical: TextAlignVertical.bottom,
                           style: const TextStyle(color: colorBlack),
                           decoration: InputDecoration(
-                            hintText: phoneNumberHint,
+                            hintText: phoneNumberHint.tr,
                             hintStyle: const TextStyle(color: colorGrey),
                             filled: true,
                             fillColor: colorWhite,
@@ -112,7 +112,7 @@ class RegisterScreen extends StatelessWidget{
                         height: SizeConfig.blockSizeVertical * 4,
                       ),
 
-                      headingText(password,
+                      headingText(password.tr,
                           SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                           weight: FontWeight.w600),
                       SizedBox(
@@ -127,16 +127,16 @@ class RegisterScreen extends StatelessWidget{
                           maxLines: 1,
                           textAlignVertical: TextAlignVertical.bottom,
                           style: const TextStyle(color: colorBlack),
-                          decoration: const InputDecoration(
-                            hintText: password,
-                            hintStyle: TextStyle(color: Colors.grey),
+                          decoration:  InputDecoration(
+                            hintText: password.tr,
+                            hintStyle: const TextStyle(color: Colors.grey),
                             filled: true,
                             fillColor: colorWhite,
-                            enabledBorder: OutlineInputBorder(
+                            enabledBorder: const OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(5.0)),
                               borderSide: BorderSide(color: colorGrey, width: 0.7),
                             ),
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(5.0)),
                               borderSide: BorderSide(color: colorGrey),
                             ),
@@ -163,7 +163,7 @@ class RegisterScreen extends StatelessWidget{
                                 height: SizeConfig.blockSizeVertical * 6,
                                 child: Center(
                                     child: headingText(
-                                        register,
+                                        register.tr,
                                         SizeConfig.blockSizeHorizontal * 4,
                                         colorWhite)))),
                       ),
@@ -174,7 +174,7 @@ class RegisterScreen extends StatelessWidget{
                         height: SizeConfig.blockSizeVertical * 5,
                       ),
                       headingText(
-                          otpCode, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
+                          otpCode.tr, SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                           weight: FontWeight.w600),
                       SizedBox(
                         height: SizeConfig.blockSizeVertical * 2,
@@ -188,7 +188,7 @@ class RegisterScreen extends StatelessWidget{
                           textAlignVertical: TextAlignVertical.bottom,
                           style: const TextStyle(color: colorBlack),
                           decoration: InputDecoration(
-                            hintText: otpCode,
+                            hintText: otpCode.tr,
                             hintStyle: const TextStyle(color: colorGrey),
                             filled: true,
                             fillColor: colorWhite,
@@ -226,7 +226,7 @@ class RegisterScreen extends StatelessWidget{
                                 height: SizeConfig.blockSizeVertical * 6,
                                 child: Center(
                                     child: headingText(
-                                        verifyOtp,
+                                        verifyOtp.tr,
                                         SizeConfig.blockSizeHorizontal * 4,
                                         colorWhite)))),
                       ),]) :Container(),),
@@ -238,7 +238,7 @@ class RegisterScreen extends StatelessWidget{
                       Get.back();
                       Get.to(() => LoginScreen());
                     },
-                    child:   headingText(loginHere,
+                    child:   headingText(loginHere.tr,
                           SizeConfig.blockSizeHorizontal * 3.5, colorBlack,
                           weight: FontWeight.w600),),
                     ],

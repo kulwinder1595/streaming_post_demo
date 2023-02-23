@@ -134,6 +134,18 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_localization",
+      "rootUri": "file:///Users/softuvo/.pub-cache/hosted/pub.dev/flutter_localization-0.1.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_localizations",
+      "rootUri": "file:///Users/softuvo/dilpreet/flutter/packages/flutter_localizations",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/softuvo/dilpreet/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -260,6 +272,48 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "shared_preferences",
+      "rootUri": "file:///Users/softuvo/.pub-cache/hosted/pub.dev/shared_preferences-2.0.18",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "shared_preferences_android",
+      "rootUri": "file:///Users/softuvo/.pub-cache/hosted/pub.dev/shared_preferences_android-2.0.16",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "shared_preferences_foundation",
+      "rootUri": "file:///Users/softuvo/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "shared_preferences_linux",
+      "rootUri": "file:///Users/softuvo/.pub-cache/hosted/pub.dev/shared_preferences_linux-2.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "shared_preferences_platform_interface",
+      "rootUri": "file:///Users/softuvo/.pub-cache/hosted/pub.dev/shared_preferences_platform_interface-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "shared_preferences_web",
+      "rootUri": "file:///Users/softuvo/.pub-cache/hosted/pub.dev/shared_preferences_web-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "shared_preferences_windows",
+      "rootUri": "file:///Users/softuvo/.pub-cache/hosted/pub.dev/shared_preferences_windows-2.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/softuvo/dilpreet/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -332,7 +386,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-02-22T15:43:35.874070Z",
+  "generated": "2023-02-23T13:35:34.403588Z",
   "generator": "pub",
   "generatorVersion": "2.19.2"
 }

@@ -152,7 +152,7 @@ Drawer drawerLayout(BuildContext context) {
             Icons.home,
             color: colorRed,
           ),
-          title: headingText(home, SizeConfig.blockSizeHorizontal * 4, appColor,
+          title: headingText(home.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
               weight: FontWeight.w400),
           onTap: () {
             Navigator.pop(context);
@@ -164,7 +164,7 @@ Drawer drawerLayout(BuildContext context) {
             color: colorRed,
           ),
           title: headingText(
-              aboutUs, SizeConfig.blockSizeHorizontal * 4, appColor,
+              aboutUs.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
               weight: FontWeight.w400),
           onTap: () {
             Navigator.pop(context);
@@ -176,7 +176,7 @@ Drawer drawerLayout(BuildContext context) {
             color: colorRed,
           ),
           title: headingText(
-              termsConditions, SizeConfig.blockSizeHorizontal * 4, appColor,
+              termsConditions.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
               weight: FontWeight.w400),
           onTap: () {
             Navigator.pop(context);

@@ -41,7 +41,7 @@ otpVerfication() async {
       isLoading.value = false;
 
       Get.to(() => MainScreen());
-      showMessage("$registerSuccessfully \nHello ${nameController.value.text}");
+      showMessage("${registerSuccessfully.tr} \nHello ${nameController.value.text}");
       nameController.value.text = "";
       phoneController.value.text = "";
       passwordController.value.text = "";
@@ -57,14 +57,14 @@ otpVerfication() async {
 
   Future<void> registerToFirebase() async {
     if(nameController.value.text.isEmpty){
-      showMessage(enterYourName);
+      showMessage(enterYourName.tr);
     }else if(phoneController.value.text.isEmpty){
-      showMessage(enterYourPhoneNumber);
+      showMessage(enterYourPhoneNumber.tr);
     }else if(!phoneController.value.text.contains("+")){
-      showMessage(enterYourCountryCodeBeforePhoneNumber);
+      showMessage(enterYourCountryCodeBeforePhoneNumber.tr);
 
     }else if(passwordController.value.text.isEmpty){
-      showMessage(enterYourPassword);
+      showMessage(enterYourPassword.tr);
     }else {
       isLoading.value = true;
 

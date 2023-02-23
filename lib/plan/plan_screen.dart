@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:streaming_post_demo/constants/string_constants.dart';
 
 import '../common/size_config.dart';
@@ -20,7 +21,7 @@ class PlanScreen extends StatelessWidget {
             ),
             Center(
               child: headingText(
-                  chooseThePlan, SizeConfig.blockSizeHorizontal * 7, appColor,
+                  chooseThePlan.tr, SizeConfig.blockSizeHorizontal * 7, appColor,
                   weight: FontWeight.w500),
             ),
             SizedBox(
@@ -28,7 +29,7 @@ class PlanScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                headingText("${freeTrial}\n${fiveDays}",
+                headingText("${freeTrial.tr}\n${fiveDays.tr}",
                     SizeConfig.blockSizeHorizontal * 4, colorBlack,
                     weight: FontWeight.w400),
                 const Spacer(),
@@ -48,7 +49,7 @@ class PlanScreen extends StatelessWidget {
                         height: SizeConfig.blockSizeVertical * 4,
                         child: Center(
                             child: headingText(
-                                go,
+                                go.tr,
                                 SizeConfig.blockSizeHorizontal * 4,
                                 colorWhite)))),
               ],
@@ -58,7 +59,7 @@ class PlanScreen extends StatelessWidget {
             ),
          Row(
               children: [
-                headingText(oneMonthPlan,
+                headingText(oneMonthPlan.tr,
                     SizeConfig.blockSizeHorizontal * 4, colorBlack,
                     weight: FontWeight.w400),
                 const Spacer(),
@@ -78,7 +79,7 @@ class PlanScreen extends StatelessWidget {
                         height: SizeConfig.blockSizeVertical * 4,
                         child: Center(
                             child: headingText(
-                                go,
+                                go.tr,
                                 SizeConfig.blockSizeHorizontal * 4,
                                 colorWhite)))),
               ],
@@ -88,7 +89,7 @@ class PlanScreen extends StatelessWidget {
             ),
          Row(
               children: [
-                headingText(yearlyPlan,
+                headingText(yearlyPlan.tr,
                     SizeConfig.blockSizeHorizontal * 4, colorBlack,
                     weight: FontWeight.w400),
                 const Spacer(),
@@ -108,7 +109,7 @@ class PlanScreen extends StatelessWidget {
                         height: SizeConfig.blockSizeVertical * 4,
                         child: Center(
                             child: headingText(
-                                go,
+                                go.tr,
                                 SizeConfig.blockSizeHorizontal * 4,
                                 colorWhite)))),
               ],

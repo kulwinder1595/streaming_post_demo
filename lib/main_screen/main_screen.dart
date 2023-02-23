@@ -69,7 +69,7 @@ class MainScreen extends StatelessWidget {
                 padding:
                     const EdgeInsets.only(left: 12.0, top: 12.0, bottom: 12.0),
                 child: headingText(
-                    enter, SizeConfig.blockSizeHorizontal * 5.2, colorBlack),
+                    enter.tr, SizeConfig.blockSizeHorizontal * 5.2, colorBlack),
               ),
             )
           ],
@@ -90,7 +90,6 @@ class MainScreen extends StatelessWidget {
                 },
               ),
             ),
-
             ListView.builder(
               itemCount: 10,
               scrollDirection: Axis.vertical,

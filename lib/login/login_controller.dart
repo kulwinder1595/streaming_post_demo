@@ -35,7 +35,7 @@ class LoginController extends GetxController {
 
 
         Get.to(() => MainScreen());
-        showMessage("$loginSuccessfully \nHello ${nameController.value.text}");
+        showMessage("${loginSuccessfully.tr} \nHello ${nameController.value.text}");
         nameController.value.text = "";
         phoneController.value.text = "";
         passwordController.value.text = "";
@@ -51,14 +51,14 @@ class LoginController extends GetxController {
 
   Future<void> loginToFirebase() async {
     if(nameController.value.text.isEmpty){
-      showMessage(enterYourName);
+      showMessage(enterYourName.tr);
     }else if(phoneController.value.text.isEmpty){
-      showMessage(enterYourPhoneNumber);
+      showMessage(enterYourPhoneNumber.tr);
     }else if(!phoneController.value.text.contains("+")){
-      showMessage(enterYourCountryCodeBeforePhoneNumber);
+      showMessage(enterYourCountryCodeBeforePhoneNumber.tr);
 
     }else if(passwordController.value.text.isEmpty){
-      showMessage(enterYourPassword);
+      showMessage(enterYourPassword.tr);
     }else {
       isLoading.value = true;
 
