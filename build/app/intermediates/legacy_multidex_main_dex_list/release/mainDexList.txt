@@ -1,7 +1,11 @@
+a1/a.class
+a1/b.class
+a1/c.class
+a1/d.class
 androidx/annotation/Keep.class
 androidx/core/app/CoreComponentFactory$a.class
 androidx/core/app/CoreComponentFactory.class
-androidx/lifecycle/d$a.class
+androidx/lifecycle/d$b.class
 androidx/lifecycle/n.class
 androidx/window/core/ExperimentalWindowApi.class
 androidx/window/embedding/SplitRule$LayoutDir.class
@@ -13,9 +17,5 @@ com/google/firebase/firestore/d0.class
 com/google/firebase/firestore/k0.class
 com/google/firebase/firestore/r0.class
 com/google/firebase/firestore/v0.class
-f1/a.class
-f1/b.class
-f1/c.class
-f1/d.class
 kotlin/coroutines/jvm/internal/f.class
-v/k.class
+q/k.class

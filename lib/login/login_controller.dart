@@ -2,10 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:streaming_post_demo/common/widgets.dart';
+import 'package:streaming_post_demo/constants/storage_constants.dart';
 
 import '../constants/string_constants.dart';
-import '../main_screen/main_screen.dart';
+import '../main_screen/ui/main_screen.dart';
 
 class LoginController extends GetxController {
   final nameController = TextEditingController().obs;
@@ -16,6 +18,7 @@ class LoginController extends GetxController {
   var isLoading = false.obs;
   var isOtpSent = false.obs;
   var otpVerificationId = "".obs;
+  final storage = GetStorage();
 
   otpVerfication() async {
     isLoading.value = true;
@@ -35,6 +38,9 @@ class LoginController extends GetxController {
 
 
         Get.to(() => MainScreen());
+        storage.write(userId, result.user!.uid);
+        storage.write(userName, nameController.value.text);
+
         showMessage("${loginSuccessfully.tr} \nHello ${nameController.value.text}");
         nameController.value.text = "";
         phoneController.value.text = "";

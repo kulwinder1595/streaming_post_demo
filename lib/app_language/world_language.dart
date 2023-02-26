@@ -32,6 +32,18 @@ class WorldLanguage extends Translations {
       'oneMonthPlan': '1 Month 1000\$',
       'yearlyPlan': 'Yearly 10000\$',
       'go': 'Go',
+      'country': 'Country',
+      'addText': 'Add Text',
+      'upto500Characters': 'Upto 500 Characters',
+      'photo': 'Photo',
+      'upto5Photos': 'Upto 5 Photos',
+      'add': 'Add',
+      'youCanOnlySelectUpto5Photos': 'You can only select upto 5 photos',
+      'enterCountryName': 'Enter country name',
+      'cantShareEmptyPost': 'Can\'t share empty post',
+      'postShareSuccessfully': 'Post share successfully',
+      'noDataFound': 'No Data Found',
+      'pleaseLoginFirstToShareAPost': 'Please login first to share a post',
     },
 
     'ar': {
@@ -52,9 +64,9 @@ class WorldLanguage extends Translations {
       'enterYourCountryCodeBeforePhoneNumber': 'أدخل رمز بلدك قبل رقم الهاتف.',
       'registerSuccessfully': 'تسجيل بنجاح.',
       'loginSuccessfully': 'تسجيل الدخول بنجاح.',
-      'home': 'بيت',
+      'home': 'الصفحة الرئيسية',
       'aboutUs': 'معلومات عنا',
-      'termsConditions': 'البنود و الظروف',
+      'termsConditions': ' الشروط والاحكام',
       'phoneNumberHint': 'رقم الهاتف (+96600000000)',
       'chooseThePlan': 'اختر الخطة',
       'freeTrial': 'تجربة مجانية',
@@ -62,9 +74,20 @@ class WorldLanguage extends Translations {
       'oneMonthPlan': 'شهر واحد 1000 دولار',
       'yearlyPlan': '10000 دولار سنويا',
       'go': 'يذهب',
+      'country': 'دولة',
+      'addText': 'أضف نصًا',
+      'upto500Characters': 'تصل إلى 500 حرف',
+      'photo': 'صورة',
+      'upto5Photos': 'تصل إلى 5 صور',
+      'add': 'يضيف',
+      'youCanOnlySelectUpto5Photos': 'يمكنك فقط اختيار ما يصل إلى 5 صور',
+      'enterCountryName': 'أدخل اسم الدولة',
+      'cantShareEmptyPost': 'لا يمكن نشر وظيفة فارغة',
+      'postShareSuccessfully': 'مشاركة المشاركة بنجاح',
+      'noDataFound': 'لاتوجد بيانات',
+      'pleaseLoginFirstToShareAPost': 'الرجاء تسجيل الدخول أولا لنشر وظيفة',
     },
 
     //add more language here
   };
 }
-

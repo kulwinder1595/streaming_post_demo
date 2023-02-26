@@ -3,4 +3,6 @@ const chat = "assets/images/chat.png";
 const plus = "assets/images/plus.png";
 const share = "assets/images/share.png";
 const live = "assets/images/live.png";
+const placeholder = "assets/images/placeholder.png";
 const dummyImage = "assets/images/dummy_image.jpeg";
+const send = "assets/images/send.png";

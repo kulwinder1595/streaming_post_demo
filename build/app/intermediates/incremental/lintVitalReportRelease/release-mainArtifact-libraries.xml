@@ -30,6 +30,19 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="/Users/softuvo/streaming_post_demo/android@@:firebase_storage::release"
+      jars="/Users/softuvo/streaming_post_demo/build/firebase_storage/.transforms/34ca81d3c7dda60a40e689cf11f156c5/transformed/out/jars/classes.jar"
+      resolved="io.flutter.plugins.firebase.storage:firebase_storage:unspecified"
+      folder="/Users/softuvo/streaming_post_demo/build/firebase_storage/.transforms/34ca81d3c7dda60a40e689cf11f156c5/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="/Users/softuvo/streaming_post_demo/android@@:cloud_firestore::release"
       jars="/Users/softuvo/streaming_post_demo/build/cloud_firestore/.transforms/af20aa11ece56b7cead9e183399ae208/transformed/out/jars/classes.jar"
       resolved="io.flutter.plugins.firebase.cloudfirestore:cloud_firestore:unspecified"
@@ -56,6 +69,19 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="/Users/softuvo/streaming_post_demo/android@@:flutter_plugin_android_lifecycle::release"
+      jars="/Users/softuvo/streaming_post_demo/build/flutter_plugin_android_lifecycle/.transforms/0f2f444b7d471e1bb0222e5f1ba3300a/transformed/out/jars/classes.jar"
+      resolved="io.flutter.plugins.flutter_plugin_android_lifecycle:flutter_plugin_android_lifecycle:unspecified"
+      folder="/Users/softuvo/streaming_post_demo/build/flutter_plugin_android_lifecycle/.transforms/0f2f444b7d471e1bb0222e5f1ba3300a/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="/Users/softuvo/streaming_post_demo/android@@:flutter_localization::release"
       jars="/Users/softuvo/streaming_post_demo/build/flutter_localization/.transforms/541f6969872b1abb726377c3c539b987/transformed/out/jars/classes.jar"
       resolved="com.mastertipsy.flutter_localization:flutter_localization:unspecified"
@@ -73,6 +99,19 @@
       jars="/Users/softuvo/streaming_post_demo/build/path_provider_android/.transforms/84634cdfd6cd59135ab8cfd8a4355838/transformed/out/jars/classes.jar"
       resolved="io.flutter.plugins.pathprovider:path_provider_android:unspecified"
       folder="/Users/softuvo/streaming_post_demo/build/path_provider_android/.transforms/84634cdfd6cd59135ab8cfd8a4355838/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="/Users/softuvo/streaming_post_demo/android@@:image_picker_android::release"
+      jars="/Users/softuvo/streaming_post_demo/build/image_picker_android/.transforms/3ad39713ade592618df37313619218a2/transformed/out/jars/classes.jar"
+      resolved="io.flutter.plugins.imagepicker:image_picker_android:unspecified"
+      folder="/Users/softuvo/streaming_post_demo/build/image_picker_android/.transforms/3ad39713ade592618df37313619218a2/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -430,10 +469,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.core:core:1.6.0@aar"
-      jars="/Users/softuvo/.gradle/caches/transforms-3/aa701b47cec244085d46a1a42fcc7fb9/transformed/core-1.6.0/jars/classes.jar"
-      resolved="androidx.core:core:1.6.0"
-      folder="/Users/softuvo/.gradle/caches/transforms-3/aa701b47cec244085d46a1a42fcc7fb9/transformed/core-1.6.0"
+      name="androidx.core:core:1.8.0@aar"
+      jars="/Users/softuvo/.gradle/caches/transforms-3/0ce731f8c62e88af9af421907435d7da/transformed/core-1.8.0/jars/classes.jar"
+      resolved="androidx.core:core:1.8.0"
+      folder="/Users/softuvo/.gradle/caches/transforms-3/0ce731f8c62e88af9af421907435d7da/transformed/core-1.8.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -443,10 +482,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-runtime:2.2.0@aar"
-      jars="/Users/softuvo/.gradle/caches/transforms-3/d0f809c79e029128874b5601b0b72920/transformed/lifecycle-runtime-2.2.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-runtime:2.2.0"
-      folder="/Users/softuvo/.gradle/caches/transforms-3/d0f809c79e029128874b5601b0b72920/transformed/lifecycle-runtime-2.2.0"
+      name="androidx.lifecycle:lifecycle-runtime:2.3.1@aar"
+      jars="/Users/softuvo/.gradle/caches/transforms-3/827059b5dbdd36f4518b82e011631b76/transformed/lifecycle-runtime-2.3.1/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-runtime:2.3.1"
+      folder="/Users/softuvo/.gradle/caches/transforms-3/827059b5dbdd36f4518b82e011631b76/transformed/lifecycle-runtime-2.3.1"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -495,9 +534,9 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-common:2.2.0@jar"
-      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.2.0/4ef09a745007778eef83b92f8f23987a8ea59496/lifecycle-common-2.2.0.jar"
-      resolved="androidx.lifecycle:lifecycle-common:2.2.0"/>
+      name="androidx.lifecycle:lifecycle-common:2.3.1@jar"
+      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.3.1/fc466261d52f4433863642fb40d12441ae274a98/lifecycle-common-2.3.1.jar"
+      resolved="androidx.lifecycle:lifecycle-common:2.3.1"/>
   <library
       name="androidx.versionedparcelable:versionedparcelable:1.1.1@aar"
       jars="/Users/softuvo/.gradle/caches/transforms-3/cfaa035a43a363ad38f5365ab0b90d5a/transformed/versionedparcelable-1.1.1/jars/classes.jar"
@@ -529,10 +568,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.arch.core:core-runtime:2.0.0@aar"
-      jars="/Users/softuvo/.gradle/caches/transforms-3/39e1327ceafb30ef117040fe9315a97f/transformed/core-runtime-2.0.0/jars/classes.jar"
-      resolved="androidx.arch.core:core-runtime:2.0.0"
-      folder="/Users/softuvo/.gradle/caches/transforms-3/39e1327ceafb30ef117040fe9315a97f/transformed/core-runtime-2.0.0"
+      name="androidx.arch.core:core-runtime:2.1.0@aar"
+      jars="/Users/softuvo/.gradle/caches/transforms-3/9633f98cacc600c55cd8e13ad9ef85d0/transformed/core-runtime-2.1.0/jars/classes.jar"
+      resolved="androidx.arch.core:core-runtime:2.1.0"
+      folder="/Users/softuvo/.gradle/caches/transforms-3/9633f98cacc600c55cd8e13ad9ef85d0/transformed/core-runtime-2.1.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -631,6 +670,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar"
+      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+      resolved="com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"/>
+  <library
       name="androidx.tracing:tracing:1.0.0@aar"
       jars="/Users/softuvo/.gradle/caches/transforms-3/b3aaa08a3f58058a7d57a5e78cb8e348/transformed/jetified-tracing-1.0.0/jars/classes.jar"
       resolved="androidx.tracing:tracing:1.0.0"
@@ -643,10 +686,6 @@
       symbolFile="R.txt"
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
-  <library
-      name="com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar"
-      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
-      resolved="com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"/>
   <library
       name="com.google.firebase:firebase-annotations:16.2.0@jar"
       jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-annotations/16.2.0/ba0806703ca285d03fa9c888b5868f101134a501/firebase-annotations-16.2.0.jar"
@@ -677,6 +716,19 @@
       jars="/Users/softuvo/.gradle/caches/transforms-3/d52564208e00760a4e942c866bd129a8/transformed/jetified-firebase-firestore-24.4.3/jars/classes.jar"
       resolved="com.google.firebase:firebase-firestore:24.4.3"
       folder="/Users/softuvo/.gradle/caches/transforms-3/d52564208e00760a4e942c866bd129a8/transformed/jetified-firebase-firestore-24.4.3"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.firebase:firebase-storage:20.1.0@aar"
+      jars="/Users/softuvo/.gradle/caches/transforms-3/0da25f878ca7fc72a1a3e4059e81557e/transformed/jetified-firebase-storage-20.1.0/jars/classes.jar"
+      resolved="com.google.firebase:firebase-storage:20.1.0"
+      folder="/Users/softuvo/.gradle/caches/transforms-3/0da25f878ca7fc72a1a3e4059e81557e/transformed/jetified-firebase-storage-20.1.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -768,6 +820,19 @@
       jars="/Users/softuvo/.gradle/caches/transforms-3/38e30c664341fe5bfcc1d9de04582443/transformed/browser-1.4.0/jars/classes.jar"
       resolved="androidx.browser:browser:1.4.0"
       folder="/Users/softuvo/.gradle/caches/transforms-3/38e30c664341fe5bfcc1d9de04582443/transformed/browser-1.4.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.exifinterface:exifinterface:1.3.3@aar"
+      jars="/Users/softuvo/.gradle/caches/transforms-3/fae8300db20a09e485ca3ced7347472e/transformed/exifinterface-1.3.3/jars/classes.jar"
+      resolved="androidx.exifinterface:exifinterface:1.3.3"
+      folder="/Users/softuvo/.gradle/caches/transforms-3/fae8300db20a09e485ca3ced7347472e/transformed/exifinterface-1.3.3"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

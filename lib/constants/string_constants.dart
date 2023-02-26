@@ -25,3 +25,16 @@ const fiveDays = "fiveDays";
 const oneMonthPlan = "oneMonthPlan";
 const yearlyPlan = "yearlyPlan";
 const go = "go";
+const country = "country";
+const addText = "addText";
+const upto500Characters = "upto500Characters";
+const photo = "photo";
+const upto5Photos = "upto5Photos";
+const add = "add";
+const youCanOnlySelectUpto5Photos = "youCanOnlySelectUpto5Photos";
+const enterCountryName = "enterCountryName";
+const cantShareEmptyPost = "cantShareEmptyPost";
+const postShareSuccessfully = "postShareSuccessfully";
+const noDataFound = "noDataFound";
+const pleaseLoginFirstToShareAPost = "pleaseLoginFirstToShareAPost";
+

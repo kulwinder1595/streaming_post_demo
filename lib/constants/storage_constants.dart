@@ -1,4 +1,2 @@
-const userToken = "userToken";
-const userHostId = "userHostId";
+const userId = "userId";
 const userName = "userName";
-const agoraChatUserId = "agoraChatUserId";

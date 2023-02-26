@@ -6,7 +6,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:streaming_post_demo/common/widgets.dart';
 import 'package:streaming_post_demo/constants/string_constants.dart';
-import 'package:streaming_post_demo/main_screen/main_screen.dart';
+import 'package:streaming_post_demo/main_screen/ui/main_screen.dart';
+
+import '../constants/storage_constants.dart';
 
 class RegisterController extends GetxController{
   final nameController = TextEditingController().obs;
@@ -17,6 +19,7 @@ class RegisterController extends GetxController{
   var isLoading = false.obs;
   var isOtpSent = false.obs;
   var otpVerificationId = "".obs;
+  var storage = GetStorage();
 
   @override
   Future<void> onInit() async {
@@ -41,6 +44,8 @@ otpVerfication() async {
       isLoading.value = false;
 
       Get.to(() => MainScreen());
+      storage.write(userId, result.user!.uid);
+      storage.write(userName, nameController.value.text);
       showMessage("${registerSuccessfully.tr} \nHello ${nameController.value.text}");
       nameController.value.text = "";
       phoneController.value.text = "";
