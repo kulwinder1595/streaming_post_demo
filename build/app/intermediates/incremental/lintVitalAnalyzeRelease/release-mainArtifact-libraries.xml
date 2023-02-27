@@ -121,9 +121,9 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="io.flutter:flutter_embedding_release:1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5@jar"
-      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/io.flutter/flutter_embedding_release/1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5/f9c46cd66c3c6658b4460e430f66c8a30db1a7fd/flutter_embedding_release-1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5.jar"
-      resolved="io.flutter:flutter_embedding_release:1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5"/>
+      name="io.flutter:flutter_embedding_release:1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a@jar"
+      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/io.flutter/flutter_embedding_release/1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a/89b3bbec4a0b2724d3ff631cd5834c1fad7bef22/flutter_embedding_release-1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a.jar"
+      resolved="io.flutter:flutter_embedding_release:1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a"/>
   <library
       name="androidx.window:window-java:1.0.0-beta04@aar"
       jars="/Users/softuvo/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/jars/classes.jar"
@@ -180,17 +180,17 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="io.flutter:armeabi_v7a_release:1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5@jar"
-      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/io.flutter/armeabi_v7a_release/1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5/17eb2d5a4eda9c1c63df98bb99878e2b3d4ec13f/armeabi_v7a_release-1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5.jar"
-      resolved="io.flutter:armeabi_v7a_release:1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5"/>
+      name="io.flutter:armeabi_v7a_release:1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a@jar"
+      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/io.flutter/armeabi_v7a_release/1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a/8a3f110a00b64e15ce4531f6e654b56b350f98a9/armeabi_v7a_release-1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a.jar"
+      resolved="io.flutter:armeabi_v7a_release:1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a"/>
   <library
-      name="io.flutter:arm64_v8a_release:1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5@jar"
-      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/io.flutter/arm64_v8a_release/1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5/b4e04a28f36b0e15912f0f9f6623689e83f9ae04/arm64_v8a_release-1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5.jar"
-      resolved="io.flutter:arm64_v8a_release:1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5"/>
+      name="io.flutter:arm64_v8a_release:1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a@jar"
+      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/io.flutter/arm64_v8a_release/1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a/30eb9cbefab6c0a452b5514ff376a7eb97e38fb/arm64_v8a_release-1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a.jar"
+      resolved="io.flutter:arm64_v8a_release:1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a"/>
   <library
-      name="io.flutter:x86_64_release:1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5@jar"
-      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/io.flutter/x86_64_release/1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5/dcacecd288d5964c467ad56b3dba1121eed36f89/x86_64_release-1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5.jar"
-      resolved="io.flutter:x86_64_release:1.0.0-248290d6d50a1bf1a6a246544347c03acda867a5"/>
+      name="io.flutter:x86_64_release:1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a@jar"
+      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/io.flutter/x86_64_release/1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a/7cb9c65ad6faf1c93af5a2f472069a96f8508a5a/x86_64_release-1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a.jar"
+      resolved="io.flutter:x86_64_release:1.0.0-3316dd8728419ad3534e3f6112aa6291f587078a"/>
   <library
       name="androidx.multidex:multidex:2.0.0@aar"
       jars="/Users/softuvo/.gradle/caches/transforms-3/60455f47848b88c03b916134aaa9223d/transformed/multidex-2.0.0/jars/classes.jar"

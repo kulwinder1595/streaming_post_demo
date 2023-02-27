@@ -90,7 +90,7 @@ class PostController extends GetxController {
       'username': store.read(userName),
       'country': countryController.value.text.trim(),
       'text': textController.value.text.trim(),
-      'timestamp': DateTime.now().toUtc().millisecondsSinceEpoch,
+      'timestamp': (DateTime.now().toUtc().millisecondsSinceEpoch).toString(),
       'images': imageUrlList,
       'comments': []
     };
@@ -101,6 +101,10 @@ class PostController extends GetxController {
               showMessage(postShareSuccessfully.tr),
               isLoading.value = false,
               Get.to(() => MainScreen()),
+              countryController.value.text = "",
+              textController.value.text = "",
+              imageFileList.value.clear(),
+              imageUrlList.clear(),
             });
   }
 

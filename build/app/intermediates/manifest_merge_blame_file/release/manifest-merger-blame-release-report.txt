@@ -7,7 +7,7 @@
 7    <uses-sdk
 8        android:minSdkVersion="19"
 8-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml
-9        android:targetSdkVersion="33" />
+9        android:targetSdkVersion="31" />
 9-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

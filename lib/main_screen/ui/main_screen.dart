@@ -149,22 +149,22 @@ class MainScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: headingText(list.username,
+              child: headingText(list.username.toString(),
                   SizeConfig.blockSizeHorizontal * 4, colorBlack,
                   weight: FontWeight.w500),
             ),
             const Divider(),
-            !list.text.isEmpty ? Padding(
+            !list.text.toString().isEmpty ? Padding(
               padding: const EdgeInsets.only(
                   right: 14.0, left: 14.0, top: 10, bottom: 10),
               child: headingText(
-                  list.text, SizeConfig.blockSizeHorizontal * 4, colorBlack,
+                  list.text.toString(), SizeConfig.blockSizeHorizontal * 4, colorBlack,
                   weight: FontWeight.w300),
             ):Container(),
-         list.images.length > 0 ?   SizedBox(
+         list.images!.length > 0 ?   SizedBox(
               height: SizeConfig.blockSizeVertical * 50,
               child: ListView.builder(
-                itemCount: list.images.length,
+                itemCount: list.images!.length,
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 itemBuilder: (context, index1) {
@@ -172,7 +172,7 @@ class MainScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 8.0, left: 8.0),
                     child: FadeInImage.assetNetwork(
                       placeholder: placeholder,
-                      image: list.images[index1].image,
+                      image: list.images![index1].image.toString(),
                       width: SizeConfig.screenWidth - 40,
                       height: SizeConfig.blockSizeVertical * 50,
                       fit: BoxFit.fill,
@@ -186,7 +186,7 @@ class MainScreen extends StatelessWidget {
                 const Spacer(),
                 InkWell(
                   onTap: () {
-                    Get.to(() => CommentScreen(list.id));
+                    Get.to(() => CommentScreen(list.id.toString()));
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),

@@ -6,9 +6,9 @@
     maven="android:app:"
     gradle="7.1.2"
     buildFolder="/Users/softuvo/streaming_post_demo/build/app"
-    bootClassPath="/Users/softuvo/Library/Android/sdk/platforms/android-33/android.jar:/Users/softuvo/Library/Android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    bootClassPath="/Users/softuvo/Library/Android/sdk/platforms/android-31/android.jar:/Users/softuvo/Library/Android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
     javaSourceLevel="1.8"
-    compileTarget="android-33">
+    compileTarget="android-31">
   <lintOptions
       abortOnError="true"
       absolutePaths="true"

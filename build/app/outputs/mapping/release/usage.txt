@@ -2089,28 +2089,7 @@ androidx.core.view.animation.PathInterpolatorApi14
 androidx.core.view.animation.PathInterpolatorCompat$Api21Impl
 androidx.core.view.animation.PathInterpolatorCompat
 androidx.core.view.inputmethod.EditorInfoCompat$Api30Impl
-androidx.core.view.inputmethod.EditorInfoCompat:
-    private static final java.lang.String CONTENT_MIME_TYPES_INTEROP_KEY
-    private static final java.lang.String CONTENT_MIME_TYPES_KEY
-    private static final java.lang.String CONTENT_SELECTION_END_KEY
-    private static final java.lang.String CONTENT_SELECTION_HEAD_KEY
-    private static final java.lang.String CONTENT_SURROUNDING_TEXT_KEY
-    public static final int IME_FLAG_FORCE_ASCII
-    public static final int IME_FLAG_NO_PERSONALIZED_LEARNING
-    static final int MAX_INITIAL_SELECTION_LENGTH
-    static final int MEMORY_EFFICIENT_TEXT_LENGTH
-    public void <init>()
-    public static java.lang.String[] getContentMimeTypes(android.view.inputmethod.EditorInfo)
-    public static java.lang.CharSequence getInitialSelectedText(android.view.inputmethod.EditorInfo,int)
-    public static java.lang.CharSequence getInitialTextAfterCursor(android.view.inputmethod.EditorInfo,int,int)
-    public static java.lang.CharSequence getInitialTextBeforeCursor(android.view.inputmethod.EditorInfo,int,int)
-    static int getProtocol(android.view.inputmethod.EditorInfo)
-    private static boolean isCutOnSurrogate(java.lang.CharSequence,int,int)
-    private static boolean isPasswordInputType(int)
-    public static void setInitialSurroundingSubText(android.view.inputmethod.EditorInfo,java.lang.CharSequence,int)
-    public static void setInitialSurroundingText(android.view.inputmethod.EditorInfo,java.lang.CharSequence)
-    private static void setSurroundingText(android.view.inputmethod.EditorInfo,java.lang.CharSequence,int,int)
-    private static void trimLongSurroundingText(android.view.inputmethod.EditorInfo,java.lang.CharSequence,int,int)
+androidx.core.view.inputmethod.EditorInfoCompat
 androidx.core.view.inputmethod.InputConnectionCompat$1
 androidx.core.view.inputmethod.InputConnectionCompat$2
 androidx.core.view.inputmethod.InputConnectionCompat$Api25Impl
@@ -3145,18 +3124,24 @@ androidx.savedstate.SavedStateRegistry:
 androidx.tracing.R
 androidx.tracing.Trace:
     static final java.lang.String TAG
+    private static java.lang.reflect.Method sAsyncTraceBeginMethod
+    private static java.lang.reflect.Method sAsyncTraceEndMethod
     private static java.lang.reflect.Method sIsTagEnabledMethod
     private static java.lang.reflect.Method sTraceCounterMethod
+    private static long sTraceTagApp
     private void <init>()
+    public static void beginAsyncSection(java.lang.String,int)
+    private static void beginAsyncSectionFallback(java.lang.String,int)
+    public static void endAsyncSection(java.lang.String,int)
+    private static void endAsyncSectionFallback(java.lang.String,int)
+    private static void handleException(java.lang.String,java.lang.Exception)
     public static boolean isEnabled()
     private static boolean isEnabledFallback()
     public static void setCounter(java.lang.String,int)
     private static void setCounterFallback(java.lang.String,int)
 androidx.tracing.TraceApi18Impl:
     private void <init>()
-androidx.tracing.TraceApi29Impl:
-    private void <init>()
-    public static void setCounter(java.lang.String,int)
+androidx.tracing.TraceApi29Impl
 androidx.versionedparcelable.CustomVersionedParcelable:
     public void onPostParceling()
     public void onPreParceling(boolean)
@@ -15050,7 +15035,7 @@ io.flutter.embedding.engine.FlutterEngine:
     public io.flutter.embedding.engine.systemchannels.LocalizationChannel getLocalizationChannel()
     public io.flutter.embedding.engine.plugins.service.ServiceControlSurface getServiceControlSurface()
     public void removeEngineLifecycleListener(io.flutter.embedding.engine.FlutterEngine$EngineLifecycleListener)
-    io.flutter.embedding.engine.FlutterEngine spawn(android.content.Context,io.flutter.embedding.engine.dart.DartExecutor$DartEntrypoint,java.lang.String,java.util.List,io.flutter.plugin.platform.PlatformViewsController,boolean,boolean)
+    io.flutter.embedding.engine.FlutterEngine spawn(android.content.Context,io.flutter.embedding.engine.dart.DartExecutor$DartEntrypoint,java.lang.String,java.util.List)
 io.flutter.embedding.engine.FlutterEngineCache:
     public void clear()
     public boolean contains(java.lang.String)
@@ -15318,10 +15303,6 @@ io.flutter.embedding.engine.systemchannels.NavigationChannel:
     public void setMethodCallHandler(io.flutter.plugin.common.MethodChannel$MethodCallHandler)
 io.flutter.embedding.engine.systemchannels.PlatformChannel:
     private static final java.lang.String TAG
-io.flutter.embedding.engine.systemchannels.PlatformViewsChannel$PlatformViewCreationRequest:
-    public void <init>(int,java.lang.String,double,double,double,double,int,java.nio.ByteBuffer)
-io.flutter.embedding.engine.systemchannels.PlatformViewsChannel$PlatformViewsHandler:
-    public static final long NON_TEXTURE_FALLBACK
 io.flutter.embedding.engine.systemchannels.PlatformViewsChannel:
     private static final java.lang.String TAG
 io.flutter.embedding.engine.systemchannels.RestorationChannel:
@@ -15414,10 +15395,7 @@ io.flutter.plugin.editing.InputConnectionAdaptor:
 io.flutter.plugin.editing.ListenableEditingState:
     private static final java.lang.String TAG
 io.flutter.plugin.editing.SpellCheckPlugin:
-    public static final java.lang.String END_INDEX_KEY
     private static final int MAX_SPELL_CHECK_SUGGESTIONS
-    public static final java.lang.String START_INDEX_KEY
-    public static final java.lang.String SUGGESTIONS_KEY
 io.flutter.plugin.editing.TextEditingDelta:
     private static final java.lang.String TAG
     public int getDeltaEnd()
@@ -15435,9 +15413,6 @@ io.flutter.plugin.editing.TextInputPlugin:
     public android.view.inputmethod.InputConnection getLastInputConnection()
 io.flutter.plugin.mouse.MouseCursorPlugin$2:
     private static final long serialVersionUID
-io.flutter.plugin.platform.PlatformOverlayView:
-    public void <init>(android.content.Context)
-    public void <init>(android.content.Context,android.util.AttributeSet)
 io.flutter.plugin.platform.PlatformPlugin:
     public static final int DEFAULT_SYSTEM_UI
     private static final java.lang.String TAG
@@ -15722,13 +15697,11 @@ io.flutter.view.AccessibilityBridge$SemanticsNode:
     private void log(java.lang.String,boolean)
 io.flutter.view.AccessibilityBridge:
     private static final int ACTION_SHOW_ON_SCREEN
-    private static final int BOLD_TEXT_WEIGHT_ADJUSTMENT
     private static final int MIN_ENGINE_GENERATED_NODE_ID
     private static final int ROOT_NODE_ID
     private static final float SCROLL_EXTENT_FOR_INFINITY
     private static final float SCROLL_POSITION_CAP_FOR_INFINITY
     private static final java.lang.String TAG
-    public boolean getAccessibleNavigation()
     public int getHoveredObjectId()
     public void reset()
 io.flutter.view.FlutterMain$Settings

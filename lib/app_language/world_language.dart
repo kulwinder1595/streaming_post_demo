@@ -44,6 +44,8 @@ class WorldLanguage extends Translations {
       'postShareSuccessfully': 'Post share successfully',
       'noDataFound': 'No Data Found',
       'pleaseLoginFirstToShareAPost': 'Please login first to share a post',
+      'enterComment': 'Write a comment',
+      'addPost': 'Add Post',
     },
 
     'ar': {
@@ -74,18 +76,20 @@ class WorldLanguage extends Translations {
       'oneMonthPlan': 'شهر واحد 1000 دولار',
       'yearlyPlan': '10000 دولار سنويا',
       'go': 'يذهب',
-      'country': 'دولة',
+      'country': 'البلد',
       'addText': 'أضف نصًا',
       'upto500Characters': 'تصل إلى 500 حرف',
       'photo': 'صورة',
       'upto5Photos': 'تصل إلى 5 صور',
-      'add': 'يضيف',
+      'add': 'اضف',
       'youCanOnlySelectUpto5Photos': 'يمكنك فقط اختيار ما يصل إلى 5 صور',
       'enterCountryName': 'أدخل اسم الدولة',
       'cantShareEmptyPost': 'لا يمكن نشر وظيفة فارغة',
       'postShareSuccessfully': 'مشاركة المشاركة بنجاح',
       'noDataFound': 'لاتوجد بيانات',
       'pleaseLoginFirstToShareAPost': 'الرجاء تسجيل الدخول أولا لنشر وظيفة',
+      'enterComment': 'أكتب تعليقا',
+      'addPost': 'أضف منشورا',
     },
 
     //add more language here

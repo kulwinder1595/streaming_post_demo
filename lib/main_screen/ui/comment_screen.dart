@@ -16,6 +16,7 @@ class CommentScreen extends StatelessWidget{
 
   CommentScreen(String id){
     controller.commentId.value = id;
+    controller.fetchComments();
   }
 
   @override
@@ -75,13 +76,13 @@ class CommentScreen extends StatelessWidget{
               SizedBox(
                 child: Obx (() => controller.commentList.value.length > 0 ? SingleChildScrollView(
                   child: ListView.builder(
-                    itemCount: controller.commentList.length,
+                    itemCount: controller.commentList.value.length,
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     primary: false,
                     itemBuilder: (context, index) {
-                      return chatRowItem(controller.commentList[index], index);
+                      return chatRowItem(controller.commentList.value[index], index);
                     },
                   ),
                 ) : Container(
@@ -109,8 +110,7 @@ class CommentScreen extends StatelessWidget{
             children: [
               Container(
                 width: SizeConfig.blockSizeHorizontal * 25,
-                child: headingText(" ${
-                    comments.username.toString()} : ",
+                child: headingText( comments.username.toString() != "" ?  "${comments.username.toString()} :" : "User :",
                     SizeConfig.blockSizeHorizontal * 3.8,
                     appColor,
                     weight: FontWeight.w600),

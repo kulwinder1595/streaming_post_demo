@@ -1,7 +1,3 @@
-a1/a.class
-a1/b.class
-a1/c.class
-a1/d.class
 androidx/annotation/Keep.class
 androidx/core/app/CoreComponentFactory$a.class
 androidx/core/app/CoreComponentFactory.class
@@ -18,4 +14,8 @@ com/google/firebase/firestore/k0.class
 com/google/firebase/firestore/r0.class
 com/google/firebase/firestore/v0.class
 kotlin/coroutines/jvm/internal/f.class
-q/k.class
+p/k.class
+z0/a.class
+z0/b.class
+z0/c.class
+z0/d.class

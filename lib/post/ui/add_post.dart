@@ -33,7 +33,7 @@ class AddPostScreen extends StatelessWidget {
                   ),
                   Center(
                     child: headingText(
-                        add.tr, SizeConfig.blockSizeHorizontal * 8, colorBlack),
+                        addPost.tr, SizeConfig.blockSizeHorizontal * 8, colorBlack),
                   ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 5,

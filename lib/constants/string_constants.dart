@@ -31,10 +31,12 @@ const upto500Characters = "upto500Characters";
 const photo = "photo";
 const upto5Photos = "upto5Photos";
 const add = "add";
+const addPost = "addPost";
 const youCanOnlySelectUpto5Photos = "youCanOnlySelectUpto5Photos";
 const enterCountryName = "enterCountryName";
 const cantShareEmptyPost = "cantShareEmptyPost";
 const postShareSuccessfully = "postShareSuccessfully";
 const noDataFound = "noDataFound";
 const pleaseLoginFirstToShareAPost = "pleaseLoginFirstToShareAPost";
+const enterComment = "enterComment";
 
