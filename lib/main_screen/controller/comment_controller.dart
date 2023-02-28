@@ -38,8 +38,8 @@ class CommentController extends GetxController {
     if (commentController.value.text.isEmpty && commentImage == null) {
       showMessage(enterComment.tr);
     } else {
-      if (store.read(userName) == "") {
-        showMessage(pleaseLoginFirstToShareAPost.tr);
+      if (store.read(userName) == "" || store.read(userName) == null) {
+        showMessage(pleaseLoginFirstToCommentAPost.tr);
       } else {
         isLoading.value = true;
         var imageUrl = "";

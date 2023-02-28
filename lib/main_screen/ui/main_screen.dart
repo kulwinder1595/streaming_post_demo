@@ -27,7 +27,7 @@ class MainScreen extends StatelessWidget {
     final GlobalKey<ScaffoldState> key = GlobalKey();
     return SafeArea(
         child: Scaffold(
-         key: key,
+      key: key,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: colorWhite,
@@ -89,7 +89,7 @@ class MainScreen extends StatelessWidget {
           ],
         ),
       ),
-      drawer:  Drawer(
+      drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -104,7 +104,8 @@ class MainScreen extends StatelessWidget {
                 Icons.home,
                 color: colorRed,
               ),
-              title: headingText(home.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
+              title: headingText(
+                  home.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
                   weight: FontWeight.w400),
               onTap: () {
                 Navigator.pop(context);
@@ -127,8 +128,8 @@ class MainScreen extends StatelessWidget {
                 Icons.ad_units_rounded,
                 color: colorRed,
               ),
-              title: headingText(
-                  termsConditions.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
+              title: headingText(termsConditions.tr,
+                  SizeConfig.blockSizeHorizontal * 4, appColor,
                   weight: FontWeight.w400),
               onTap: () {
                 Navigator.pop(context);
@@ -151,7 +152,7 @@ class MainScreen extends StatelessWidget {
                 },
               ),
             ),
-          /*  Container(
+              Container(
               decoration: const BoxDecoration(
                   color: colorLightGreyBg,
                   borderRadius: BorderRadius.all(
@@ -164,6 +165,7 @@ class MainScreen extends StatelessWidget {
                 child: TextFormField(
                   controller: controller.searchController.value,
                   cursorColor: colorRed,
+
                   maxLines: 1,
                   textAlignVertical: TextAlignVertical.bottom,
                   style: const TextStyle(color: colorBlack),
@@ -189,7 +191,7 @@ class MainScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ),*/
+            ),
             Obx(() => controller.postList.value.length > 0
                 ? ListView.builder(
                     itemCount: controller.postList.value.length,
@@ -203,9 +205,7 @@ class MainScreen extends StatelessWidget {
                   )
                 : Container(
                     height: 400,
-                    child: Center(
-                      child: commonLoader()
-                    ),
+                    child: Center(child: commonLoader()),
                   )),
           ],
         ),
@@ -241,8 +241,8 @@ class MainScreen extends StatelessWidget {
                       SizeConfig.blockSizeHorizontal * 4, colorBlack,
                       weight: FontWeight.w500),
                 ),
-             const Spacer(),
-             Padding(
+                const Spacer(),
+                Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: headingText(list.country.toString(),
                       SizeConfig.blockSizeHorizontal * 4, colorBlack,
@@ -251,33 +251,42 @@ class MainScreen extends StatelessWidget {
               ],
             ),
             const Divider(),
-            !list.text.toString().isEmpty ? Padding(
-              padding: const EdgeInsets.only(
-                  right: 14.0, left: 14.0, top: 10, bottom: 10),
-              child: headingText(
-                  list.text.toString(), SizeConfig.blockSizeHorizontal * 4, colorBlack,
-                  weight: FontWeight.w300),
-            ):Container(),
-         list.images!.length > 0 ?   SizedBox(
-              height: SizeConfig.blockSizeVertical * 50,
-              child: ListView.builder(
-                itemCount: list.images!.length,
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemBuilder: (context, index1) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 8.0, left: 8.0),
-                    child: FadeInImage.assetNetwork(
-                      placeholder: placeholder,
-                      image: list.images![index1].image.toString(),
-                      width: SizeConfig.screenWidth - 40,
-                      height: SizeConfig.blockSizeVertical * 50,
-                      fit: BoxFit.fill,
+            !list.text.toString().isEmpty
+                ? Padding(
+                    padding: const EdgeInsets.only(
+                        right: 14.0, left: 14.0, top: 10, bottom: 10),
+                    child: Text(
+                      list.text.toString(),
+                      maxLines: 25,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          color: colorBlack,
+                          fontSize: SizeConfig.blockSizeHorizontal * 4),
                     ),
-                  );
-                },
-              ),
-            ) : Container(),
+                  )
+                : Container(),
+            list.images!.length > 0
+                ? SizedBox(
+                    height: SizeConfig.blockSizeVertical * 50,
+                    child: ListView.builder(
+                      itemCount: list.images!.length,
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index1) {
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+                          child: FadeInImage.assetNetwork(
+                            placeholder: placeholder,
+                            image: list.images![index1].image.toString(),
+                            width: SizeConfig.screenWidth - 40,
+                            height: SizeConfig.blockSizeVertical * 50,
+                            fit: BoxFit.fill,
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                : Container(),
             Row(
               children: [
                 const Spacer(),
@@ -294,12 +303,17 @@ class MainScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Image.asset(
-                    share,
-                    width: SizeConfig.blockSizeHorizontal * 6,
-                    height: SizeConfig.blockSizeVertical * 4,
+                InkWell(
+                  onTap: (){
+                    controller.shareLink(list);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Image.asset(
+                      share,
+                      width: SizeConfig.blockSizeHorizontal * 6,
+                      height: SizeConfig.blockSizeVertical * 4,
+                    ),
                   ),
                 ),
                 SizedBox(

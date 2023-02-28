@@ -176,6 +176,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_share",
+      "rootUri": "file:///Users/softuvo/dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_share-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/softuvo/dilpreet/LatestSDK/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -452,7 +458,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-02-27T12:41:14.332988Z",
+  "generated": "2023-02-28T15:43:59.850223Z",
   "generator": "pub",
   "generatorVersion": "2.18.6"
 }

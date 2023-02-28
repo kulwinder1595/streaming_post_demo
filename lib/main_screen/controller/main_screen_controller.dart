@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
+import 'package:streaming_post_demo/constants/string_constants.dart';
 import '../../post/model/post_model.dart';
 
 class MainScreenController extends GetxController {
@@ -34,6 +36,7 @@ class MainScreenController extends GetxController {
             );
           }
         }
+
         postList.value.add(PostModel(
             i.id,
             i.data()['userId'] ?? "",
@@ -47,4 +50,14 @@ class MainScreenController extends GetxController {
       }
     });
   }
+
+  Future<void> shareLink(PostModel list) async {
+    await FlutterShare.share(
+        title: "hi",
+        text: list.text == "" || list.text == null ? '\n\n Watch the below post \n\n${list.username} from ${list.country} added a post having  \n\n Check 1st Image: ${list.images![0].image}'
+        :list.images!.isEmpty ? '\n\n Watch the below post \n\n${list.username} from ${list.country} added a post having  \n\n Content: ${list.text}':
+        'Hi!!\n\n Watch the below post \n\n${list.username} from ${list.country} added a post having  \n\n Content: ${list.text} \n\n Check 1st Image: ${list.images![0].image}',
+         chooserTitle: 'Example Chooser Title');
+  }
+
 }

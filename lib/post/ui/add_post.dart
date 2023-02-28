@@ -15,7 +15,9 @@ import '../../constants/app_images.dart';
 class AddPostScreen extends StatelessWidget {
   var controller = Get.put(PostController());
 
-  AddPostScreen({super.key});
+  AddPostScreen() {
+    controller.fetchUserPost();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,31 +49,33 @@ class AddPostScreen extends StatelessWidget {
                       Expanded(
                         child: SizedBox(
                           height: SizeConfig.blockSizeVertical * 6,
-                          child: TextFormField(
-                            controller: controller.countryController.value,
-                            cursorColor: colorRed,
-                            maxLines: 1,
-                            textAlignVertical: TextAlignVertical.bottom,
-                            style: const TextStyle(color: colorBlack),
-                            decoration: InputDecoration(
-                              hintText: country.tr,
-                              hintStyle: const TextStyle(color: colorGrey),
-                              filled: true,
-                              fillColor: colorWhite,
-                              enabledBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                borderSide:
-                                    BorderSide(color: colorGrey, width: 0.7),
+                          child: Obx(() =>
+                             TextFormField(
+                              controller: controller.countryController.value,
+                              cursorColor: colorRed,
+                              maxLines: 1,
+                              textAlignVertical: TextAlignVertical.bottom,
+                              style: const TextStyle(color: colorBlack),
+                              decoration: InputDecoration(
+                                hintText: country.tr,
+                                hintStyle: const TextStyle(color: colorGrey),
+                                filled: true,
+                                fillColor: colorWhite,
+                                enabledBorder: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0)),
+                                  borderSide:
+                                      BorderSide(color: colorGrey, width: 0.7),
+                                ),
+                                focusedBorder: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0)),
+                                  borderSide: BorderSide(color: colorGrey),
+                                ),
+                                errorBorder: UnderlineInputBorder(
+                                    borderSide: const BorderSide(color: colorRed),
+                                    borderRadius: BorderRadius.circular(5)),
                               ),
-                              focusedBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                borderSide: BorderSide(color: colorGrey),
-                              ),
-                              errorBorder: UnderlineInputBorder(
-                                  borderSide: const BorderSide(color: colorRed),
-                                  borderRadius: BorderRadius.circular(5)),
                             ),
                           ),
                         ),
@@ -96,32 +100,34 @@ class AddPostScreen extends StatelessWidget {
                       Expanded(
                         child: SizedBox(
                           // height: SizeConfig.blockSizeVertical * 6,
-                          child: TextFormField(
-                            controller: controller.textController.value,
-                            cursorColor: colorRed,
-                            maxLines: 10,
-                            maxLength: 500,
-                            textAlignVertical: TextAlignVertical.bottom,
-                            style: const TextStyle(color: colorBlack),
-                            decoration: InputDecoration(
-                              hintText: addText.tr,
-                              hintStyle: const TextStyle(color: colorGrey),
-                              filled: true,
-                              fillColor: colorWhite,
-                              enabledBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                borderSide:
-                                    BorderSide(color: colorGrey, width: 0.7),
+                          child: Obx( () =>
+                             TextFormField(
+                              controller: controller.textController.value,
+                              cursorColor: colorRed,
+                              maxLines: 10,
+                              maxLength: 500,
+                              textAlignVertical: TextAlignVertical.bottom,
+                              style: const TextStyle(color: colorBlack),
+                              decoration: InputDecoration(
+                                hintText: addText.tr,
+                                hintStyle: const TextStyle(color: colorGrey),
+                                filled: true,
+                                fillColor: colorWhite,
+                                enabledBorder: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0)),
+                                  borderSide:
+                                      BorderSide(color: colorGrey, width: 0.7),
+                                ),
+                                focusedBorder: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0)),
+                                  borderSide: BorderSide(color: colorGrey),
+                                ),
+                                errorBorder: UnderlineInputBorder(
+                                    borderSide: const BorderSide(color: colorRed),
+                                    borderRadius: BorderRadius.circular(5)),
                               ),
-                              focusedBorder: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                borderSide: BorderSide(color: colorGrey),
-                              ),
-                              errorBorder: UnderlineInputBorder(
-                                  borderSide: const BorderSide(color: colorRed),
-                                  borderRadius: BorderRadius.circular(5)),
                             ),
                           ),
                         ),
@@ -163,7 +169,24 @@ class AddPostScreen extends StatelessWidget {
                       Expanded(
                         child: SizedBox(
                           height: SizeConfig.blockSizeVertical * 15,
-                          child: Obx (() =>  controller.imageFileList.value.length > 0 ? ListView.builder(
+                          child: Obx (() =>  controller.imageUrlList.value.isNotEmpty ?ListView.builder(
+                            itemCount:controller.imageUrlList.value.length,
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return SizedBox(
+                                child:Padding(
+                                  padding: const EdgeInsets.only(right: 8.0),
+                                  child: FadeInImage.assetNetwork(
+                                    placeholder: placeholder,
+                                    image: controller.imageUrlList.value[index],
+                                    width: SizeConfig.blockSizeHorizontal * 20,
+                                    height: SizeConfig.blockSizeVertical * 15,
+                                    fit: BoxFit.fill,
+                                  ) ),
+                              );
+                            },
+                          ) : controller.imageFileList.value.isNotEmpty ? ListView.builder(
                             itemCount: controller.imageFileList.value.length,
                             scrollDirection: Axis.horizontal,
                             shrinkWrap: true,

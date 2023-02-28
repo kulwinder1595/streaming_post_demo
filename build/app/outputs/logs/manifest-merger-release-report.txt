@@ -81,6 +81,7 @@ MERGED from [:firebase_core] /Users/softuvo/streaming_post_demo/build/firebase_c
 MERGED from [:image_picker_android] /Users/softuvo/streaming_post_demo/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-21:12
 MERGED from [:flutter_plugin_android_lifecycle] /Users/softuvo/streaming_post_demo/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_localization] /Users/softuvo/streaming_post_demo/build/flutter_localization/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_share] /Users/softuvo/streaming_post_demo/build/flutter_share/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] /Users/softuvo/streaming_post_demo/build/path_provider_android/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/softuvo/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/softuvo/.gradle/caches/transforms-3/542a859793ec57d6a4d40865c7efc6d9/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
@@ -179,6 +180,8 @@ MERGED from [:flutter_plugin_android_lifecycle] /Users/softuvo/streaming_post_de
 MERGED from [:flutter_plugin_android_lifecycle] /Users/softuvo/streaming_post_demo/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_localization] /Users/softuvo/streaming_post_demo/build/flutter_localization/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_localization] /Users/softuvo/streaming_post_demo/build/flutter_localization/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_share] /Users/softuvo/streaming_post_demo/build/flutter_share/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_share] /Users/softuvo/streaming_post_demo/build/flutter_share/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/softuvo/streaming_post_demo/build/path_provider_android/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/softuvo/streaming_post_demo/build/path_provider_android/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/softuvo/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41

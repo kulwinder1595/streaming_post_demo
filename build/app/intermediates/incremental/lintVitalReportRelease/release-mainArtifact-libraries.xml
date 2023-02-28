@@ -95,6 +95,19 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="/Users/softuvo/streaming_post_demo/android@@:flutter_share::release"
+      jars="/Users/softuvo/streaming_post_demo/build/flutter_share/.transforms/3da9a27534d60ae14c608c0062f6345e/transformed/out/jars/classes.jar"
+      resolved="com.example.fluttershare:flutter_share:unspecified"
+      folder="/Users/softuvo/streaming_post_demo/build/flutter_share/.transforms/3da9a27534d60ae14c608c0062f6345e/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="/Users/softuvo/streaming_post_demo/android@@:path_provider_android::release"
       jars="/Users/softuvo/streaming_post_demo/build/path_provider_android/.transforms/84634cdfd6cd59135ab8cfd8a4355838/transformed/out/jars/classes.jar"
       resolved="io.flutter.plugins.pathprovider:path_provider_android:unspecified"
@@ -698,6 +711,10 @@
       name="com.google.errorprone:error_prone_annotations:2.14.0@jar"
       jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.14.0/9f01b3654d3c536859705f09f8d267ee977b4004/error_prone_annotations-2.14.0.jar"
       resolved="com.google.errorprone:error_prone_annotations:2.14.0"/>
+  <library
+      name="commons-io:commons-io:2.6@jar"
+      jars="/Users/softuvo/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.6/815893df5f31da2ece4040fe0a12fd44b577afaf/commons-io-2.6.jar"
+      resolved="commons-io:commons-io:2.6"/>
   <library
       name="com.google.firebase:firebase-auth:21.1.0@aar"
       jars="/Users/softuvo/.gradle/caches/transforms-3/0548e507d3019ac84ce4969b57803f45/transformed/jetified-firebase-auth-21.1.0/jars/classes.jar"

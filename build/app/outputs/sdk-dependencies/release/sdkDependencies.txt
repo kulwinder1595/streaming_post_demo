@@ -1071,6 +1071,19 @@ library {
 }
 library {
   maven_library {
+    groupId: "commons-io"
+    artifactId: "commons-io"
+    version: "2.6"
+  }
+  digests {
+    sha256: "\370w\323\004f\n\302\241B\363\206[\255\374\227\035\354~\327<t|\177\215]/Q9\312se\023"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
     groupId: "androidx.exifinterface"
     artifactId: "exifinterface"
     version: "1.3.3"
@@ -1134,7 +1147,7 @@ library {
 }
 library {
   digests {
-    sha256: "Q^\253\f\303\374ke\337mN\037\'\362\'\331\230\257b;\2428t\311\314\274\227\231\213\236}\036"
+    sha256: "\265J\307\'\006+{\262GK\366-F\316*\371\212bZ\220\346\315+\375r\333\212\350\021\255\263\240"
   }
 }
 library_dependencies {
@@ -1592,7 +1605,7 @@ library_dependencies {
   library_dep_index: 74
 }
 library_dependencies {
-  library_index: 87
+  library_index: 88
   library_dep_index: 2
 }
 module_dependencies {
@@ -1600,20 +1613,21 @@ module_dependencies {
   dependency_index: 30
   dependency_index: 33
   dependency_index: 34
-  dependency_index: 88
   dependency_index: 89
   dependency_index: 90
   dependency_index: 91
+  dependency_index: 92
   dependency_index: 0
   dependency_index: 48
   dependency_index: 2
   dependency_index: 29
   dependency_index: 57
-  dependency_index: 64
-  dependency_index: 11
   dependency_index: 87
+  dependency_index: 11
+  dependency_index: 64
+  dependency_index: 88
   dependency_index: 66
-  dependency_index: 92
+  dependency_index: 93
 }
 repositories {
   maven_repo {
@@ -1648,6 +1662,16 @@ repositories {
 repositories {
   maven_repo {
     url: "https://repo.maven.apache.org/maven2/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://dl.google.com/dl/android/maven2/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://jcenter.bintray.com/"
   }
 }
 repositories {

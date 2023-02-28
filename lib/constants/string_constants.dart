@@ -38,6 +38,7 @@ const cantShareEmptyPost = "cantShareEmptyPost";
 const postShareSuccessfully = "postShareSuccessfully";
 const noDataFound = "noDataFound";
 const pleaseLoginFirstToShareAPost = "pleaseLoginFirstToShareAPost";
+const pleaseLoginFirstToCommentAPost = "pleaseLoginFirstToCommentAPost";
 const enterComment = "enterComment";
 const searchCountryName = "searchCountryName";
 
