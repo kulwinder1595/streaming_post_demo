@@ -2,12 +2,14 @@
 class Assets {
   Assets._();
 
+  static const String imagesAttachment = 'assets/images/attachment.png';
   static const String imagesChat = 'assets/images/chat.png';
   static const String imagesDummyImage = 'assets/images/dummy_image.jpeg';
   static const String imagesLive = 'assets/images/live.png';
   static const String imagesMenu = 'assets/images/menu.png';
   static const String imagesPlaceholder = 'assets/images/placeholder.png';
   static const String imagesPlus = 'assets/images/plus.png';
+  static const String imagesSearch = 'assets/images/search.png';
   static const String imagesSend = 'assets/images/send.png';
   static const String imagesShare = 'assets/images/share.png';
 

@@ -39,4 +39,5 @@ const postShareSuccessfully = "postShareSuccessfully";
 const noDataFound = "noDataFound";
 const pleaseLoginFirstToShareAPost = "pleaseLoginFirstToShareAPost";
 const enterComment = "enterComment";
+const searchCountryName = "searchCountryName";
 

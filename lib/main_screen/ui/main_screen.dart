@@ -16,7 +16,6 @@ import '../../plan/plan_screen.dart';
 import '../../post/ui/add_post.dart';
 
 class MainScreen extends StatelessWidget {
-  final GlobalKey<ScaffoldState> key = GlobalKey();
   var controller = Get.put(MainScreenController());
 
   MainScreen() {
@@ -25,9 +24,10 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> key = GlobalKey();
     return SafeArea(
         child: Scaffold(
-      //   key: key,
+         key: key,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: colorWhite,
@@ -89,7 +89,54 @@ class MainScreen extends StatelessWidget {
           ],
         ),
       ),
-      drawer: drawerLayout(context),
+      drawer:  Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: colorScreenBg,
+              ),
+              child: Text(''),
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.home,
+                color: colorRed,
+              ),
+              title: headingText(home.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
+                  weight: FontWeight.w400),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.account_circle_outlined,
+                color: colorRed,
+              ),
+              title: headingText(
+                  aboutUs.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
+                  weight: FontWeight.w400),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.ad_units_rounded,
+                color: colorRed,
+              ),
+              title: headingText(
+                  termsConditions.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
+                  weight: FontWeight.w400),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -104,6 +151,45 @@ class MainScreen extends StatelessWidget {
                 },
               ),
             ),
+          /*  Container(
+              decoration: const BoxDecoration(
+                  color: colorLightGreyBg,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(50.0),
+                  )),
+              margin:
+              const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10),
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: TextFormField(
+                  controller: controller.searchController.value,
+                  cursorColor: colorRed,
+                  maxLines: 1,
+                  textAlignVertical: TextAlignVertical.bottom,
+                  style: const TextStyle(color: colorBlack),
+                  decoration: InputDecoration(
+                    hintText: searchCountryName.tr,
+                    hintStyle: const TextStyle(color: colorGrey),
+                    filled: true,
+                    border: InputBorder.none,
+                    fillColor: Colors.transparent,
+                    prefixIcon: Container(
+                      width: SizeConfig.blockSizeVertical * 1,
+                      height: SizeConfig.blockSizeVertical * 1,
+                      margin: const EdgeInsets.all(5),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Image.asset(
+                          search,
+                          width: SizeConfig.blockSizeVertical * 3,
+                          height: SizeConfig.blockSizeVertical * 3,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),*/
             Obx(() => controller.postList.value.length > 0
                 ? ListView.builder(
                     itemCount: controller.postList.value.length,
@@ -147,11 +233,22 @@ class MainScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: headingText(list.username.toString(),
-                  SizeConfig.blockSizeHorizontal * 4, colorBlack,
-                  weight: FontWeight.w500),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: headingText(list.username.toString(),
+                      SizeConfig.blockSizeHorizontal * 4, colorBlack,
+                      weight: FontWeight.w500),
+                ),
+             const Spacer(),
+             Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: headingText(list.country.toString(),
+                      SizeConfig.blockSizeHorizontal * 4, colorBlack,
+                      weight: FontWeight.w500),
+                ),
+              ],
             ),
             const Divider(),
             !list.text.toString().isEmpty ? Padding(

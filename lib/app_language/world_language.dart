@@ -46,6 +46,7 @@ class WorldLanguage extends Translations {
       'pleaseLoginFirstToShareAPost': 'Please login first to share a post',
       'enterComment': 'Write a comment',
       'addPost': 'Add Post',
+      'searchCountryName': 'Search country name',
     },
 
     'ar': {
@@ -90,6 +91,7 @@ class WorldLanguage extends Translations {
       'pleaseLoginFirstToShareAPost': 'الرجاء تسجيل الدخول أولا لنشر وظيفة',
       'enterComment': 'أكتب تعليقا',
       'addPost': 'أضف منشورا',
+      'searchCountryName': 'ابحث عن اسم البلد',
     },
 
     //add more language here

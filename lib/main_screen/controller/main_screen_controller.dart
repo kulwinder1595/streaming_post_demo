@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../post/model/post_model.dart';
 
 class MainScreenController extends GetxController {
   var postList = <PostModel>[].obs;
+  final searchController = TextEditingController().obs;
 
   @override
   void onInit() {
@@ -27,7 +29,9 @@ class MainScreenController extends GetxController {
                 i.data()['comments'][k]['comment'] ?? null,
                 i.data()['comments'][k]['username'] ?? "",
                 i.data()['comments'][k]['userId'] ?? "",
-                i.data()['comments'][k]['timestamp'].toString() ?? ""));
+                i.data()['comments'][k]['timestamp'].toString() ?? "",
+                i.data()['comments'][k]['image'].toString() ?? "")
+            );
           }
         }
         postList.value.add(PostModel(
@@ -36,6 +40,7 @@ class MainScreenController extends GetxController {
             i.data()['username'] ?? "",
             i.data()['text'] ?? "",
             i.data()['timestamp'].toString() ?? "",
+            i.data()['country'].toString() ?? "",
             imageList ?? [],
             commentList ?? []));
         postList.refresh();

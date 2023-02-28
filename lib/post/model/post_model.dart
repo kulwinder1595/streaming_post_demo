@@ -3,11 +3,12 @@ class PostModel{
   String? userId;
   String? username;
   String? text;
+  String? country;
   String? timestamp;
   List<Images>? images;
   List<Comments>? comments;
 
-  PostModel(this.id, this.userId, this.username, this.text, this.timestamp, this.images,
+  PostModel(this.id, this.userId, this.username, this.text, this.timestamp, this.country, this.images,
       this.comments);
 
   PostModel.fromJson(Map<String, dynamic> json) {
@@ -16,6 +17,7 @@ class PostModel{
     username = json['username'].toString();
     text = json['text'].toString();
     timestamp = json['timestamp'].toString();
+    country = json['country'].toString();
     if (json['images'] != null) {
       images = <Images>[];
       json['images'].forEach((v) {
@@ -36,6 +38,7 @@ class PostModel{
     data['userId'] = userId;
     data['username'] = username;
     data['text'] = text;
+    data['country'] = country;
     data['timestamp'] = timestamp;
     if (this.images != null) {
       data['images'] = this.images!.map((v) => v.toJson()).toList();
@@ -69,8 +72,9 @@ class Comments{
   String? username;
   String? userId;
   String? timestamp;
+  String? image;
 
-  Comments(this.comment, this.username, this.userId, this.timestamp);
+  Comments(this.comment, this.username, this.userId, this.timestamp, this.image);
 
 
   Comments.fromJson(Map<String, dynamic> json) {
@@ -78,6 +82,7 @@ class Comments{
     username = json['username'].toString();
     userId = json['userId'].toString();
     timestamp = json['timestamp'].toString();
+    image = json['image'].toString();
   }
 
   Map<String, dynamic> toMap() {
@@ -86,6 +91,7 @@ class Comments{
       'username': this.username,
       'userId': this.userId,
       'timestamp': this.timestamp,
+      'image': this.image,
     };
   }
 
@@ -95,6 +101,7 @@ class Comments{
     data['username'] = username;
     data['userId'] = userId;
     data['timestamp'] = timestamp;
+    data['image'] = image;
     return data;
   }
 

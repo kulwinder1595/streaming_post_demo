@@ -24,45 +24,7 @@ Widget normalText(String title, double size, Color color,
   );
 }
 
-AppBar appBar(BuildContext context, GlobalKey<ScaffoldState> key,
-    String broadcastYourShows) {
-  return AppBar(
-      elevation: 0,
-      centerTitle: true,
-      automaticallyImplyLeading: false,
-      backgroundColor: colorWhite,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          /*  InkWell(
-            onTap: () {
-              key.currentState!.openDrawer();
-            },
-            child: Image.asset(
-              menu,
-              width: SizeConfig.blockSizeHorizontal * 5,
-              height: SizeConfig.blockSizeVertical * 5,
-            ),
-          ),*/
-          SizedBox(
-            width: SizeConfig.blockSizeHorizontal * 5,
-            height: SizeConfig.blockSizeVertical * 5,
-          ),
-          headingText(broadcastYourShows, SizeConfig.blockSizeHorizontal * 4.7,
-              colorBlack),
-          /*InkWell(
-            onTap: () {
-              showLogoutDialog();
-            },
-            child: Image.asset(
-              moveOut,
-              width: SizeConfig.blockSizeHorizontal * 6,
-              height: SizeConfig.blockSizeVertical * 6,
-            ),
-          ),*/
-        ],
-      ));
-}
+
 
 void showLogoutDialog() {
   Get.dialog(
@@ -132,57 +94,6 @@ void showLogoutDialog() {
                   ),
                 ),
               ])),
-    ),
-  );
-}
-
-Drawer drawerLayout(BuildContext context) {
-  return Drawer(
-    child: ListView(
-      padding: EdgeInsets.zero,
-      children: [
-        const DrawerHeader(
-          decoration: BoxDecoration(
-            color: colorScreenBg,
-          ),
-          child: Text(''),
-        ),
-        ListTile(
-          leading: const Icon(
-            Icons.home,
-            color: colorRed,
-          ),
-          title: headingText(home.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
-              weight: FontWeight.w400),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          leading: const Icon(
-            Icons.account_circle_outlined,
-            color: colorRed,
-          ),
-          title: headingText(
-              aboutUs.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
-              weight: FontWeight.w400),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          leading: const Icon(
-            Icons.ad_units_rounded,
-            color: colorRed,
-          ),
-          title: headingText(
-              termsConditions.tr, SizeConfig.blockSizeHorizontal * 4, appColor,
-              weight: FontWeight.w400),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-      ],
     ),
   );
 }
