@@ -5,6 +5,6 @@ const share = "assets/images/share.png";
 const live = "assets/images/live.png";
 const placeholder = "assets/images/placeholder.png";
 const dummyImage = "assets/images/dummy_image.jpeg";
-const send = "assets/images/send.png";
+const sendChat = "assets/images/send.png";
 const attachment = "assets/images/attachment.png";
 const search = "assets/images/search.png";

@@ -87,11 +87,11 @@ class Comments{
 
   Map<String, dynamic> toMap() {
     return {
-      'comment': this.comment,
-      'username': this.username,
-      'userId': this.userId,
-      'timestamp': this.timestamp,
-      'image': this.image,
+      'comment': comment,
+      'username': username,
+      'userId': userId,
+      'timestamp': timestamp,
+      'image': image,
     };
   }
 

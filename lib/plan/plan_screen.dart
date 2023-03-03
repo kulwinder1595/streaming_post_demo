@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:streaming_post_demo/constants/string_constants.dart';
+import 'package:streaming_post_demo/live_screen/ui/live_screen.dart';
 
 import '../common/size_config.dart';
 import '../common/widgets.dart';
@@ -35,7 +37,7 @@ class PlanScreen extends StatelessWidget {
                 const Spacer(),
                 ElevatedButton(
                     onPressed: () {
-                      //controller.registerToFirebase();
+                      Get.to(() => LiveScreen() );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: colorRed,

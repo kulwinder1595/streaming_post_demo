@@ -27,7 +27,14 @@ class LoginController extends GetxController {
       verificationId: otpVerificationId.value,
       smsCode: otpController.value.text,
     )).then((result) {
-      FirebaseFirestore.instance.collection('users').doc(result.user!.uid).set(
+      FirebaseFirestore.instance.collection('users').doc(result.user!.uid)./*set({
+
+      }, SetOptions(merge: true)).*/
+
+
+
+
+          set(
           {
             "name": nameController.value.text,
             "phone_number": phoneController.value.text,

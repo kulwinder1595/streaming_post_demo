@@ -166,11 +166,13 @@ class PostController extends GetxController {
   }
 
   fetchUserPost() async {
+
     await FirebaseFirestore.instance
         .collection("posts")
         .doc(store.read(userId))
         .get()
         .then((value) {
+      isLoading.value = true;
       var imageList = <Images>[];
      if(value.data() != null && value.data()!['images'] != null){
        if (value.data()!['images'] != null &&
@@ -193,18 +195,32 @@ class PostController extends GetxController {
           );
         }
       }*/
-
+      isLoading.value = false;
       postData.value.id = value.id;
-      postData.value.userId = value.data()!['userId'] ?? "";
-      postData.value.username = value.data()!['username'] ?? "";
-      postData.value.text = value.data()!['text'] ?? "";
-      postData.value.timestamp = value.data()!['timestamp'] ?? "";
-      postData.value.country = value.data()!['country'] ?? "";
+      postData.value.userId = value.data()!= null ? value.data()!['userId'] : "";
+      postData.value.username = value.data()!= null ? value.data()!['username'] : "";
+      postData.value.text = value.data()!= null ? value.data()!['text'] : "";
+      postData.value.timestamp = value.data()!= null ? value.data()!['timestamp'] : "";
+      postData.value.country = value.data()!= null ? value.data()!['country'] : "";
       postData.value.images = imageList;
       postData.value.comments = commentList;
       countryController.value.text = postData.value.country.toString();
       textController.value.text = postData.value.text.toString();
       imageUrlList.refresh();
+      postData.refresh();
+    });
+  }
+
+  void deletePostButtonClick() {
+    FirebaseFirestore.instance.collection("posts").doc(store.read(userId)).delete().then((value){
+      showMessage(postDeletedSuccessfully.tr);
+      isLoading.value = false;
+      Get.to(() => MainScreen());
+      countryController.value.text = "";
+      textController.value.text = "";
+      imageFileList.clear();
+      imageUrlList.clear();
+      commentList.clear();
     });
   }
 }

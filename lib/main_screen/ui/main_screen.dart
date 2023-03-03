@@ -19,7 +19,7 @@ class MainScreen extends StatelessWidget {
   var controller = Get.put(MainScreenController());
 
   MainScreen() {
-    controller.fetchPosts();
+      controller.fetchPosts();
   }
 
   @override
@@ -152,20 +152,22 @@ class MainScreen extends StatelessWidget {
                 },
               ),
             ),
-              Container(
+            Container(
               decoration: const BoxDecoration(
                   color: colorLightGreyBg,
                   borderRadius: BorderRadius.all(
                     Radius.circular(50.0),
                   )),
               margin:
-              const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10),
+                  const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10),
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: TextFormField(
                   controller: controller.searchController.value,
                   cursorColor: colorRed,
-
+                  onChanged: (value) {
+                    controller.filterSearchResults(value);
+                  },
                   maxLines: 1,
                   textAlignVertical: TextAlignVertical.bottom,
                   style: const TextStyle(color: colorBlack),
@@ -192,7 +194,7 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Obx(() => controller.postList.value.length > 0
+         Obx(() =>   controller.postList.isNotEmpty
                 ? ListView.builder(
                     itemCount: controller.postList.value.length,
                     scrollDirection: Axis.vertical,
@@ -204,9 +206,13 @@ class MainScreen extends StatelessWidget {
                     },
                   )
                 : Container(
-                    height: 400,
-                    child: Center(child: commonLoader()),
-                  )),
+              height: 300,
+              child: Center(
+                child: headingText(noDataFound.tr,
+                    SizeConfig.blockSizeHorizontal * 4, colorGrey,
+                    weight: FontWeight.w500),
+              ),
+            ),),
           ],
         ),
       ),
@@ -304,7 +310,7 @@ class MainScreen extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     controller.shareLink(list);
                   },
                   child: Padding(

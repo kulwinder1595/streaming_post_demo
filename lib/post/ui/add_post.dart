@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:cross_file/src/types/interface.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,18 +23,18 @@ class AddPostScreen extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
-        child:  Stack(
-            children: [
-        Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20),
-        child:Column(
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Column(
                 children: [
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 5,
                   ),
                   Center(
-                    child: headingText(
-                        addPost.tr, SizeConfig.blockSizeHorizontal * 8, colorBlack),
+                    child: headingText(addPost.tr,
+                        SizeConfig.blockSizeHorizontal * 8, colorBlack),
                   ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 5,
@@ -44,13 +43,15 @@ class AddPostScreen extends StatelessWidget {
                     children: [
                       SizedBox(
                           width: SizeConfig.blockSizeHorizontal * 25,
-                          child: headingText(country.tr,
-                              SizeConfig.blockSizeHorizontal * 4.5, colorBlack)),
+                          child: headingText(
+                              country.tr,
+                              SizeConfig.blockSizeHorizontal * 4.5,
+                              colorBlack)),
                       Expanded(
                         child: SizedBox(
                           height: SizeConfig.blockSizeVertical * 6,
-                          child: Obx(() =>
-                             TextFormField(
+                          child: Obx(
+                            () => TextFormField(
                               controller: controller.countryController.value,
                               cursorColor: colorRed,
                               maxLines: 1,
@@ -73,7 +74,8 @@ class AddPostScreen extends StatelessWidget {
                                   borderSide: BorderSide(color: colorGrey),
                                 ),
                                 errorBorder: UnderlineInputBorder(
-                                    borderSide: const BorderSide(color: colorRed),
+                                    borderSide:
+                                        const BorderSide(color: colorRed),
                                     borderRadius: BorderRadius.circular(5)),
                               ),
                             ),
@@ -94,14 +96,16 @@ class AddPostScreen extends StatelessWidget {
                           width: SizeConfig.blockSizeHorizontal * 25,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 13.0),
-                            child: headingText(addText.tr,
-                                SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                            child: headingText(
+                                addText.tr,
+                                SizeConfig.blockSizeHorizontal * 4.5,
+                                colorBlack),
                           )),
                       Expanded(
                         child: SizedBox(
                           // height: SizeConfig.blockSizeVertical * 6,
-                          child: Obx( () =>
-                             TextFormField(
+                          child: Obx(
+                            () => TextFormField(
                               controller: controller.textController.value,
                               cursorColor: colorRed,
                               maxLines: 10,
@@ -125,7 +129,8 @@ class AddPostScreen extends StatelessWidget {
                                   borderSide: BorderSide(color: colorGrey),
                                 ),
                                 errorBorder: UnderlineInputBorder(
-                                    borderSide: const BorderSide(color: colorRed),
+                                    borderSide:
+                                        const BorderSide(color: colorRed),
                                     borderRadius: BorderRadius.circular(5)),
                               ),
                             ),
@@ -144,8 +149,10 @@ class AddPostScreen extends StatelessWidget {
                           width: SizeConfig.blockSizeHorizontal * 21,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 10.0),
-                            child: headingText(photo.tr,
-                                SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                            child: headingText(
+                                photo.tr,
+                                SizeConfig.blockSizeHorizontal * 4.5,
+                                colorBlack),
                           )),
                       InkWell(
                         onTap: () {
@@ -169,42 +176,63 @@ class AddPostScreen extends StatelessWidget {
                       Expanded(
                         child: SizedBox(
                           height: SizeConfig.blockSizeVertical * 15,
-                          child: Obx (() =>  controller.imageUrlList.value.isNotEmpty ?ListView.builder(
-                            itemCount:controller.imageUrlList.value.length,
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) {
-                              return SizedBox(
-                                child:Padding(
-                                  padding: const EdgeInsets.only(right: 8.0),
-                                  child: FadeInImage.assetNetwork(
-                                    placeholder: placeholder,
-                                    image: controller.imageUrlList.value[index],
-                                    width: SizeConfig.blockSizeHorizontal * 20,
-                                    height: SizeConfig.blockSizeVertical * 15,
-                                    fit: BoxFit.fill,
-                                  ) ),
-                              );
-                            },
-                          ) : controller.imageFileList.value.isNotEmpty ? ListView.builder(
-                            itemCount: controller.imageFileList.value.length,
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) {
-                              return SizedBox(
-                                child:Padding(
-                                  padding: const EdgeInsets.only(right: 8.0),
-                                  child: Image.file(
-                                    File(controller.imageFileList.value![index].path),
-                                    width: SizeConfig.blockSizeHorizontal * 20,
-                                    height: SizeConfig.blockSizeVertical * 15,
-                                    fit: BoxFit.fill,
-                                  ),),
-                              );
-                            },
-                          ) : Container(),
+                          child: Obx(
+                            () => controller.imageUrlList.value.isNotEmpty
+                                ? ListView.builder(
+                                    itemCount:
+                                        controller.imageUrlList.value.length,
+                                    scrollDirection: Axis.horizontal,
+                                    shrinkWrap: true,
+                                    itemBuilder: (context, index) {
+                                      return SizedBox(
+                                        child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 8.0),
+                                            child: FadeInImage.assetNetwork(
+                                              placeholder: placeholder,
+                                              image: controller
+                                                  .imageUrlList.value[index],
+                                              width: SizeConfig
+                                                      .blockSizeHorizontal *
+                                                  20,
+                                              height:
+                                                  SizeConfig.blockSizeVertical *
+                                                      15,
+                                              fit: BoxFit.fill,
+                                            )),
+                                      );
+                                    },
+                                  )
+                                : controller.imageFileList.value.isNotEmpty
+                                    ? ListView.builder(
+                                        itemCount: controller
+                                            .imageFileList.value.length,
+                                        scrollDirection: Axis.horizontal,
+                                        shrinkWrap: true,
+                                        itemBuilder: (context, index) {
+                                          return SizedBox(
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 8.0),
+                                              child: Image.file(
+                                                File(controller.imageFileList
+                                                    .value![index].path),
+                                                width: SizeConfig
+                                                        .blockSizeHorizontal *
+                                                    20,
+                                                height: SizeConfig
+                                                        .blockSizeVertical *
+                                                    15,
+                                                fit: BoxFit.fill,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      )
+                                    : Container(),
+                          ),
                         ),
-                      ),),
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -226,26 +254,68 @@ class AddPostScreen extends StatelessWidget {
                             width: SizeConfig.screenWidth / 1.5,
                             height: SizeConfig.blockSizeVertical * 6,
                             child: Center(
-                                child: headingText(
-                                    add.tr,
+                                child: Obx(() => headingText(
+                                    controller.postData.value.country != "" &&
+                                            controller.postData.value.country !=
+                                                null
+                                        ? update.tr
+                                        : add.tr,
                                     SizeConfig.blockSizeHorizontal * 4,
-                                    colorWhite)))),
+                                    colorWhite)))),),
                   ),
                   SizedBox(
-                    height: SizeConfig.blockSizeVertical * 5,
+                    height: SizeConfig.blockSizeVertical * 2,
+                  ),
+                  Obx(
+                    () => controller.postData.value.country != "" &&
+                            controller.postData.value.country != null
+                        ? Center(
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  controller.deletePostButtonClick();
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: colorRed,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  elevation: 15.0,
+                                ),
+                                child: SizedBox(
+                                    width: SizeConfig.screenWidth / 1.5,
+                                    height: SizeConfig.blockSizeVertical * 6,
+                                    child: Center(
+                                        child: headingText(
+                                            delete.tr,
+                                            SizeConfig.blockSizeHorizontal * 4,
+                                            colorWhite)))),
+                          )
+                        : Container(),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 3,
                   ),
                   Center(
                     child: headingText(termsConditions.tr,
                         SizeConfig.blockSizeHorizontal * 4, colorBlack),
                   ),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 3,
+                  ),
                 ],
-              ),),
-              Obx (() => controller.isLoading.value == true ? Container( width: SizeConfig.screenWidth, height : SizeConfig.screenHeight, child: Center(child: commonLoader())) : Container(),),
-
-            ],
-          ),
+              ),
+            ),
+            Obx(
+              () => controller.isLoading.value == true
+                  ? Container(
+                      width: SizeConfig.screenWidth,
+                      height: SizeConfig.screenHeight,
+                      child: Center(child: commonLoader()))
+                  : Container(),
+            ),
+          ],
         ),
-
+      ),
     ));
   }
 }

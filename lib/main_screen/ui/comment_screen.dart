@@ -100,7 +100,7 @@ class CommentScreen extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Image.asset(
-                                    send,
+                                    sendChat,
                                     width: SizeConfig.blockSizeVertical * 3,
                                     height: SizeConfig.blockSizeVertical * 3,
                                   ),
