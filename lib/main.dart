@@ -4,8 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:streaming_post_demo/main_screen/ui/main_screen.dart';
-import 'package:streaming_post_demo/profile/ui/profile_screen.dart';
-
 import 'app_language/world_language.dart';
 import 'constants/app_colors.dart';
 
@@ -23,7 +21,7 @@ Future<void> main() async {
         bodyText2: TextStyle(fontSize: 12.0),
       ),
     ),
-    home: ProfileScreen(),
+    home: MainScreen(),
     translations: WorldLanguage(),
     locale: Locale(window.locale.languageCode,""),
     fallbackLocale: const Locale('ar', ''),

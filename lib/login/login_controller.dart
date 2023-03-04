@@ -27,22 +27,23 @@ class LoginController extends GetxController {
       verificationId: otpVerificationId.value,
       smsCode: otpController.value.text,
     )).then((result) {
-      FirebaseFirestore.instance.collection('users').doc(result.user!.uid)./*set({
-
-      }, SetOptions(merge: true)).*/
-
-
-
-
-          set(
-          {
-            "name": nameController.value.text,
-            "phone_number": phoneController.value.text,
-            "password": passwordController.value.text,
-          })
+      FirebaseFirestore.instance.collection('users').doc(result.user!.uid).set({
+        "id": result.user!.uid,
+        "userId": result.user!.uid,
+        "username": nameController.value.text,
+        "phoneNumber": phoneController.value.text,
+        "password": passwordController.value.text,
+        "profileImage": "",
+        "age": "",
+        "state": "",
+        "nationality": "",
+        "web": "",
+        "email": "",
+        "store": "",
+        "videos": [],
+      }, SetOptions(merge: true))
           .then((res) {
         isLoading.value = false;
-
 
         Get.to(() => MainScreen());
         storage.write(userId, result.user!.uid);

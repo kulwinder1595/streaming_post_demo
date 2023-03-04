@@ -69,6 +69,15 @@ class WorldLanguage extends Translations {
       'myWeb': 'My Web',
       'myEmail': 'My Email',
       "addVideosNotMoreThan60Minutes": "Add videos not more than 60 seconds",
+      "addVideosNotMoreThan60Minutes": "Add videos not more than 60 seconds",
+      'enterYourAge': 'Enter your age.',
+      'enterYourState': 'Enter your state.',
+      'enterYourNationality': 'Enter your nationality.',
+      'enterYourWeb': 'Enter your web.',
+      'enterYourValidEmail': 'Enter your valid email.',
+      'enterYourStore': 'Enter your valid store.',
+      'storeMustStartsWith': 'Store must starts with https://',
+      'dataUpdatedSuccessfully': 'Data updated successfully.',
     },
 
     'ar': {
@@ -136,6 +145,14 @@ class WorldLanguage extends Translations {
       'myWeb': 'الويب الخاص بي',
       'myEmail': 'بريدي الالكتروني',
       "addVideosNotMoreThan60Minutes": "أضف مقاطع فيديو لا تزيد عن 60 ثانية",
+      'enterYourAge': 'أدخل عمرك.',
+      'enterYourState': 'أدخل ولايتك.',
+      'enterYourNationality': 'أدخل جنسيتك.',
+      'enterYourWeb': 'أدخل الويب الخاص بك.',
+      'enterYourValidEmail': 'أدخل بريدك الإلكتروني الصحيح.',
+      'enterYourStore': 'أدخل متجرك الصحيح.',
+      'storeMustStartsWith': 'يجب أن يبدأ المتجر بـ https: //',
+      'dataUpdatedSuccessfully': 'تم تحديث البيانات بنجاح.',
     },
 
     //add more language here

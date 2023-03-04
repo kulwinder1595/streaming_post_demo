@@ -46,6 +46,7 @@ dependencies:
   flutter_localization: ^0.1.10
   image_picker: ^0.8.6+3
   flutter_share: ^2.0.0
+  video_player: ^2.5.3
 
 dev_dependencies:
   flutter_test:

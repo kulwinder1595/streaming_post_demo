@@ -8,6 +8,7 @@ class ProfileModel {
   String? nationality;
   String? web;
   String? email;
+  String? phoneNumber;
   String? store;
   String? password;
   List<Videos>? videos;
@@ -22,6 +23,7 @@ class ProfileModel {
       this.nationality,
       this.web,
       this.email,
+      this.phoneNumber,
       this.store,
       this.password,
       this.videos);
@@ -38,6 +40,7 @@ class ProfileModel {
     email = json['email'].toString();
     store = json['store'].toString();
     password = json['password'].toString();
+    phoneNumber = json['phoneNumber'].toString();
     if (json['videos'] != null) {
       videos = <Videos>[];
       json['videos'].forEach((v) {
@@ -57,6 +60,7 @@ class ProfileModel {
       'nationality': nationality,
       'web': web,
       'email': email,
+      'phoneNumber': phoneNumber,
       'store': store,
       'password': password,
       'videos': videos,
@@ -74,6 +78,7 @@ class ProfileModel {
     data['nationality'] = nationality;
     data['web'] = web;
     data['email'] = email;
+    data['phoneNumber'] = phoneNumber;
     data['store'] = store;
     data['password'] = password;
     if (this.videos != null) {
@@ -91,6 +96,12 @@ class Videos {
 
   Videos.fromJson(Map<String, dynamic> json) {
     videoFile = json['video'].toString();
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'video': videoFile,
+    };
   }
 
   Map<String, dynamic> toJson() {

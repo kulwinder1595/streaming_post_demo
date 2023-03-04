@@ -13,6 +13,10 @@ import '../../constants/app_images.dart';
 class LiveScreen extends StatelessWidget {
   var controller = Get.put(LiveController());
 
+ /* LiveScreen(){
+    controller.fetchUserData();
+  }*/
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,7 +78,7 @@ class LiveScreen extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: (){
-                        Get.to( () => ProfileScreen());
+                        Get.to( () => ProfileScreen(controller.userData.value));
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -184,6 +188,13 @@ class LiveScreen extends StatelessWidget {
                 ],
               ),
             ),
+            Obx(
+            () => controller.isLoading.value == true
+    ? Container(
+        width: SizeConfig.screenWidth,
+        height: SizeConfig.screenHeight,
+        child: Center(child: commonLoader()))
+        : Container(),),
           ],
         ),
       ),

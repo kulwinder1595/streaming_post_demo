@@ -9,9 +9,11 @@ import 'dart:io'; // flutter_ignore: dart_io_import.
 import 'package:image_picker_android/image_picker_android.dart';
 import 'package:path_provider_android/path_provider_android.dart';
 import 'package:shared_preferences_android/shared_preferences_android.dart';
+import 'package:video_player_android/video_player_android.dart';
 import 'package:image_picker_ios/image_picker_ios.dart';
 import 'package:path_provider_foundation/path_provider_foundation.dart';
 import 'package:shared_preferences_foundation/shared_preferences_foundation.dart';
+import 'package:video_player_avfoundation/video_player_avfoundation.dart';
 import 'package:path_provider_linux/path_provider_linux.dart';
 import 'package:shared_preferences_linux/shared_preferences_linux.dart';
 import 'package:path_provider_foundation/path_provider_foundation.dart';
@@ -55,6 +57,16 @@ class _PluginRegistrant {
         rethrow;
       }
 
+      try {
+        AndroidVideoPlayer.registerWith();
+      } catch (err) {
+        print(
+          '`video_player_android` threw an error: $err. '
+          'The app may not function as expected until you remove this plugin from pubspec.yaml'
+        );
+        rethrow;
+      }
+
     } else if (Platform.isIOS) {
       try {
         ImagePickerIOS.registerWith();
@@ -81,6 +93,16 @@ class _PluginRegistrant {
       } catch (err) {
         print(
           '`shared_preferences_foundation` threw an error: $err. '
+          'The app may not function as expected until you remove this plugin from pubspec.yaml'
+        );
+        rethrow;
+      }
+
+      try {
+        AVFoundationVideoPlayer.registerWith();
+      } catch (err) {
+        print(
+          '`video_player_avfoundation` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
         rethrow;
