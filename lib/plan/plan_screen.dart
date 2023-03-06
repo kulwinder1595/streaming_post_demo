@@ -31,7 +31,7 @@ class PlanScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                headingText("${freeTrial.tr}\n${fiveDays.tr}",
+                headingText(freeTrial.tr,
                     SizeConfig.blockSizeHorizontal * 4, colorBlack,
                     weight: FontWeight.w400),
                 const Spacer(),

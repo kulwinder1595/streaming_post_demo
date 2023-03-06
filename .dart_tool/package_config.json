@@ -207,9 +207,9 @@
     },
     {
       "name": "get_storage",
-      "rootUri": "file:///Users/softuvo/dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/get_storage-2.0.3",
+      "rootUri": "file:///Users/softuvo/dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/get_storage-2.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.16"
     },
     {
       "name": "html",
@@ -500,7 +500,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-03-04T14:44:44.515748Z",
+  "generated": "2023-03-06T11:57:56.093874Z",
   "generator": "pub",
   "generatorVersion": "2.18.6"
 }

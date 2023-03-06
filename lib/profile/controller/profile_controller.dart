@@ -111,8 +111,6 @@ class ProfileController extends GetxController {
       showMessage(enterYourValidEmail.tr);
     } else if (storeController.value.text.toString().isEmpty) {
       showMessage(enterYourStore.tr);
-    } else if (!storeController.value.text.toString().startsWith("https:\\")) {
-      showMessage(storeMustStartsWith.tr);
     } else {
       isLoading.value = true;
       if(videoFile.value.path != null && videoFile.value.path != "") {

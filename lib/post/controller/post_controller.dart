@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -12,7 +13,10 @@ import 'package:image_picker/image_picker.dart';
 import 'package:streaming_post_demo/common/widgets.dart';
 import 'package:streaming_post_demo/constants/storage_constants.dart';
 import 'package:streaming_post_demo/constants/string_constants.dart';
+import 'package:streaming_post_demo/login/login_screen.dart';
 
+import '../../common/size_config.dart';
+import '../../constants/app_colors.dart';
 import '../../main_screen/ui/main_screen.dart';
 import '../model/post_model.dart';
 
@@ -69,7 +73,8 @@ class PostController extends GetxController {
       showMessage(cantShareEmptyPost.tr);
     } else {
       if (store.read(userName) == "" || store.read(userName) == null) {
-        showMessage(pleaseLoginFirstToShareAPost.tr);
+      //  showMessage(pleaseLoginFirstToShareAPost.tr);
+        showLoginDialog();
       } else {
         isLoading.value = true;
 
@@ -222,5 +227,58 @@ class PostController extends GetxController {
       imageUrlList.clear();
       commentList.clear();
     });
+  }
+
+  void showLoginDialog() {
+    Get.dialog(
+      AlertDialog(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
+        ),
+        content: SizedBox(
+            width: SizeConfig.screenWidth / 1.5,
+            height: SizeConfig.blockSizeVertical * 14,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  headingText(pleaseLoginFirstToShareAPost.tr,
+                      SizeConfig.blockSizeHorizontal * 4.2, colorBlack,
+                      weight: FontWeight.w500),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 3,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 20, right: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Get.back();
+                            Get.to(() => LoginScreen());
+                          },
+                          child: Container(
+                            height: SizeConfig.blockSizeVertical * 5,
+                            width: SizeConfig.blockSizeHorizontal * 18,
+                            decoration: BoxDecoration(
+                                color: colorWhite,
+                                border: Border.all(color: colorRed),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Center(
+                              child: headingText(
+                                  ok.tr,
+                                  SizeConfig.blockSizeHorizontal * 3.5,
+                                  colorBlack,
+                                  weight: FontWeight.w500),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ])),
+      ),
+    );
   }
 }

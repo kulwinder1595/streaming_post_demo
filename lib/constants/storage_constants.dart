@@ -1,5 +1,5 @@
 import 'package:streaming_post_demo/profile/model/profile_model.dart';
 
-const userId = "userId";
-const userName = "userName";
-const profileData = "";
+const String userId = "userId";
+const String userName = "userName";
+const String profileData = "profileData";

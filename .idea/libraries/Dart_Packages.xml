@@ -243,7 +243,7 @@
         <entry key="get_storage">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/get_storage-2.0.3/lib" />
+              <option value="$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/get_storage-2.1.1/lib" />
             </list>
           </value>
         </entry>
@@ -609,7 +609,7 @@
       <root url="file://$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.8/lib" />
       <root url="file://$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_share-2.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib" />
-      <root url="file://$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/get_storage-2.0.3/lib" />
+      <root url="file://$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/get_storage-2.1.1/lib" />
       <root url="file://$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/html-0.15.2/lib" />
       <root url="file://$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.5/lib" />
       <root url="file://$PROJECT_DIR$/../dilpreet/LatestSDK/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.2/lib" />

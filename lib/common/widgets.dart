@@ -10,6 +10,7 @@ Widget headingText(String title, double size, Color color,
     {FontWeight weight = FontWeight.w700}) {
   return Text(
     title,
+    maxLines: 3,
     overflow: TextOverflow.ellipsis,
     style: TextStyle(fontWeight: weight, color: color, fontSize: size),
   );

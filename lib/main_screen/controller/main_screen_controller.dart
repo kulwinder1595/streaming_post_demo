@@ -4,7 +4,11 @@ import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:streaming_post_demo/constants/string_constants.dart';
+import 'package:streaming_post_demo/main_screen/ui/main_screen.dart';
 import 'package:streaming_post_demo/profile/model/profile_model.dart';
+import '../../common/size_config.dart';
+import '../../common/widgets.dart';
+import '../../constants/app_colors.dart';
 import '../../constants/storage_constants.dart';
 import '../../post/model/post_model.dart';
 
@@ -12,10 +16,11 @@ class MainScreenController extends GetxController {
   var postList = <PostModel>[].obs;
   var duplicatePostList = <PostModel>[].obs;
   final searchController = TextEditingController().obs;
-
+  var store = GetStorage();
+  var username = "".obs;
 
   @override
-  void onInit() {
+  onInit() {
     super.onInit();
   }
 
@@ -57,6 +62,7 @@ class MainScreenController extends GetxController {
               commentList ?? []));
         }
         await Future.delayed(Duration.zero);
+        username.value = store.read(userName);
         postList.refresh();
         duplicatePostList.addAll(postList);
       });
@@ -96,5 +102,104 @@ class MainScreenController extends GetxController {
                 ? '\n\n Watch the below post \n\n${list.username} from ${list.country} added a post having  \n\n Content: ${list.text}'
                 : 'Hi!!\n\n Watch the below post \n\n${list.username} from ${list.country} added a post having  \n\n Content: ${list.text} \n\n Check 1st Image: ${list.images![0].image}',
         chooserTitle: 'Example Chooser Title');
+  }
+
+/*void showCountriesDialog() {
+    showDebugPrint("-------button click--------");
+    Get.dialog(
+      AlertDialog(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
+        ),
+        content: SizedBox(
+            width: SizeConfig.screenWidth / 1.5,
+            height: SizeConfig.blockSizeVertical * 14,
+            child: ListView.builder(
+              itemCount: controller.postList.value.length,
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              reverse: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return postRowItem(controller.postList.value[index]);
+              },
+            )),
+      ),
+    );
+  }*/
+
+  void showLogoutDialog() {
+    Get.dialog(
+      AlertDialog(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0)),
+        ),
+        content: SizedBox(
+            width: SizeConfig.screenWidth / 1.5,
+            height: SizeConfig.blockSizeVertical * 14,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  headingText(areYouSureToLogoutFromApp.tr,
+                      SizeConfig.blockSizeHorizontal * 4.2, colorBlack,
+                      weight: FontWeight.w500),
+                  SizedBox(
+                    height: SizeConfig.blockSizeVertical * 3,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 20, right: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Container(
+                            height: SizeConfig.blockSizeVertical * 5,
+                            width: SizeConfig.blockSizeHorizontal * 18,
+                            decoration: BoxDecoration(
+                                color: colorWhite,
+                                border: Border.all(color: colorRed),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Center(
+                              child: headingText(
+                                  cancel.tr,
+                                  SizeConfig.blockSizeHorizontal * 3.5,
+                                  colorBlack,
+                                  weight: FontWeight.w500),
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            store.erase();
+                            username.value = "";
+                            Get.offAll(() => MainScreen());
+                            Get.back();
+                          },
+                          child: Container(
+                            height: SizeConfig.blockSizeVertical * 5,
+                            width: SizeConfig.blockSizeHorizontal * 18,
+                            decoration: BoxDecoration(
+                                color: colorRed,
+                                border: Border.all(color: colorRed),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Center(
+                              child: headingText(
+                                  ok.tr,
+                                  SizeConfig.blockSizeHorizontal * 3.5,
+                                  colorWhite,
+                                  weight: FontWeight.w500),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ])),
+      ),
+    );
   }
 }

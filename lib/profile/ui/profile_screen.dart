@@ -47,7 +47,7 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       SizedBox(
                           child: headingText(photoForLiveIcon.tr,
-                              SizeConfig.blockSizeHorizontal * 4.5, colorBlack)),
+                              SizeConfig.blockSizeHorizontal * 4, colorBlack)),
                       SizedBox(
                         width: SizeConfig.blockSizeHorizontal * 10,
                       ),
@@ -109,7 +109,7 @@ class ProfileScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 13.0),
                             child: headingText(name.tr,
-                                SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                                SizeConfig.blockSizeHorizontal * 4, colorBlack),
                           )),
                       Expanded(
                         child: SizedBox(
@@ -159,7 +159,7 @@ class ProfileScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 13.0),
                             child: headingText(myAge.tr,
-                                SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                                SizeConfig.blockSizeHorizontal * 4, colorBlack),
                           )),
                       Expanded(
                         child: SizedBox(
@@ -210,7 +210,7 @@ class ProfileScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 13.0),
                             child: headingText(myState.tr,
-                                SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                                SizeConfig.blockSizeHorizontal * 4, colorBlack),
                           )),
                       Expanded(
                         child: SizedBox(
@@ -255,12 +255,12 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                          height: SizeConfig.blockSizeVertical * 6,
+                         // height: SizeConfig.blockSizeVertical * 6,
                           width: SizeConfig.blockSizeHorizontal * 25,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 13.0),
                             child: headingText(myNationality.tr,
-                                SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                                SizeConfig.blockSizeHorizontal * 4, colorBlack),
                           )),
                       Expanded(
                         child: SizedBox(
@@ -310,7 +310,7 @@ class ProfileScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 13.0),
                             child: headingText(myWeb.tr,
-                                SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                                SizeConfig.blockSizeHorizontal * 4, colorBlack),
                           )),
                       Expanded(
                         child: SizedBox(
@@ -360,7 +360,7 @@ class ProfileScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 13.0),
                             child: headingText(myEmail.tr,
-                                SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                                SizeConfig.blockSizeHorizontal * 4, colorBlack),
                           )),
                       Expanded(
                         child: SizedBox(
@@ -400,6 +400,11 @@ class ProfileScreen extends StatelessWidget {
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0, bottom: 10),
+                    child: headingText(storeMustStartsWith.tr,
+                        SizeConfig.blockSizeHorizontal * 3.2, colorBlack, weight: FontWeight.w400),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -410,7 +415,7 @@ class ProfileScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 13.0),
                             child: headingText(myStore.tr,
-                                SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                                SizeConfig.blockSizeHorizontal * 4, colorBlack),
                           )),
                       Expanded(
                         child: SizedBox(
@@ -453,7 +458,7 @@ class ProfileScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0),
                     child: headingText(addVideosNotMoreThan60Minutes.tr,
-                        SizeConfig.blockSizeHorizontal * 4.5, colorBlack),
+                        SizeConfig.blockSizeHorizontal * 4, colorBlack),
                   ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,

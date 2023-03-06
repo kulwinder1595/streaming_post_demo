@@ -8,3 +8,4 @@ const dummyImage = "assets/images/dummy_image.jpeg";
 const sendChat = "assets/images/send.png";
 const attachment = "assets/images/attachment.png";
 const search = "assets/images/search.png";
+const dropDown = "assets/images/drop_down.png";

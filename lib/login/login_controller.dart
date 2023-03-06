@@ -63,6 +63,8 @@ class LoginController extends GetxController {
     });
   }
 
+
+
   Future<void> loginToFirebase() async {
     if(nameController.value.text.isEmpty){
       showMessage(enterYourName.tr);

@@ -13,14 +13,14 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidManifest.xml:7:5-66
-15-->/Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidManifest.xml:7:22-64
+15-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:5-66
+15-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:22-64
 16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-16-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:5-80
-16-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:22-78
+16-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:4:5-80
+16-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:4:22-78
 17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-17-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:4:5-79
-17-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:4:22-77
+17-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:5:5-79
+17-->/Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:5:22-77
 18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 18-->[com.google.firebase:firebase-auth:21.1.0] /Users/softuvo/.gradle/caches/transforms-3/0548e507d3019ac84ce4969b57803f45/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:24:5-79
 18-->[com.google.firebase:firebase-auth:21.1.0] /Users/softuvo/.gradle/caches/transforms-3/0548e507d3019ac84ce4969b57803f45/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:24:22-76

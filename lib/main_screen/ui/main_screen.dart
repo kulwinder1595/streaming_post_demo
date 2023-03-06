@@ -12,6 +12,7 @@ import 'package:streaming_post_demo/post/model/post_model.dart';
 import '../../common/size_config.dart';
 import '../../common/widgets.dart';
 import '../../constants/app_colors.dart';
+import '../../constants/storage_constants.dart';
 import '../../plan/plan_screen.dart';
 import '../../post/ui/add_post.dart';
 
@@ -19,7 +20,9 @@ class MainScreen extends StatelessWidget {
   var controller = Get.put(MainScreenController());
 
   MainScreen() {
-      controller.fetchPosts();
+    controller.fetchPosts();
+
+
   }
 
   @override
@@ -93,11 +96,15 @@ class MainScreen extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
+             DrawerHeader(
+              decoration:  BoxDecoration(
                 color: colorScreenBg,
               ),
-              child: Text(''),
+              child: Center(
+                child: Obx(() =>headingText(
+                    controller.username.value, SizeConfig.blockSizeHorizontal * 4, appColor,
+                    weight: FontWeight.w400,),),
+              ),
             ),
             ListTile(
               leading: const Icon(
@@ -135,6 +142,19 @@ class MainScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+        Obx(() => controller.username != "" ?  ListTile(
+              leading: const Icon(
+                Icons.logout,
+                color: colorRed,
+              ),
+              title: headingText(logout.tr,
+                  SizeConfig.blockSizeHorizontal * 4, appColor,
+                  weight: FontWeight.w400),
+              onTap: () {
+                Navigator.pop(context);
+                controller.showLogoutDialog();
+              },
+            ) : Container()),
           ],
         ),
       ),
@@ -152,41 +172,47 @@ class MainScreen extends StatelessWidget {
                 },
               ),
             ),
-            Container(
-              decoration: const BoxDecoration(
-                  color: colorLightGreyBg,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(50.0),
-                  )),
-              margin:
-                  const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10),
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: TextFormField(
-                  controller: controller.searchController.value,
-                  cursorColor: colorRed,
-                  onChanged: (value) {
-                    controller.filterSearchResults(value);
-                  },
-                  maxLines: 1,
-                  textAlignVertical: TextAlignVertical.bottom,
-                  style: const TextStyle(color: colorBlack),
-                  decoration: InputDecoration(
-                    hintText: searchCountryName.tr,
-                    hintStyle: const TextStyle(color: colorGrey),
-                    filled: true,
-                    border: InputBorder.none,
-                    fillColor: Colors.transparent,
-                    prefixIcon: Container(
-                      width: SizeConfig.blockSizeVertical * 1,
-                      height: SizeConfig.blockSizeVertical * 1,
-                      margin: const EdgeInsets.all(5),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Image.asset(
-                          search,
-                          width: SizeConfig.blockSizeVertical * 3,
-                          height: SizeConfig.blockSizeVertical * 3,
+            InkWell(
+              onTap: () {
+                //  controller.showCountriesDialog();
+              },
+              child: Container(
+                decoration: const BoxDecoration(
+                    color: colorLightGreyBg,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50.0),
+                    )),
+                margin:
+                    const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: TextFormField(
+                    controller: controller.searchController.value,
+                    cursorColor: colorRed,
+                    onChanged: (value) {
+                      controller.filterSearchResults(value);
+                    },
+                    enabled: false,
+                    maxLines: 1,
+                    textAlignVertical: TextAlignVertical.bottom,
+                    style: const TextStyle(color: colorBlack),
+                    decoration: InputDecoration(
+                      hintText: searchCountryName.tr,
+                      hintStyle: const TextStyle(color: colorGrey),
+                      filled: true,
+                      border: InputBorder.none,
+                      fillColor: Colors.transparent,
+                      prefixIcon: Container(
+                        width: SizeConfig.blockSizeVertical * 1,
+                        height: SizeConfig.blockSizeVertical * 1,
+                        margin: const EdgeInsets.all(5),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset(
+                            search,
+                            width: SizeConfig.blockSizeVertical * 3,
+                            height: SizeConfig.blockSizeVertical * 3,
+                          ),
                         ),
                       ),
                     ),
@@ -194,25 +220,27 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
             ),
-         Obx(() =>   controller.postList.isNotEmpty
-                ? ListView.builder(
-                    itemCount: controller.postList.value.length,
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    reverse: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return postRowItem(controller.postList.value[index]);
-                    },
-                  )
-                : Container(
-              height: 300,
-              child: Center(
-                child: headingText(noDataFound.tr,
-                    SizeConfig.blockSizeHorizontal * 4, colorGrey,
-                    weight: FontWeight.w500),
-              ),
-            ),),
+            Obx(
+              () => controller.postList.isNotEmpty
+                  ? ListView.builder(
+                      itemCount: controller.postList.value.length,
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      reverse: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return postRowItem(controller.postList.value[index]);
+                      },
+                    )
+                  : Container(
+                      height: 300,
+                      child: Center(
+                        child: headingText(noDataFound.tr,
+                            SizeConfig.blockSizeHorizontal * 4, colorGrey,
+                            weight: FontWeight.w500),
+                      ),
+                    ),
+            ),
           ],
         ),
       ),

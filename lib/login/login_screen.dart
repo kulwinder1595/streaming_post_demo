@@ -78,30 +78,35 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,
                   ),
-                  SizedBox(
-                    height: SizeConfig.blockSizeVertical * 6,
-                    child: TextFormField(
-                      controller: controller.phoneController.value,
-                      cursorColor: colorRed,
-                      maxLines: 1,
-                      textAlignVertical: TextAlignVertical.bottom,
-                      style: const TextStyle(color: colorBlack),
-                      decoration: InputDecoration(
-                        hintText: phoneNumberHint.tr,
-                        hintStyle: const TextStyle(color: colorGrey),
-                        filled: true,
-                        fillColor: colorWhite,
-                        enabledBorder: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                          borderSide: BorderSide(color: colorGrey, width: 0.7),
+                  InkWell(
+                    onTap: (){
+
+                    },
+                    child: SizedBox(
+                      height: SizeConfig.blockSizeVertical * 6,
+                      child: TextFormField(
+                        controller: controller.phoneController.value,
+                        cursorColor: colorRed,
+                        maxLines: 1,
+                        textAlignVertical: TextAlignVertical.bottom,
+                        style: const TextStyle(color: colorBlack),
+                        decoration: InputDecoration(
+                          hintText: phoneNumberHint.tr,
+                          hintStyle: const TextStyle(color: colorGrey),
+                          filled: true,
+                          fillColor: colorWhite,
+                          enabledBorder: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                            borderSide: BorderSide(color: colorGrey, width: 0.7),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                            borderSide: BorderSide(color: colorGrey),
+                          ),
+                          errorBorder: UnderlineInputBorder(
+                              borderSide: const BorderSide(color: colorRed),
+                              borderRadius: BorderRadius.circular(5)),
                         ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                          borderSide: BorderSide(color: colorGrey),
-                        ),
-                        errorBorder: UnderlineInputBorder(
-                            borderSide: const BorderSide(color: colorRed),
-                            borderRadius: BorderRadius.circular(5)),
                       ),
                     ),
                   ),

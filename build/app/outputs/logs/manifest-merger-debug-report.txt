@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:5:4-36:19
+INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:6:4-37:19
 MERGED from [:firebase_auth] /Users/softuvo/streaming_post_demo/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
 MERGED from [:firebase_auth] /Users/softuvo/streaming_post_demo/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
 MERGED from [:firebase_storage] /Users/softuvo/streaming_post_demo/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-15:19
@@ -62,11 +62,11 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/soft
 	android:name
 		INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-37:12
-INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-37:12
-INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-37:12
-INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-37:12
-MERGED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-37:12
+ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-38:12
+INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-38:12
+INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-38:12
+INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-38:12
+MERGED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-38:12
 MERGED from [:shared_preferences_android] /Users/softuvo/streaming_post_demo/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:firebase_auth] /Users/softuvo/streaming_post_demo/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_storage] /Users/softuvo/streaming_post_demo/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
@@ -77,6 +77,7 @@ MERGED from [:flutter_plugin_android_lifecycle] /Users/softuvo/streaming_post_de
 MERGED from [:flutter_localization] /Users/softuvo/streaming_post_demo/build/flutter_localization/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_share] /Users/softuvo/streaming_post_demo/build/flutter_share/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] /Users/softuvo/streaming_post_demo/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:video_player_android] /Users/softuvo/streaming_post_demo/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/softuvo/.gradle/caches/transforms-3/60455f47848b88c03b916134aaa9223d/transformed/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/softuvo/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/softuvo/.gradle/caches/transforms-3/542a859793ec57d6a4d40865c7efc6d9/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
@@ -89,6 +90,10 @@ MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/softuvo/.g
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.0] /Users/softuvo/.gradle/caches/transforms-3/9f3a6c99108e58509d099405466dc822/transformed/jetified-firebase-appcheck-interop-16.1.0/AndroidManifest.xml:15:1-25:12
 MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/softuvo/.gradle/caches/transforms-3/5dcb539ab6180e04e51869aae48e2df6/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:2:1-23:12
 MERGED from [com.google.firebase:firebase-common:20.3.0] /Users/softuvo/.gradle/caches/transforms-3/ac20124166528b90eb750a9c2aadf745/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/d52a7750301d23374dde8fe8376aa78b/transformed/jetified-exoplayer-hls-2.18.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/9d88009f871bb6ab5724422736165381/transformed/jetified-exoplayer-dash-2.18.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/22b5191ddc57d6f98512a29287b43268/transformed/jetified-exoplayer-smoothstreaming-2.18.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/e650aa73a9ef686509ac89a6cdf193a6/transformed/jetified-exoplayer-core-2.18.1/AndroidManifest.xml:17:1-26:12
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/5ec3faad4c67c5d02d41a8d7d7f45ea7/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:17:1-46:12
 MERGED from [com.google.android.gms:play-services-measurement-sdk:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/727d4be4f040e1688230683f0cc8cd46/transformed/jetified-play-services-measurement-sdk-21.2.0/AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] /Users/softuvo/.gradle/caches/transforms-3/08805e656a3219301851cd042d382e7e/transformed/jetified-play-services-auth-api-phone-17.4.0/AndroidManifest.xml:2:1-7:12
@@ -118,6 +123,11 @@ MERGED from [com.google.firebase:firebase-components:17.1.0] /Users/softuvo/.gra
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/softuvo/.gradle/caches/transforms-3/92bbcff336b1c071492380cf1ca47662/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/softuvo/.gradle/caches/transforms-3/827059b5dbdd36f4518b82e011631b76/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/softuvo/.gradle/caches/transforms-3/cfaa035a43a363ad38f5365ab0b90d5a/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/0ba3e1d75d950b4ce19f826f9171326f/transformed/jetified-exoplayer-datasource-2.18.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/b47cb3dbbb626ef18b55587960773054/transformed/jetified-exoplayer-extractor-2.18.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/45c90325d57916c067b29a41f64a4bc3/transformed/jetified-exoplayer-decoder-2.18.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/228a444e316d077c2681d450e4c85053/transformed/jetified-exoplayer-database-2.18.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/1f64fb2b2f58e35a6304234b74c8cc27/transformed/jetified-exoplayer-common-2.18.1/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/softuvo/.gradle/caches/transforms-3/0874b2ce249aebd6be8581da2886a270/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/softuvo/.gradle/caches/transforms-3/f28fbf2b5cc15d00b9e189721d0a19db/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/softuvo/.gradle/caches/transforms-3/8f6ed0e432a96c9946ce1998221ef429/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
@@ -138,22 +148,44 @@ INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidMa
 		INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-37:12
+		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-38:12
 		INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-37:12
+		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:1-38:12
 		INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:5-66
+MERGED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:5-66
+MERGED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:5-66
+MERGED from [com.google.firebase:firebase-auth:21.1.0] /Users/softuvo/.gradle/caches/transforms-3/0548e507d3019ac84ce4969b57803f45/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-auth:21.1.0] /Users/softuvo/.gradle/caches/transforms-3/0548e507d3019ac84ce4969b57803f45/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-firestore:24.4.3] /Users/softuvo/.gradle/caches/transforms-3/d52564208e00760a4e942c866bd129a8/transformed/jetified-firebase-firestore-24.4.3/AndroidManifest.xml:13:5-67
+MERGED from [com.google.firebase:firebase-firestore:24.4.3] /Users/softuvo/.gradle/caches/transforms-3/d52564208e00760a4e942c866bd129a8/transformed/jetified-firebase-firestore-24.4.3/AndroidManifest.xml:13:5-67
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/softuvo/.gradle/caches/transforms-3/0da25f878ca7fc72a1a3e4059e81557e/transformed/jetified-firebase-storage-20.1.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/softuvo/.gradle/caches/transforms-3/0da25f878ca7fc72a1a3e4059e81557e/transformed/jetified-firebase-storage-20.1.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bfd20290ff5d39e38453adc1ae5698f7/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bfd20290ff5d39e38453adc1ae5698f7/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/softuvo/.gradle/caches/transforms-3/5dcb539ab6180e04e51869aae48e2df6/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:10:5-67
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/softuvo/.gradle/caches/transforms-3/5dcb539ab6180e04e51869aae48e2df6/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:10:5-67
+MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/5ec3faad4c67c5d02d41a8d7d7f45ea7/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/5ec3faad4c67c5d02d41a8d7d7f45ea7/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/ed46e731aa84ba74e4900038bc2b3fc2/transformed/jetified-play-services-measurement-impl-21.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/ed46e731aa84ba74e4900038bc2b3fc2/transformed/jetified-play-services-measurement-impl-21.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bccbe6d122c1b8acd4eabe8df012de0c/transformed/jetified-play-services-measurement-sdk-api-21.2.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bccbe6d122c1b8acd4eabe8df012de0c/transformed/jetified-play-services-measurement-sdk-api-21.2.0/AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:5-80
+ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:4:5-80
 	android:name
-		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:3:22-78
+		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:4:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:4:5-79
+ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:5:5-79
 	android:name
-		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:4:22-77
+		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml:5:22-77
 uses-sdk
 INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml
@@ -178,6 +210,8 @@ MERGED from [:flutter_share] /Users/softuvo/streaming_post_demo/build/flutter_sh
 MERGED from [:flutter_share] /Users/softuvo/streaming_post_demo/build/flutter_share/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/softuvo/streaming_post_demo/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/softuvo/streaming_post_demo/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:video_player_android] /Users/softuvo/streaming_post_demo/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:video_player_android] /Users/softuvo/streaming_post_demo/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/softuvo/.gradle/caches/transforms-3/60455f47848b88c03b916134aaa9223d/transformed/multidex-2.0.0/AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/softuvo/.gradle/caches/transforms-3/60455f47848b88c03b916134aaa9223d/transformed/multidex-2.0.0/AndroidManifest.xml:20:5-43
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/softuvo/.gradle/caches/transforms-3/e1f5bf00836c889852a9a2014464d260/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
@@ -202,6 +236,14 @@ MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/softuvo/.
 MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/softuvo/.gradle/caches/transforms-3/5dcb539ab6180e04e51869aae48e2df6/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-common:20.3.0] /Users/softuvo/.gradle/caches/transforms-3/ac20124166528b90eb750a9c2aadf745/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-common:20.3.0] /Users/softuvo/.gradle/caches/transforms-3/ac20124166528b90eb750a9c2aadf745/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/d52a7750301d23374dde8fe8376aa78b/transformed/jetified-exoplayer-hls-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/d52a7750301d23374dde8fe8376aa78b/transformed/jetified-exoplayer-hls-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/9d88009f871bb6ab5724422736165381/transformed/jetified-exoplayer-dash-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/9d88009f871bb6ab5724422736165381/transformed/jetified-exoplayer-dash-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/22b5191ddc57d6f98512a29287b43268/transformed/jetified-exoplayer-smoothstreaming-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/22b5191ddc57d6f98512a29287b43268/transformed/jetified-exoplayer-smoothstreaming-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/e650aa73a9ef686509ac89a6cdf193a6/transformed/jetified-exoplayer-core-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/e650aa73a9ef686509ac89a6cdf193a6/transformed/jetified-exoplayer-core-2.18.1/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/5ec3faad4c67c5d02d41a8d7d7f45ea7/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/5ec3faad4c67c5d02d41a8d7d7f45ea7/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-sdk:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/727d4be4f040e1688230683f0cc8cd46/transformed/jetified-play-services-measurement-sdk-21.2.0/AndroidManifest.xml:20:5-44
@@ -260,6 +302,16 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/softuvo/.gradle/
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/softuvo/.gradle/caches/transforms-3/827059b5dbdd36f4518b82e011631b76/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/softuvo/.gradle/caches/transforms-3/cfaa035a43a363ad38f5365ab0b90d5a/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/softuvo/.gradle/caches/transforms-3/cfaa035a43a363ad38f5365ab0b90d5a/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/0ba3e1d75d950b4ce19f826f9171326f/transformed/jetified-exoplayer-datasource-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/0ba3e1d75d950b4ce19f826f9171326f/transformed/jetified-exoplayer-datasource-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/b47cb3dbbb626ef18b55587960773054/transformed/jetified-exoplayer-extractor-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/b47cb3dbbb626ef18b55587960773054/transformed/jetified-exoplayer-extractor-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/45c90325d57916c067b29a41f64a4bc3/transformed/jetified-exoplayer-decoder-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/45c90325d57916c067b29a41f64a4bc3/transformed/jetified-exoplayer-decoder-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/228a444e316d077c2681d450e4c85053/transformed/jetified-exoplayer-database-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/228a444e316d077c2681d450e4c85053/transformed/jetified-exoplayer-database-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/1f64fb2b2f58e35a6304234b74c8cc27/transformed/jetified-exoplayer-common-2.18.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/1f64fb2b2f58e35a6304234b74c8cc27/transformed/jetified-exoplayer-common-2.18.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/softuvo/.gradle/caches/transforms-3/0874b2ce249aebd6be8581da2886a270/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/softuvo/.gradle/caches/transforms-3/0874b2ce249aebd6be8581da2886a270/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/softuvo/.gradle/caches/transforms-3/f28fbf2b5cc15d00b9e189721d0a19db/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
@@ -290,26 +342,6 @@ INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidMa
 	android:minSdkVersion
 		INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidManifest.xml
-uses-permission#android.permission.INTERNET
-ADDED from /Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidManifest.xml:7:5-66
-MERGED from [com.google.firebase:firebase-auth:21.1.0] /Users/softuvo/.gradle/caches/transforms-3/0548e507d3019ac84ce4969b57803f45/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-auth:21.1.0] /Users/softuvo/.gradle/caches/transforms-3/0548e507d3019ac84ce4969b57803f45/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-firestore:24.4.3] /Users/softuvo/.gradle/caches/transforms-3/d52564208e00760a4e942c866bd129a8/transformed/jetified-firebase-firestore-24.4.3/AndroidManifest.xml:13:5-67
-MERGED from [com.google.firebase:firebase-firestore:24.4.3] /Users/softuvo/.gradle/caches/transforms-3/d52564208e00760a4e942c866bd129a8/transformed/jetified-firebase-firestore-24.4.3/AndroidManifest.xml:13:5-67
-MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/softuvo/.gradle/caches/transforms-3/0da25f878ca7fc72a1a3e4059e81557e/transformed/jetified-firebase-storage-20.1.0/AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-storage:20.1.0] /Users/softuvo/.gradle/caches/transforms-3/0da25f878ca7fc72a1a3e4059e81557e/transformed/jetified-firebase-storage-20.1.0/AndroidManifest.xml:26:5-67
-MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bfd20290ff5d39e38453adc1ae5698f7/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:22:5-67
-MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bfd20290ff5d39e38453adc1ae5698f7/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:22:5-67
-MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/softuvo/.gradle/caches/transforms-3/5dcb539ab6180e04e51869aae48e2df6/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:10:5-67
-MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/softuvo/.gradle/caches/transforms-3/5dcb539ab6180e04e51869aae48e2df6/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:10:5-67
-MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/5ec3faad4c67c5d02d41a8d7d7f45ea7/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/5ec3faad4c67c5d02d41a8d7d7f45ea7/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/ed46e731aa84ba74e4900038bc2b3fc2/transformed/jetified-play-services-measurement-impl-21.2.0/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/ed46e731aa84ba74e4900038bc2b3fc2/transformed/jetified-play-services-measurement-impl-21.2.0/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bccbe6d122c1b8acd4eabe8df012de0c/transformed/jetified-play-services-measurement-sdk-api-21.2.0/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bccbe6d122c1b8acd4eabe8df012de0c/transformed/jetified-play-services-measurement-sdk-api-21.2.0/AndroidManifest.xml:23:5-67
-	android:name
-		ADDED from /Users/softuvo/streaming_post_demo/android/app/src/debug/AndroidManifest.xml:7:22-64
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [:firebase_auth] /Users/softuvo/streaming_post_demo/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
 MERGED from [:firebase_storage] /Users/softuvo/streaming_post_demo/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
@@ -400,12 +432,16 @@ MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bfd20290ff5d39e38453adc1ae5698f7/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/softuvo/.gradle/caches/transforms-3/5dcb539ab6180e04e51869aae48e2df6/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:9:5-79
 MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/softuvo/.gradle/caches/transforms-3/5dcb539ab6180e04e51869aae48e2df6/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:9:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/e650aa73a9ef686509ac89a6cdf193a6/transformed/jetified-exoplayer-core-2.18.1/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/e650aa73a9ef686509ac89a6cdf193a6/transformed/jetified-exoplayer-core-2.18.1/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/5ec3faad4c67c5d02d41a8d7d7f45ea7/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/5ec3faad4c67c5d02d41a8d7d7f45ea7/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/ed46e731aa84ba74e4900038bc2b3fc2/transformed/jetified-play-services-measurement-impl-21.2.0/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/ed46e731aa84ba74e4900038bc2b3fc2/transformed/jetified-play-services-measurement-impl-21.2.0/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bccbe6d122c1b8acd4eabe8df012de0c/transformed/jetified-play-services-measurement-sdk-api-21.2.0/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] /Users/softuvo/.gradle/caches/transforms-3/bccbe6d122c1b8acd4eabe8df012de0c/transformed/jetified-play-services-measurement-sdk-api-21.2.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/1f64fb2b2f58e35a6304234b74c8cc27/transformed/jetified-exoplayer-common-2.18.1/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] /Users/softuvo/.gradle/caches/transforms-3/1f64fb2b2f58e35a6304234b74c8cc27/transformed/jetified-exoplayer-common-2.18.1/AndroidManifest.xml:24:5-79
 MERGED from [io.grpc:grpc-android:1.50.2] /Users/softuvo/.gradle/caches/transforms-3/2a83207a49bc089d03b815b8ac6abc99/transformed/jetified-grpc-android-1.50.2/AndroidManifest.xml:9:5-79
 MERGED from [io.grpc:grpc-android:1.50.2] /Users/softuvo/.gradle/caches/transforms-3/2a83207a49bc089d03b815b8ac6abc99/transformed/jetified-grpc-android-1.50.2/AndroidManifest.xml:9:5-79
 	android:name
