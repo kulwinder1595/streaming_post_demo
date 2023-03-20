@@ -9,3 +9,5 @@ const sendChat = "assets/images/send.png";
 const attachment = "assets/images/attachment.png";
 const search = "assets/images/search.png";
 const dropDown = "assets/images/drop_down.png";
+const cancelImage = "assets/images/cancel.png";
+const checked = "assets/images/checked.png";

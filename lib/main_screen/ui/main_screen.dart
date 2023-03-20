@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:streaming_post_demo/constants/app_images.dart';
 import 'package:streaming_post_demo/constants/string_constants.dart';
+import 'package:streaming_post_demo/live_screen/ui/live_screen.dart';
 import 'package:streaming_post_demo/login/login_screen.dart';
 import 'package:streaming_post_demo/main_screen/controller/main_screen_controller.dart';
 import 'package:streaming_post_demo/main_screen/ui/comment_screen.dart';
@@ -12,7 +12,6 @@ import 'package:streaming_post_demo/post/model/post_model.dart';
 import '../../common/size_config.dart';
 import '../../common/widgets.dart';
 import '../../constants/app_colors.dart';
-import '../../constants/storage_constants.dart';
 import '../../plan/plan_screen.dart';
 import '../../post/ui/add_post.dart';
 
@@ -21,8 +20,6 @@ class MainScreen extends StatelessWidget {
 
   MainScreen() {
     controller.fetchPosts();
-
-
   }
 
   @override
@@ -97,7 +94,7 @@ class MainScreen extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
              DrawerHeader(
-              decoration:  BoxDecoration(
+              decoration:  const BoxDecoration(
                 color: colorScreenBg,
               ),
               child: Center(
@@ -162,15 +159,67 @@ class MainScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
+              height: SizeConfig.blockSizeVertical * 3,
+            ),
+            SizedBox(
               height: SizeConfig.blockSizeVertical * 15,
-              child: ListView.builder(
+              child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>( // inside the <> you enter the type of your stream
+                stream: FirebaseFirestore.instance.collection("live_streaming").snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return  Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                                padding: EdgeInsets.all(5.0),
+                                child: InkWell(
+                                  onTap: (){
+                                    Get.to(() => LiveScreen(false, snapshot.data!.docs[index].get('user_id'), snapshot.data!.docs[index].get('streaming_token')));
+                                  },
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(snapshot.data!.docs[index].get('user_image')),
+                                    radius: 40,
+                                  ),
+                                )),
+                            headingText(
+                                snapshot.data!.docs[index].get('user_name') != null &&  snapshot.data!.docs[index].get('user_name') != "" ?  snapshot.data!.docs[index].get('user_name') :"user",
+                                SizeConfig.blockSizeHorizontal * 3.2,
+                                colorBlack)
+                          ],
+                        );
+
+                         /* ListTile(
+                          title: Text(
+                            snapshot.data!.docs[index].get('user_id'),
+                          ),
+                        );*/
+                      },
+                    );
+                  }
+                  if (snapshot.hasError) {
+                    return const Text('Error');
+                  } else {
+                    return  Container();
+                  }
+                },
+              ),
+
+
+
+
+
+              /*ListView.builder(
                 itemCount: 10,
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return storyRowItem(index);
                 },
-              ),
+              ),*/
             ),
             InkWell(
               onTap: () {
@@ -285,7 +334,7 @@ class MainScreen extends StatelessWidget {
               ],
             ),
             const Divider(),
-            !list.text.toString().isEmpty
+            list.text.toString().isNotEmpty
                 ? Padding(
                     padding: const EdgeInsets.only(
                         right: 14.0, left: 14.0, top: 10, bottom: 10),
@@ -299,7 +348,7 @@ class MainScreen extends StatelessWidget {
                     ),
                   )
                 : Container(),
-            list.images!.length > 0
+            list.images!.isNotEmpty
                 ? SizedBox(
                     height: SizeConfig.blockSizeVertical * 50,
                     child: ListView.builder(

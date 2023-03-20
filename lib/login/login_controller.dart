@@ -33,14 +33,14 @@ class LoginController extends GetxController {
         "username": nameController.value.text,
         "phoneNumber": phoneController.value.text,
         "password": passwordController.value.text,
-        "profileImage": "",
+      /*  "profileImage": "",
         "age": "",
         "state": "",
         "nationality": "",
         "web": "",
         "email": "",
         "store": "",
-        "videos": [],
+        "videos": [],*/
       }, SetOptions(merge: true))
           .then((res) {
         isLoading.value = false;

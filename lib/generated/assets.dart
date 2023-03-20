@@ -3,7 +3,9 @@ class Assets {
   Assets._();
 
   static const String imagesAttachment = 'assets/images/attachment.png';
+  static const String imagesCancel = 'assets/images/cancel.png';
   static const String imagesChat = 'assets/images/chat.png';
+  static const String imagesChecked = 'assets/images/checked.png';
   static const String imagesDropDown = 'assets/images/drop_down.png';
   static const String imagesDummyImage = 'assets/images/dummy_image.jpeg';
   static const String imagesLive = 'assets/images/live.png';

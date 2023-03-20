@@ -16,8 +16,9 @@ import '../../constants/app_images.dart';
 class ProfileScreen extends StatelessWidget {
   var controller = Get.put(ProfileController());
 
-  ProfileScreen(ProfileModel model) {
+  ProfileScreen(ProfileModel model, bool enableTextField1, ) {
     controller.userData.value = model;
+    controller.enableTextField.value = enableTextField1;
     controller.userData.refresh();
     controller.setData();
   }
@@ -53,7 +54,9 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          controller.getImageFromGallery();
+                          if(controller.enableTextField.value == true ) {
+                            controller.getImageFromGallery();
+                          }else{}
                         },
                         child: Container(
                           width: SizeConfig.blockSizeHorizontal * 22,
@@ -118,6 +121,7 @@ class ProfileScreen extends StatelessWidget {
                             () => TextFormField(
                               controller: controller.nameController.value,
                               cursorColor: colorRed,
+                              enabled: controller.enableTextField.value,
                               textAlignVertical: TextAlignVertical.bottom,
                               style: const TextStyle(color: colorBlack),
                               decoration: InputDecoration(
@@ -168,6 +172,7 @@ class ProfileScreen extends StatelessWidget {
                             () => TextFormField(
                               controller: controller.ageController.value,
                               cursorColor: colorRed,
+                              enabled: controller.enableTextField.value,
                               textAlignVertical: TextAlignVertical.bottom,
                               keyboardType: TextInputType.number,
                               style: const TextStyle(color: colorBlack),
@@ -219,6 +224,7 @@ class ProfileScreen extends StatelessWidget {
                             () => TextFormField(
                               controller: controller.stateController.value,
                               cursorColor: colorRed,
+                              enabled: controller.enableTextField.value,
                               textAlignVertical: TextAlignVertical.bottom,
                               style: const TextStyle(color: colorBlack),
                               decoration: InputDecoration(
@@ -269,6 +275,7 @@ class ProfileScreen extends StatelessWidget {
                             () => TextFormField(
                               controller: controller.nationalityController.value,
                               cursorColor: colorRed,
+                              enabled: controller.enableTextField.value,
                               textAlignVertical: TextAlignVertical.bottom,
                               style: const TextStyle(color: colorBlack),
                               decoration: InputDecoration(
@@ -319,6 +326,7 @@ class ProfileScreen extends StatelessWidget {
                             () => TextFormField(
                               controller: controller.webController.value,
                               cursorColor: colorRed,
+                              enabled: controller.enableTextField.value,
                               textAlignVertical: TextAlignVertical.bottom,
                               style: const TextStyle(color: colorBlack),
                               decoration: InputDecoration(
@@ -369,6 +377,7 @@ class ProfileScreen extends StatelessWidget {
                             () => TextFormField(
                               controller: controller.emailController.value,
                               cursorColor: colorRed,
+                              enabled: controller.enableTextField.value,
                               textAlignVertical: TextAlignVertical.bottom,
                               style: const TextStyle(color: colorBlack),
                               decoration: InputDecoration(
@@ -424,6 +433,7 @@ class ProfileScreen extends StatelessWidget {
                             () => TextFormField(
                               controller: controller.storeController.value,
                               cursorColor: colorRed,
+                              enabled: controller.enableTextField.value,
                               textAlignVertical: TextAlignVertical.bottom,
                               style: const TextStyle(color: colorBlack),
                               decoration: InputDecoration(
@@ -455,43 +465,45 @@ class ProfileScreen extends StatelessWidget {
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,
                   ),
-                  Padding(
+               Obx(() =>  controller.enableTextField.value == true ?  Padding(
                     padding: const EdgeInsets.only(top: 10.0),
                     child: headingText(addVideosNotMoreThan60Minutes.tr,
                         SizeConfig.blockSizeHorizontal * 4, colorBlack),
-                  ),
+                  ) : Container()),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,
                   ),
-                  InkWell(
-                    onTap: () {
-                      controller.getVideoFromGallery();
-                    },
-                    child: SizedBox(
-                      width: SizeConfig.blockSizeHorizontal * 20,
-                      height: SizeConfig.blockSizeVertical * 10,
-                      child: Center(
-                        child: Obx(
-                          () => controller.videoFile.value.path != ""
-                              ? FadeInImage.assetNetwork(
-                                  placeholder: placeholder,
-                                  image:
-                                      "https://www.dignited.com/wp-content/uploads/2019/03/images-1.png",
-                                  width: SizeConfig.blockSizeHorizontal * 20,
-                                  height: SizeConfig.blockSizeVertical * 15,
-                                  fit: BoxFit.fill,
-                                )
-                              : Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Image.asset(
-                                    plus,
-                                    width: SizeConfig.blockSizeHorizontal * 8.5,
-                                    height: SizeConfig.blockSizeVertical * 4.8,
-                                  ),
-                                ),
+                  Obx(
+                      () =>controller.enableTextField.value == true ? InkWell(
+                      onTap: () {
+                        controller.getVideoFromGallery();
+                      },
+                      child: SizedBox(
+                        width: SizeConfig.blockSizeHorizontal * 20,
+                        height: SizeConfig.blockSizeVertical * 10,
+                        child: Center(
+                          child: Obx(
+                            () => controller.videoFile.value.path != ""
+                                ? FadeInImage.assetNetwork(
+                                    placeholder: placeholder,
+                                    image:
+                                        "https://www.dignited.com/wp-content/uploads/2019/03/images-1.png",
+                                    width: SizeConfig.blockSizeHorizontal * 20,
+                                    height: SizeConfig.blockSizeVertical * 15,
+                                    fit: BoxFit.fill,
+                                  )
+                                : Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Image.asset(
+                                      plus,
+                                      width: SizeConfig.blockSizeHorizontal * 8.5,
+                                      height: SizeConfig.blockSizeVertical * 4.8,
+                                    ),
+                                  )
+                          ),
                         ),
                       ),
-                    ),
+                    ):Container()
                   ),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,
@@ -529,7 +541,7 @@ class ProfileScreen extends StatelessWidget {
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 5,
                   ),
-                  Center(
+                Obx(() => controller.enableTextField.value == true ?  Center(
                     child: ElevatedButton(
                       onPressed: () {
                           controller.updateProfileData();
@@ -548,7 +560,7 @@ class ProfileScreen extends StatelessWidget {
                               child: headingText(update.tr,
                                   SizeConfig.blockSizeHorizontal * 4, colorWhite))),
                     ),
-                  ),
+                  ):Container(),),
                   SizedBox(
                     height: SizeConfig.blockSizeVertical * 2,
                   ),

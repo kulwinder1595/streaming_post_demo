@@ -74,3 +74,4 @@ const dataUpdatedSuccessfully = "dataUpdatedSuccessfully";
 const areYouSureToLogoutFromApp = "areYouSureToLogoutFromApp";
 const ok = "ok";
 const cancel = "cancel";
+const pleaseLoginFirstToJoinALive = "pleaseLoginFirstToJoinALive";

@@ -110,3 +110,37 @@ class Videos {
     return data;
   }
 }
+
+class Followers {
+  String? userId;
+  String? username;
+  String? userImage;
+  String? userCountry;
+
+  Followers(this.userId, this.username, this.userImage, this.userCountry);
+
+  Followers.fromJson(Map<String, dynamic> json) {
+    userId = json['userId'].toString();
+    username = json['username'].toString();
+    userImage = json['userImage'].toString();
+    userCountry = json['userCountry'].toString();
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'userId': userId,
+      'username': username,
+      'userImage': userImage,
+      'userCountry': userCountry,
+    };
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['userId'] = userId;
+    data['username'] = username;
+    data['userImage'] = userImage;
+    data['userCountry'] = userCountry;
+    return data;
+  }
+}

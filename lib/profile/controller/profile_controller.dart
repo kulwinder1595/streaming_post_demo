@@ -30,6 +30,7 @@ class ProfileController extends GetxController {
   var imageUrl = "".obs;
   var videoUrlList = <Videos>[].obs;
   var isUploadingComplete = false.obs;
+  var enableTextField = true.obs;
 
   @override
   void onInit() {

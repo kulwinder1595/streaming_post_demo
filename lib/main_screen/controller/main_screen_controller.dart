@@ -62,7 +62,7 @@ class MainScreenController extends GetxController {
               commentList ?? []));
         }
         await Future.delayed(Duration.zero);
-        username.value = store.read(userName);
+        username.value = store.read(userName) != null ? store.read(userName) : "";
         postList.refresh();
         duplicatePostList.addAll(postList);
       });
