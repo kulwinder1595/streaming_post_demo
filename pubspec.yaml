@@ -45,7 +45,7 @@ dependencies:
   cloud_firestore: ^4.4.3
   flutter_localization: ^0.1.10
   image_picker: ^0.8.6+3
-  flutter_share: ^2.0.0
+  flutter_share:
   video_player: ^2.5.3
   agora_rtc_engine: ^6.1.0
   permission_handler: ^9.2.0

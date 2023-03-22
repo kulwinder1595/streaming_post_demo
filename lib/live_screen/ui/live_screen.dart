@@ -429,7 +429,7 @@ class LiveScreen extends StatelessWidget {
     controller.users.value.forEach((int uid) => list.add(AgoraVideoView(
       controller: VideoViewController(
           rtcEngine: controller.agoraEngine.value,
-          canvas: VideoCanvas(uid: 1),
+          canvas: VideoCanvas(uid: uid),
       ),),));
     return list;
   }

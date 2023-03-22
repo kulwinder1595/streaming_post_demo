@@ -43,9 +43,9 @@ class LiveController extends GetxController {
   var scrollController = ScrollController().obs;
   var channelName = "StreamingPost";
   var streamingToken =
-      "007eJxTYJBrOsz8z2mZ0/6dBhXV+e/uFoSbMS57oezYI2vaILAu2l6BIc3CwjzN0Dw11STRwsTEONUyxcwg1SAlzczCyCQ5Oc3890TBlIZARoZ7zDMYGRkgEMTnZQguKUpNzM3MSw/ILy5hYAAAEVoh1Q==".obs;
+      "007eJxTYGATeJs9wy4wLejA6dcCQdP2Kk4NDbywhW+mV2+Gb8XduiAFhjQLC/M0Q/PUVJNECxMT41TLFDODVIOUNDMLI5Pk5DTzTGbplIZARgajdT0sjAyMDCxADOIzgUlmMMkCJnkZgkuKUhNzM/PSA/KLSxgYAEMOI94=".obs;
   var chatToken =
-      "007eJxTYMi7mTD3Nbuuyu2lHtx+H3W2d13b1qRxTlGn43TYt1aO88oKDGkWFuZphuapqSaJFiYmxqmWKWYGqQYpaWYWRibJyWnmlycKpjQEMjIkeAczMzKwMjACIYivwmBikJiUZpxioJuUlpama2iYmqKbmGRmpmuclGSYkpRmmWaRZAgAccUoHw=="
+      "007eJxTYPi3aZlQyHEXp9NNB1eEO89h3bLC55537K4pex8J7Lm35wSPAkOahYV5mqF5aqpJooWJiXGqZYqZQapBSpqZhZFJcnKa+Xxm6ZSGQEaGqbO5mRgZWBkYgRDEV2EwMUhMSjNOMdBNSktL0zU0TE3RTUwyM9M1TkoyTElKs0yzSDIEAB22KX0="
           .obs;
   var chatList = <ChatModel>[].obs;
 
@@ -280,6 +280,7 @@ class LiveController extends GetxController {
           onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
             /* showMessage(
                   "Local user uid:${connection.localUid} joined the channel");*/
+            showDebugPrint("connection.localUid id is -remoteUid1---------------  ${connection.localUid}");
             isJoined.value = true;
             if (isHost.value == true) {
               streamingUserId.value = userID.value;
