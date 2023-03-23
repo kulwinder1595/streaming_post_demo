@@ -19,10 +19,18 @@ import '../model/chat_model.dart';
 class LiveScreen extends StatelessWidget {
   var controller = Get.put(LiveController());
 
-  LiveScreen(bool _isHost, streamingUserIds, streamingToken) {
+  LiveScreen(bool _isHost, streamingUserIds, streamingToken, int streamingJoiningId, bool groupStreaming) {
     controller.isHost.value = _isHost;
     controller.streamingUserId.value = streamingUserIds;
-  //  controller.streamingToken.value = streamingToken;
+    controller.streamingJoiningId.value = streamingJoiningId;
+    controller.groupStreaming.value = groupStreaming;
+
+    Future.delayed(Duration(seconds: 3), () {
+      if(controller.groupStreaming.value == true){
+        controller.users.add(controller.streamingJoiningId.value);
+        controller.users.refresh();
+      }
+    });
   }
 
   @override
@@ -89,10 +97,10 @@ class LiveScreen extends StatelessWidget {
                                                 controller.userData.value.userId
                                                     .toString(),
                                                 controller
-                                                    .followRequests.value));
+                                                    .followRequests.value, controller.uid.value));
                                           },
                                           child: headingText(
-                                              "${receiveARequest.tr}(${controller.followRequests.length > 0 ? controller.followRequests.length : 0})",
+                                              "${receiveARequest.tr}(${controller.streamingRequestsList.length > 0 ? controller.streamingRequestsList.length : 0})",
                                               SizeConfig.blockSizeHorizontal *
                                                   3.2,
                                               colorBlack),
@@ -169,7 +177,16 @@ class LiveScreen extends StatelessWidget {
                             height: SizeConfig.screenHeight - 170,
                             decoration: BoxDecoration(border: Border.all()),
                             child: Obx(() => controller.isLoadingVideoView.value == true &&
-                                controller.isHost.value == true ? _viewRows() : commonLoader())),
+                                controller.isHost.value == true ? _viewRows() : controller.isLoadingVideoView.value == true &&
+                                controller.isHost.value == false
+                                ? AgoraVideoView(
+                              controller: VideoViewController.remote(
+                                rtcEngine: controller.agoraEngine.value,
+                                canvas: VideoCanvas(uid: controller.remoteUid.value),
+                                connection: RtcConnection(channelId: controller.channelName),
+                              ),
+                            )
+                                : commonLoader())),
                         Align(
                           alignment: Alignment.bottomRight,
                           child: Column(
@@ -313,7 +330,7 @@ class LiveScreen extends StatelessWidget {
                     SizedBox(
                       height: SizeConfig.blockSizeVertical * 2,
                     ),
-                     Row(
+                  Obx(() =>  controller.isHost.value == true ?  Row(
                        children: [
                          const Spacer(),
                          InkWell(
@@ -346,7 +363,7 @@ class LiveScreen extends StatelessWidget {
                             ),
                           ),
                        ],
-                     ),
+                     ): Container(),),
                   ],
                 )
               ),

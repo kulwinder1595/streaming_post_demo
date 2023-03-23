@@ -37,7 +37,7 @@ class PlanScreen extends StatelessWidget {
                 const Spacer(),
                 ElevatedButton(
                     onPressed: () {
-                      Get.to(() => LiveScreen(true, "", "") );
+                      Get.to(() => LiveScreen(true, "", "", 0, false) );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: colorRed,

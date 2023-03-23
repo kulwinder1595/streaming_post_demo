@@ -5,9 +5,11 @@ import 'package:streaming_post_demo/profile/model/profile_model.dart';
 
 import '../../common/widgets.dart';
 import '../../constants/string_constants.dart';
+import '../../live_screen/ui/live_screen.dart';
 
 class FollowRequestsController extends GetxController{
   var userID = "".obs;
+  var streamingJoiningId = 0.obs;
   //var requestsList = <Followers>[].obs;
   var requestsList = <StreamingRequestsModel>[].obs;
 
@@ -40,12 +42,12 @@ class FollowRequestsController extends GetxController{
   }
 
 
-  void deleteFollowRequest(int index) {
+  void deleteStreamingRequest(int index) {
     requestsList.removeAt(index);
     requestsList.refresh();
 
     FirebaseFirestore.instance
-        .collection('follow_request')
+        .collection('live_streaming_requests')
         .doc(userID.value)
         .set({
       "requests": requestsList.value.map((e) => e.toMap()).toList(),
@@ -55,14 +57,8 @@ class FollowRequestsController extends GetxController{
     });
   }
 void acceptFollowRequest(int index) {
-    FirebaseFirestore.instance
-        .collection('followers')
-        .doc(userID.value)
-        .set({
-      "requests": requestsList.value.map((e) => e.toMap()).toList(),
-    }, SetOptions(merge: true)).then((res) {
+ // deleteStreamingRequest(index);
+  Get.to(() => LiveScreen(true, "", "", streamingJoiningId.value, true) );
 
-     deleteFollowRequest(index);
-    });
   }
 }

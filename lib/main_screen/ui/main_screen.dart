@@ -178,7 +178,7 @@ class MainScreen extends StatelessWidget {
                                 padding: EdgeInsets.all(5.0),
                                 child: InkWell(
                                   onTap: (){
-                                    Get.to(() => LiveScreen(false, snapshot.data!.docs[index].get('user_id'), snapshot.data!.docs[index].get('streaming_token')));
+                                    Get.to(() => LiveScreen(false, snapshot.data!.docs[index].get('user_id'), snapshot.data!.docs[index].get('streaming_token'), 0, false));
                                   },
                                   child: CircleAvatar(
                                     backgroundImage: NetworkImage(snapshot.data!.docs[index].get('user_image')),

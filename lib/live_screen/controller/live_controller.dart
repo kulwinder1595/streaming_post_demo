@@ -10,6 +10,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:streaming_post_demo/common/widgets.dart';
 import 'package:streaming_post_demo/constants/api_endpoints.dart';
+import 'package:streaming_post_demo/live_screen/model/streaming_request_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../common/size_config.dart';
@@ -30,22 +31,25 @@ class LiveController extends GetxController {
   var isLoadingVideoView = false.obs;
   var agoraEngine = createAgoraRtcEngine().obs;
   var uid = 0.obs; // uid of the local user
+  var streamingJoiningId = 0.obs;
   var remoteUid = 1.obs; // uid of the remote user
   var isJoined =
       false.obs; // Indicates if the local user has joined the channel
   var isHost = false.obs;
+  var groupStreaming = false.obs;
   var streamingUserId = "".obs;
 
   var enableTextField = true.obs;
   var followText = "".obs;
   var followRequests = <Followers>[].obs;
   var myClientsList = <Followers>[].obs;
+  var streamingRequestsList = <StreamingRequestsModel>[].obs;
   var scrollController = ScrollController().obs;
   var channelName = "StreamingPost";
   var streamingToken =
-      "007eJxTYGATeJs9wy4wLejA6dcCQdP2Kk4NDbywhW+mV2+Gb8XduiAFhjQLC/M0Q/PUVJNECxMT41TLFDODVIOUNDMLI5Pk5DTzTGbplIZARgajdT0sjAyMDCxADOIzgUlmMMkCJnkZgkuKUhNzM/PSA/KLSxgYAEMOI94=".obs;
+      "007eJxTYDhWctD4Ys6WmN/5FaItyXNff16o4Vh20lqVZ2L7quQFPxQVGNIsLMzTDM1TU00SLUxMjFMtU8wMUg1S0swsjEySk9PMNY1kUhoCGRmOSpxhYWRgZGABYhCfCUwyg0kWMMnLEFxSlJqYm5mXHpBfXMLAAAAa1CXC".obs;
   var chatToken =
-      "007eJxTYPi3aZlQyHEXp9NNB1eEO89h3bLC55537K4pex8J7Lm35wSPAkOahYV5mqF5aqpJooWJiXGqZYqZQapBSpqZhZFJcnKa+Xxm6ZSGQEaGqbO5mRgZWBkYgRDEV2EwMUhMSjNOMdBNSktL0zU0TE3RTUwyM9M1TkoyTElKs0yzSDIEAB22KX0="
+      "007eJxTYODIn7b1fujtlZq8q3+8WiX8LdBk2l3XKlf1GRfCN/EJR19WYEizsDBPMzRPTTVJtDAxMU61TDEzSDVISTOzMDJJTk4z/2kok9IQyMjQ9P4gKyMDKwMjEIL4KgwmBolJacYpBrpJaWlpuoaGqSm6iUlmZrrGSUmGKUlplmkWSYYA1/UphA=="
           .obs;
   var chatList = <ChatModel>[].obs;
 
@@ -59,6 +63,7 @@ class LiveController extends GetxController {
     //if(streamingToken.value == null || streamingToken.value == ""){
       //tokenGeneration();
   //  }
+
     followText.value = follow.tr;
     initAgoraChatSDK();
     super.onInit();
@@ -281,6 +286,7 @@ class LiveController extends GetxController {
             /* showMessage(
                   "Local user uid:${connection.localUid} joined the channel");*/
             showDebugPrint("connection.localUid id is -remoteUid1---------------  ${connection.localUid}");
+            uid.value = connection.localUid!;
             isJoined.value = true;
             if (isHost.value == true) {
               streamingUserId.value = userID.value;
@@ -290,15 +296,15 @@ class LiveController extends GetxController {
           onUserJoined:
               (RtcConnection connection, int remoteUid1, int elapsed) {
             /* showMessage("Remote user uid:$remoteUid joined the channel");*/
-                users.add(remoteUid1);
+             //   users.add(remoteUid1);
             remoteUid.value = remoteUid1;
                 showDebugPrint("Remote id is -remoteUid1---------------  ${remoteUid1}");
-            users.refresh();
+         //   users.refresh();
           },
           onUserOffline: (RtcConnection connection, int remoteUid1,
               UserOfflineReasonType reason) {
-            users.clear();
-            users.refresh();
+         //   users.clear();
+         //   users.refresh();
             /*  showMessage("Remote user uid:$remoteUid left the channel");*/
 
             remoteUid.value = 1;
@@ -447,6 +453,33 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
     });
   }
 
+fetchStreamingRequests(String userID) async {
+    await FirebaseFirestore.instance
+        .collection("live_streaming_requests")
+        .doc(userID)
+        .get()
+        .then((value) {
+      if (value.data() != null && value.data()!['requests'] != null) {
+        if (value.data()!['requests'] != null &&
+            value.data()!['requests'] != []) {
+          for (int j = 0; j < value.data()!['requests'].length; j++) {
+            streamingRequestsList.add(StreamingRequestsModel(
+                value.data()!['requests'][j]['senderUserId'],
+                value.data()!['requests'][j]['receiverUserId'],
+                value.data()!['requests'][j]['senderUsername'],
+                value.data()!['requests'][j]['senderUserCountry'],
+                value.data()!['requests'][j]['senderUserImage'],
+                value.data()!['requests'][j]['streamingToken'],
+                value.data()!['requests'][j]['streamingChannel'],
+                value.data()!['requests'][j]['chatToken'],
+            ));
+          }
+        }
+      }
+      streamingRequestsList.refresh();
+    });
+  }
+
   fetchFollowers(String userID) async {
     showDebugPrint("User id is ---->  $userID");
     await FirebaseFirestore.instance
@@ -579,7 +612,7 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
         followText.value = "Followed";
         FirebaseFirestore.instance
             .collection('followers')
-            .doc(userID.value)
+            .doc(streamingUserId.value)
             .set({
           "requests": followRequests.value.map((e) => e.toMap()).toList(),
         }, SetOptions(merge: true)).then((res) {

@@ -14,8 +14,9 @@ import '../../constants/string_constants.dart';
 class FollowRequestsScreen extends StatelessWidget {
   var controller = Get.put(FollowRequestsController());
 
-  FollowRequestsScreen(String userId, List<Followers> followersRequestList) {
+  FollowRequestsScreen(String userId, List<Followers> followersRequestList, int streamingJoiningId) {
     controller.userID.value = userId;
+    controller.streamingJoiningId.value = streamingJoiningId;
     controller.fetchFollowingRequests(controller.userID.value);
   //  controller.requestsList.value = followersRequestList;
   }
@@ -90,7 +91,7 @@ class FollowRequestsScreen extends StatelessWidget {
               ),
               InkWell(
                   onTap: (){
-                    controller.deleteFollowRequest(index);
+                    controller.deleteStreamingRequest(index);
                   },
                   child: Image.asset(cancelImage, width: 40,height: 40,)),
             ],
