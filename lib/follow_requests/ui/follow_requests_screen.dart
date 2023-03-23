@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:streaming_post_demo/constants/app_images.dart';
 import 'package:streaming_post_demo/follow_requests/controller/follow_requests_controller.dart';
+import 'package:streaming_post_demo/live_screen/model/streaming_request_model.dart';
 import 'package:streaming_post_demo/profile/model/profile_model.dart';
 
 import '../../common/size_config.dart';
@@ -15,7 +16,8 @@ class FollowRequestsScreen extends StatelessWidget {
 
   FollowRequestsScreen(String userId, List<Followers> followersRequestList) {
     controller.userID.value = userId;
-    controller.requestsList.value = followersRequestList;
+    controller.fetchFollowingRequests(controller.userID.value);
+  //  controller.requestsList.value = followersRequestList;
   }
 
   @override
@@ -47,7 +49,7 @@ class FollowRequestsScreen extends StatelessWidget {
     );
   }
 
-  Widget requestRowItem(Followers follower, int index) {
+  Widget requestRowItem(StreamingRequestsModel model, int index) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Card(
@@ -57,7 +59,7 @@ class FollowRequestsScreen extends StatelessWidget {
           child: Row(
             children: [
               CircleAvatar(
-                backgroundImage: NetworkImage(follower.userImage.toString()),
+                backgroundImage: NetworkImage(model.senderUserImage.toString()),
                 radius: 35,
               ),
               SizedBox(
@@ -66,13 +68,13 @@ class FollowRequestsScreen extends StatelessWidget {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  headingText(follower.username.toString(),
+                  headingText(model.senderUsername.toString(),
                       SizeConfig.blockSizeHorizontal * 4, colorBlack,
                       weight: FontWeight.w700),
                   SizedBox(
                     height: SizeConfig.blockSizeHorizontal * 2,
                   ),
-                  headingText(follower.userCountry.toString(),
+                  headingText(model.senderUserCountry.toString(),
                       SizeConfig.blockSizeHorizontal * 4, colorBlack,
                       weight: FontWeight.w700),
                 ],

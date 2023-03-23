@@ -448,6 +448,7 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
   }
 
   fetchFollowers(String userID) async {
+    showDebugPrint("User id is ---->  $userID");
     await FirebaseFirestore.instance
         .collection("followers")
         .doc(userID)
@@ -575,8 +576,17 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
         "requests": followRequests.value.map((e) => e.toMap()).toList(),
       }, SetOptions(merge: true)).then((res) {
         isLoading.value = false;
-        followText.value = "Waiting";
-        showMessage(dataUpdatedSuccessfully.tr);
+        followText.value = "Followed";
+        FirebaseFirestore.instance
+            .collection('followers')
+            .doc(userID.value)
+            .set({
+          "requests": followRequests.value.map((e) => e.toMap()).toList(),
+        }, SetOptions(merge: true)).then((res) {
+
+          showMessage(dataUpdatedSuccessfully.tr);
+        });
+
       });
     });
   }

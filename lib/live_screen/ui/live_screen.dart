@@ -9,6 +9,8 @@ import 'package:streaming_post_demo/constants/app_colors.dart';
 import 'package:streaming_post_demo/constants/string_constants.dart';
 import 'package:streaming_post_demo/follow_requests/ui/follow_requests_screen.dart';
 import 'package:streaming_post_demo/live_screen/controller/live_controller.dart';
+import 'package:streaming_post_demo/live_screen/controller/streaming_requests_controller.dart';
+import 'package:streaming_post_demo/live_screen/ui/streaming_requests_screen.dart';
 import 'package:streaming_post_demo/my_clients/ui/my_clients_screen.dart';
 import 'package:streaming_post_demo/profile/ui/profile_screen.dart';
 import '../../constants/app_images.dart';
@@ -311,6 +313,40 @@ class LiveScreen extends StatelessWidget {
                     SizedBox(
                       height: SizeConfig.blockSizeVertical * 2,
                     ),
+                     Row(
+                       children: [
+                         const Spacer(),
+                         InkWell(
+                            onTap: () {
+                              Get.to(() => StreamingRequestsScreen(
+                                  controller.userData.value.userId
+                                      .toString(),
+                                  controller.myClientsList.value, controller.streamingToken.value, controller.channelName, controller.chatToken.value));
+                            },
+                            child: Container(
+                              width: 90,
+                              margin: const EdgeInsets.only(top: 60, right: 15),
+                              decoration: BoxDecoration(
+                                color: colorLightGreyBg,
+                                border: Border.all(
+                                  color: colorBlack,
+                                  style: BorderStyle.solid,
+                                  width: 1.0,
+                                ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Center(
+                                  child: headingText(
+                                      receiveARequest.tr,
+                                      SizeConfig.blockSizeHorizontal * 3.2,
+                                      colorBlack),
+                                ),
+                              ),
+                            ),
+                          ),
+                       ],
+                     ),
                   ],
                 )
               ),

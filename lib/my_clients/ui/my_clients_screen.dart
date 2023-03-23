@@ -49,40 +49,40 @@ class MyClientsScreen extends StatelessWidget {
   }
 
   Widget requestRowItem(Followers follower, int index) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Card(
-        elevation: 10,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Row(
-            children: [
-              CircleAvatar(
-                backgroundImage: NetworkImage(follower.userImage.toString()),
-                radius: 35,
-              ),
-              SizedBox(
-                width: SizeConfig.blockSizeHorizontal * 4,
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  headingText(follower.username.toString(),
-                      SizeConfig.blockSizeHorizontal * 4, colorBlack,
-                      weight: FontWeight.w700),
-                  SizedBox(
-                    height: SizeConfig.blockSizeHorizontal * 2,
-                  ),
-                  headingText(follower.userCountry.toString(),
-                      SizeConfig.blockSizeHorizontal * 4, colorBlack,
-                      weight: FontWeight.w700),
-                ],
-              ),
+    return  Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Card(
+          elevation: 10,
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  backgroundImage: NetworkImage(follower.userImage.toString()),
+                  radius: 35,
+                ),
+                SizedBox(
+                  width: SizeConfig.blockSizeHorizontal * 4,
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    headingText(follower.username.toString(),
+                        SizeConfig.blockSizeHorizontal * 4, colorBlack,
+                        weight: FontWeight.w700),
+                    SizedBox(
+                      height: SizeConfig.blockSizeHorizontal * 2,
+                    ),
+                    headingText(follower.userCountry.toString(),
+                        SizeConfig.blockSizeHorizontal * 4, colorBlack,
+                        weight: FontWeight.w700),
+                  ],
+                ),
 
-            ],
+              ],
+            ),
           ),
         ),
-      ),
     );
   }
 }
