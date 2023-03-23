@@ -24,13 +24,9 @@ class LiveScreen extends StatelessWidget {
     controller.streamingUserId.value = streamingUserIds;
     controller.streamingJoiningId.value = streamingJoiningId;
     controller.groupStreaming.value = groupStreaming;
+    print("I am hitting audience");
+    controller.fetchAudienceData(controller.streamingUserId.value);
 
-    Future.delayed(Duration(seconds: 3), () {
-      if(controller.groupStreaming.value == true){
-        controller.users.add(controller.streamingJoiningId.value);
-        controller.users.refresh();
-      }
-    });
   }
 
   @override
@@ -177,8 +173,8 @@ class LiveScreen extends StatelessWidget {
                             height: SizeConfig.screenHeight - 170,
                             decoration: BoxDecoration(border: Border.all()),
                             child: Obx(() => controller.isLoadingVideoView.value == true &&
-                                controller.isHost.value == true ? _viewRows() : controller.isLoadingVideoView.value == true &&
-                                controller.isHost.value == false
+                                controller.isHost.value == true || controller.users.value.isNotEmpty ? _viewRows() : controller.isLoadingVideoView.value == true &&
+                                controller.isHost.value == false || controller.users.value.isNotEmpty
                                 ? AgoraVideoView(
                               controller: VideoViewController.remote(
                                 rtcEngine: controller.agoraEngine.value,

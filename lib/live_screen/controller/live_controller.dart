@@ -10,6 +10,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:streaming_post_demo/common/widgets.dart';
 import 'package:streaming_post_demo/constants/api_endpoints.dart';
+import 'package:streaming_post_demo/live_screen/model/live_audience_model.dart';
 import 'package:streaming_post_demo/live_screen/model/streaming_request_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -52,6 +53,7 @@ class LiveController extends GetxController {
       "007eJxTYODIn7b1fujtlZq8q3+8WiX8LdBk2l3XKlf1GRfCN/EJR19WYEizsDBPMzRPTTVJtDAxMU61TDEzSDVISTOzMDJJTk4z/2kok9IQyMjQ9P4gKyMDKwMjEIL4KgwmBolJacYpBrpJaWlpuoaGqSm6iUlmZrrGSUmGKUlplmkWSYYA1/UphA=="
           .obs;
   var chatList = <ChatModel>[].obs;
+  var streamingAudienceList = <LiveAudienceModel>[].obs;
 
   var users = <int>[].obs;
   final _infoStrings = <String>[];
@@ -298,6 +300,7 @@ class LiveController extends GetxController {
             /* showMessage("Remote user uid:$remoteUid joined the channel");*/
              //   users.add(remoteUid1);
             remoteUid.value = remoteUid1;
+            addStreamingAudience();
                 showDebugPrint("Remote id is -remoteUid1---------------  ${remoteUid1}");
          //   users.refresh();
           },
@@ -390,7 +393,50 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
     });
   }
 
-  fetchUserData(String userID) async {
+ Future<void> addStreamingAudience() async {
+   streamingAudienceList.add(LiveAudienceModel(remoteUid.value.toString()));
+    await FirebaseFirestore.instance
+        .collection('live_audience')
+        .doc(userID.value)
+        .set({
+          "requests": streamingAudienceList.value.map((e) => e.toMap()).toList(),
+        }, SetOptions(merge: true)).then((res) {
+      isLoading.value = false;
+      streamingAudienceList.refresh();
+      showMessage(dataUpdatedSuccessfully.tr);
+    });
+  }
+
+  fetchAudienceData(String userID) async {
+    print("fetch user id audience ------------>  $userID");
+    fetchFollowingRequests(userID);
+    fetchFollowers(userID);
+    await FirebaseFirestore.instance
+        .collection("live_audience")
+        .doc("G2tOqUX8HoVM1CpJAgWATb3Byq62")
+        .get()
+        .then((value) {
+     streamingAudienceList.clear();
+     if (value.data() != null && value.data()!['requests'] != null) {
+       if (value.data()!['requests'] != null &&
+           value.data()!['requests'] != []) {
+         for (int j = 0; j < value.data()!['requests'].length; j++) {
+           streamingAudienceList.add(LiveAudienceModel(
+               value.data()!['requests'][j]['userId']));}
+       }
+     }
+     streamingAudienceList.refresh();
+     Future.delayed(Duration(seconds: 2), () {
+       if(groupStreaming.value == true){
+         print("firebase remote user id ------->  ${streamingAudienceList.value[0].userId.toString()}");
+         users.value.add(int.parse(streamingAudienceList.value[0].userId.toString()));
+         users.refresh();
+       }
+     });
+    });
+  }
+
+ fetchUserData(String userID) async {
     isLoading.value = true;
     fetchFollowingRequests(userID);
     fetchFollowers(userID);
@@ -454,6 +500,7 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
   }
 
 fetchStreamingRequests(String userID) async {
+
     await FirebaseFirestore.instance
         .collection("live_streaming_requests")
         .doc(userID)
