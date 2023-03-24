@@ -62,6 +62,7 @@ class LiveController extends GetxController {
   @override
   onInit() {
     getUserData();
+
     //if(streamingToken.value == null || streamingToken.value == ""){
       //tokenGeneration();
   //  }
@@ -413,7 +414,7 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
     fetchFollowers(userID);
     await FirebaseFirestore.instance
         .collection("live_audience")
-        .doc("G2tOqUX8HoVM1CpJAgWATb3Byq62")
+        .doc(userID)
         .get()
         .then((value) {
      streamingAudienceList.clear();
@@ -519,11 +520,16 @@ fetchStreamingRequests(String userID) async {
                 value.data()!['requests'][j]['streamingToken'],
                 value.data()!['requests'][j]['streamingChannel'],
                 value.data()!['requests'][j]['chatToken'],
+                value.data()!['requests'][j]['remoteID'],
             ));
           }
         }
       }
       streamingRequestsList.refresh();
+    });
+
+    Future.delayed(const Duration(seconds: 10), () {
+      fetchStreamingRequests(userID);
     });
   }
 
@@ -560,6 +566,7 @@ fetchStreamingRequests(String userID) async {
           isHost.value == false ? streamingUserId.value : userID.value);
       if (userID.value != "") {
         setupVideoSDKEngine();
+        fetchStreamingRequests(userID.value);
       } else {
         showLoginDialog();
       }
@@ -669,5 +676,23 @@ fetchStreamingRequests(String userID) async {
 
       });
     });
+  }
+
+  sendLiveStreamingRequest() {
+    showDebugPrint("userid ------------->  ${userID.value}");
+    isLoading.value = true;
+    var requestList = <StreamingRequestsModel>[].obs;
+    requestList.add(StreamingRequestsModel(userID.value, streamingUserId.value, GetStorage().read(userName), GetStorage().read(userCountry), GetStorage().read(userImage), streamingToken.value, channelName, chatToken.value, uid.value.toString()));
+
+    FirebaseFirestore.instance
+        .collection('live_streaming_requests')
+        .doc(streamingUserId.value)
+        .set({
+      "requests": requestList.value.map((e) => e.toMap()).toList(),
+    }, SetOptions(merge: true)).then((res) {
+      isLoading.value = false;
+      showMessage(dataUpdatedSuccessfully.tr);
+    });
+    //});
   }
 }

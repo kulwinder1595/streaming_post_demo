@@ -52,6 +52,7 @@ const myClients = "myClients";
 const myProfile = "myProfile";
 const receiveARequest = "receiveARequest";
 const send = "send";
+const sendARequest = "sendARequest";
 const writeAChat = "writeAChat";
 const enterAChatMessage = "enterAChatMessage";
 const profile = "profile";

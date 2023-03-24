@@ -9,7 +9,6 @@ import '../../live_screen/ui/live_screen.dart';
 
 class FollowRequestsController extends GetxController{
   var userID = "".obs;
-  var streamingJoiningId = 0.obs;
   //var requestsList = <Followers>[].obs;
   var requestsList = <StreamingRequestsModel>[].obs;
 
@@ -33,6 +32,7 @@ class FollowRequestsController extends GetxController{
                 value.data()!['requests'][j]['streamingToken'],
                 value.data()!['requests'][j]['streamingChannel'],
                 value.data()!['requests'][j]['chatToken'],
+                value.data()!['requests'][j]['remoteID'],
             ));
           }
         }
@@ -58,7 +58,7 @@ class FollowRequestsController extends GetxController{
   }
 void acceptFollowRequest(int index) {
  // deleteStreamingRequest(index);
-  Get.to(() => LiveScreen(true, "", "", streamingJoiningId.value, true) );
+  Get.to(() => LiveScreen(true, "", "", int.parse(requestsList[index].remoteID.toString()), true) );
 
   }
 }

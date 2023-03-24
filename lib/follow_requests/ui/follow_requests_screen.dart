@@ -14,11 +14,10 @@ import '../../constants/string_constants.dart';
 class FollowRequestsScreen extends StatelessWidget {
   var controller = Get.put(FollowRequestsController());
 
-  FollowRequestsScreen(String userId, List<Followers> followersRequestList, int streamingJoiningId) {
+  FollowRequestsScreen(String userId, List<Followers> followersRequestList, int streamingJoiningId, List<StreamingRequestsModel> requestList) {
     controller.userID.value = userId;
-    controller.streamingJoiningId.value = streamingJoiningId;
     controller.fetchFollowingRequests(controller.userID.value);
-  //  controller.requestsList.value = followersRequestList;
+    controller.requestsList.value = requestList;
   }
 
   @override

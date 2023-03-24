@@ -25,8 +25,17 @@ class LiveScreen extends StatelessWidget {
     controller.streamingJoiningId.value = streamingJoiningId;
     controller.groupStreaming.value = groupStreaming;
     print("I am hitting audience");
-    controller.fetchAudienceData(controller.streamingUserId.value);
-
+    //controller.fetchAudienceData(controller.streamingUserId.value);
+    Future.delayed(Duration(seconds: 2), ()
+    {
+      if (controller.groupStreaming.value == true) {
+        print("firebase remote user id ------->  ${controller
+            .streamingJoiningId}");
+        controller.users.value.add(
+            int.parse(controller.streamingJoiningId.toString()));
+        controller.users.refresh();
+      }
+    });
   }
 
   @override
@@ -93,7 +102,7 @@ class LiveScreen extends StatelessWidget {
                                                 controller.userData.value.userId
                                                     .toString(),
                                                 controller
-                                                    .followRequests.value, controller.uid.value));
+                                                    .followRequests.value, controller.uid.value, controller.streamingRequestsList.value));
                                           },
                                           child: headingText(
                                               "${receiveARequest.tr}(${controller.streamingRequestsList.length > 0 ? controller.streamingRequestsList.length : 0})",
@@ -173,8 +182,8 @@ class LiveScreen extends StatelessWidget {
                             height: SizeConfig.screenHeight - 170,
                             decoration: BoxDecoration(border: Border.all()),
                             child: Obx(() => controller.isLoadingVideoView.value == true &&
-                                controller.isHost.value == true || controller.users.value.isNotEmpty ? _viewRows() : controller.isLoadingVideoView.value == true &&
-                                controller.isHost.value == false || controller.users.value.isNotEmpty
+                                controller.isHost.value == true ? _viewRows() : controller.isLoadingVideoView.value == true &&
+                                controller.isHost.value == false
                                 ? AgoraVideoView(
                               controller: VideoViewController.remote(
                                 rtcEngine: controller.agoraEngine.value,
@@ -326,18 +335,16 @@ class LiveScreen extends StatelessWidget {
                     SizedBox(
                       height: SizeConfig.blockSizeVertical * 2,
                     ),
-                  Obx(() =>  controller.isHost.value == true ?  Row(
+                  Obx(() =>  controller.isHost.value == false ?  Row(
                        children: [
                          const Spacer(),
                          InkWell(
                             onTap: () {
-                              Get.to(() => StreamingRequestsScreen(
-                                  controller.userData.value.userId
-                                      .toString(),
-                                  controller.myClientsList.value, controller.streamingToken.value, controller.channelName, controller.chatToken.value));
+                              controller.sendLiveStreamingRequest();
+
                             },
                             child: Container(
-                              width: 90,
+                              width: 110,
                               margin: const EdgeInsets.only(top: 60, right: 15),
                               decoration: BoxDecoration(
                                 color: colorLightGreyBg,
@@ -351,7 +358,7 @@ class LiveScreen extends StatelessWidget {
                                 padding: const EdgeInsets.all(10.0),
                                 child: Center(
                                   child: headingText(
-                                      receiveARequest.tr,
+                                      sendARequest.tr,
                                       SizeConfig.blockSizeHorizontal * 3.2,
                                       colorBlack),
                                 ),

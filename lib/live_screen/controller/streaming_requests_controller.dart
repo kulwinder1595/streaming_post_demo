@@ -52,7 +52,7 @@ class StreamingRequestsController extends GetxController{
       requestList.add(StreamingRequestsModel(senderUserId, receiverUserId,
           senderUsername, senderUserImage,senderUserCountry,streamingToken,streamingChannel,chatToken));*/
 
-    requestList.add(StreamingRequestsModel(userID.value, userDetails.userId, GetStorage().read(userName), GetStorage().read(userCountry), GetStorage().read(userImage), streamingToken1, channel1, chatToken1));
+    requestList.add(StreamingRequestsModel(userID.value, userDetails.userId, GetStorage().read(userName), GetStorage().read(userCountry), GetStorage().read(userImage), streamingToken1, channel1, chatToken1, ""));
 
       FirebaseFirestore.instance
           .collection('live_streaming_requests')
