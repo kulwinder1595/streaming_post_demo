@@ -46,6 +46,9 @@ otpVerfication() async {
       Get.to(() => MainScreen());
       storage.write(userId, result.user!.uid);
       storage.write(userName, nameController.value.text);
+      storage.write(userCountry, "");
+      storage.write(userImage, "");
+
       showMessage("${registerSuccessfully.tr} \nHello ${nameController.value.text}");
       nameController.value.text = "";
       phoneController.value.text = "";

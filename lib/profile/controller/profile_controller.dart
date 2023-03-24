@@ -202,6 +202,8 @@ class ProfileController extends GetxController {
       "videos": videoUrlList.value.map((e) => e.toMap()).toList(),
     }, SetOptions(merge: true)).then((res) {
       isLoading.value = false;
+      GetStorage().write(userCountry, nationalityController.value.text.toString(),);
+      GetStorage().write(userImage, imageUrl.value.toString());
       showMessage(
           dataUpdatedSuccessfully.tr);
     });

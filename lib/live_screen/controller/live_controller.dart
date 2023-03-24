@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:agora_chat_sdk/agora_chat_sdk.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
-import 'package:agora_token_service/agora_token_service.dart';
+// import 'package:agora_token_service/agora_token_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,7 +32,8 @@ class LiveController extends GetxController {
   var isLoadingVideoView = false.obs;
   var agoraEngine = createAgoraRtcEngine().obs;
   var uid = 0.obs; // uid of the local user
-  var streamingJoiningId = 0.obs;
+  var streamingJoiningId = "0".obs;
+  var hostId = "0".obs;
   var remoteUid = 1.obs; // uid of the remote user
   var isJoined =
       false.obs; // Indicates if the local user has joined the channel
@@ -48,9 +49,9 @@ class LiveController extends GetxController {
   var scrollController = ScrollController().obs;
   var channelName = "StreamingPost";
   var streamingToken =
-      "007eJxTYDhWctD4Ys6WmN/5FaItyXNff16o4Vh20lqVZ2L7quQFPxQVGNIsLMzTDM1TU00SLUxMjFMtU8wMUg1S0swsjEySk9PMNY1kUhoCGRmOSpxhYWRgZGABYhCfCUwyg0kWMMnLEFxSlJqYm5mXHpBfXMLAAAAa1CXC".obs;
+      "007eJxTYPA3cQ3/seQZ0+PCuUnS7BpFl30VOxbU+F3n6J1uwa3zo0KBIc3CwjzN0Dw11STRwsTEONUyxcwg1SAlzczCyCQ5Oc38zGTZlIZARgY9i3pWRgZGBhYgBvGZwCQzmGQBk7wMwSVFqYm5mXnpAfnFJQwMAAcGI2Q=".obs;
   var chatToken =
-      "007eJxTYODIn7b1fujtlZq8q3+8WiX8LdBk2l3XKlf1GRfCN/EJR19WYEizsDBPMzRPTTVJtDAxMU61TDEzSDVISTOzMDJJTk4z/2kok9IQyMjQ9P4gKyMDKwMjEIL4KgwmBolJacYpBrpJaWlpuoaGqSm6iUlmZrrGSUmGKUlplmkWSYYA1/UphA=="
+      "007eJxTYCh83Cvn/NtvjenNWacmJ1rE/9r7vv5aZWVGLt/B8J/P74coMKRZWJinGZqnppokWpiYGKdappgZpBqkpJlZGJkkJ6eZq06RTWkIZGS40qTHwsjAysAIhCC+CoOJQWJSmnGKgW5SWlqarqFhaopuYpKZma5xUpJhSlKaZZpFkiEAkC4qwQ=="
           .obs;
   var chatList = <ChatModel>[].obs;
   var streamingAudienceList = <LiveAudienceModel>[].obs;
@@ -90,7 +91,7 @@ class LiveController extends GetxController {
     );
   }
 
-  void tokenGeneration(){
+  /*void tokenGeneration(){
     streamingToken.value = RtcTokenBuilder.build(
       appId: ApiEndPoints.agoraAppId,
       appCertificate: ApiEndPoints.agoraAppCertificates,
@@ -101,7 +102,7 @@ class LiveController extends GetxController {
     );
 
     showDebugPrint("Generated token is -> ------------   ${streamingToken.value}");
-  }
+  }*/
   void onMessagesReceived(List<ChatMessage> messages) {
     for (var msg in messages) {
       switch (msg.body.type) {
@@ -295,15 +296,19 @@ class LiveController extends GetxController {
               streamingUserId.value = userID.value;
               updateLiveStreamingData();
             }
+            users.value.add(connection.localUid!);
           },
           onUserJoined:
               (RtcConnection connection, int remoteUid1, int elapsed) {
             /* showMessage("Remote user uid:$remoteUid joined the channel");*/
-             //   users.add(remoteUid1);
+                if(groupStreaming.value == true){
+                   users.add(remoteUid1);
+                }
+
             remoteUid.value = remoteUid1;
             addStreamingAudience();
                 showDebugPrint("Remote id is -remoteUid1---------------  ${remoteUid1}");
-         //   users.refresh();
+            users.refresh();
           },
           onUserOffline: (RtcConnection connection, int remoteUid1,
               UserOfflineReasonType reason) {
@@ -343,8 +348,7 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
       token: streamingToken.value,
       channelId: channelName,
       options: options,
-      uid: 0,
-    );
+      uid: 0);
     showDebugPrint("-------------check is token is expired--------------");
   }
 
@@ -501,7 +505,7 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
   }
 
 fetchStreamingRequests(String userID) async {
-
+  streamingRequestsList.clear();
     await FirebaseFirestore.instance
         .collection("live_streaming_requests")
         .doc(userID)
@@ -521,6 +525,8 @@ fetchStreamingRequests(String userID) async {
                 value.data()!['requests'][j]['streamingChannel'],
                 value.data()!['requests'][j]['chatToken'],
                 value.data()!['requests'][j]['remoteID'],
+                value.data()!['requests'][j]['hostID'],
+
             ));
           }
         }
@@ -682,7 +688,7 @@ fetchStreamingRequests(String userID) async {
     showDebugPrint("userid ------------->  ${userID.value}");
     isLoading.value = true;
     var requestList = <StreamingRequestsModel>[].obs;
-    requestList.add(StreamingRequestsModel(userID.value, streamingUserId.value, GetStorage().read(userName), GetStorage().read(userCountry), GetStorage().read(userImage), streamingToken.value, channelName, chatToken.value, uid.value.toString()));
+    requestList.add(StreamingRequestsModel(userID.value, streamingUserId.value, GetStorage().read(userName), GetStorage().read(userCountry), GetStorage().read(userImage), streamingToken.value, channelName, chatToken.value, uid.value.toString(), remoteUid.value.toString()));
 
     FirebaseFirestore.instance
         .collection('live_streaming_requests')

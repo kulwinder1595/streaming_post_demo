@@ -8,11 +8,12 @@ class StreamingRequestsModel{
   String? streamingChannel;
   String? chatToken;
   String? remoteID;
+  String? hostID;
 
   StreamingRequestsModel(this.senderUserId, this.receiverUserId, this.senderUsername,
       this.senderUserCountry, this.senderUserImage, this.streamingToken,
       this.streamingChannel,
-      this.chatToken, this.remoteID);
+      this.chatToken, this.remoteID, this.hostID);
 
   StreamingRequestsModel.fromJson(Map<String, dynamic> json) {
     senderUserId = json['senderUserId'].toString();
@@ -24,6 +25,7 @@ class StreamingRequestsModel{
     streamingChannel = json['streamingChannel'].toString();
     chatToken = json['chatToken'].toString();
     remoteID = json['remoteID'].toString();
+    hostID = json['hostID'].toString();
 
   }
 
@@ -38,6 +40,7 @@ class StreamingRequestsModel{
       'streamingChannel': streamingChannel,
       'chatToken': chatToken,
       'remoteID': remoteID,
+      'hostID': hostID,
     };
   }
 
@@ -52,6 +55,7 @@ class StreamingRequestsModel{
     data['streamingChannel'] = streamingChannel;
     data['chatToken'] = chatToken;
     data['remoteID'] = remoteID;
+    data['hostID'] = hostID;
 
     return data;
   }

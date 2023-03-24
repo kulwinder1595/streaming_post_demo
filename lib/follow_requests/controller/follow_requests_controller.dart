@@ -33,6 +33,7 @@ class FollowRequestsController extends GetxController{
                 value.data()!['requests'][j]['streamingChannel'],
                 value.data()!['requests'][j]['chatToken'],
                 value.data()!['requests'][j]['remoteID'],
+                value.data()!['requests'][j]['hostID'],
             ));
           }
         }
@@ -56,9 +57,10 @@ class FollowRequestsController extends GetxController{
       showMessage(dataUpdatedSuccessfully.tr);
     });
   }
-void acceptFollowRequest(int index) {
+void acceptFollowRequest(int index, String remoteId, String hostId) {
  // deleteStreamingRequest(index);
-  Get.to(() => LiveScreen(true, "", "", int.parse(requestsList[index].remoteID.toString()), true) );
+  showDebugPrint("remote id on request screen---------------------   $remoteId");
+  Get.to(() => LiveScreen(true, "", "", remoteId, true, hostId) );
 
   }
 }

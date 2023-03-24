@@ -19,21 +19,28 @@ import '../model/chat_model.dart';
 class LiveScreen extends StatelessWidget {
   var controller = Get.put(LiveController());
 
-  LiveScreen(bool _isHost, streamingUserIds, streamingToken, int streamingJoiningId, bool groupStreaming) {
+  LiveScreen(bool _isHost, streamingUserIds, streamingToken, String streamingJoiningId, bool groupStreaming, String hostId) {
     controller.isHost.value = _isHost;
     controller.streamingUserId.value = streamingUserIds;
     controller.streamingJoiningId.value = streamingJoiningId;
+    controller.hostId.value = hostId;
     controller.groupStreaming.value = groupStreaming;
     print("I am hitting audience");
     //controller.fetchAudienceData(controller.streamingUserId.value);
     Future.delayed(Duration(seconds: 2), ()
     {
+
       if (controller.groupStreaming.value == true) {
-        print("firebase remote user id ------->  ${controller
+        controller.isHost.value = true;
+        controller.setupVideoSDKEngine();
+        /*print("firebase remote user id ------->  ${controller
             .streamingJoiningId}");
-        controller.users.value.add(
-            int.parse(controller.streamingJoiningId.toString()));
+        controller.users.value.add(int.parse(controller.streamingJoiningId.toString()));
+        controller.users.value.add(int.parse(controller.hostId.toString()));
         controller.users.refresh();
+        for(int i = 0; i< controller.users.length ; i++){
+          showDebugPrint("--------------audience-----------  ${controller.users[i]}");
+        }*/
       }
     });
   }
@@ -486,7 +493,7 @@ class LiveScreen extends StatelessWidget {
       controller: VideoViewController(
           rtcEngine: controller.agoraEngine.value,
           canvas: VideoCanvas(uid: uid),
-      ),),));
+      ),),),);
     return list;
   }
 
