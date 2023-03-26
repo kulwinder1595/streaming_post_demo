@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:agora_chat_sdk/agora_chat_sdk.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+
 // import 'package:agora_token_service/agora_token_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ import 'package:streaming_post_demo/common/widgets.dart';
 import 'package:streaming_post_demo/constants/api_endpoints.dart';
 import 'package:streaming_post_demo/live_screen/model/live_audience_model.dart';
 import 'package:streaming_post_demo/live_screen/model/streaming_request_model.dart';
+import 'package:streaming_post_demo/live_screen/ui/live_partner_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../common/size_config.dart';
@@ -21,6 +23,7 @@ import '../../constants/string_constants.dart';
 import '../../login/login_screen.dart';
 import '../../profile/model/profile_model.dart';
 import '../model/chat_model.dart';
+import '../ui/live_screen.dart';
 
 class LiveController extends GetxController {
   final messageController = TextEditingController().obs;
@@ -39,6 +42,7 @@ class LiveController extends GetxController {
       false.obs; // Indicates if the local user has joined the channel
   var isHost = false.obs;
   var groupStreaming = false.obs;
+  var isPartnerJoin = false.obs;
   var streamingUserId = "".obs;
 
   var enableTextField = true.obs;
@@ -49,9 +53,10 @@ class LiveController extends GetxController {
   var scrollController = ScrollController().obs;
   var channelName = "StreamingPost";
   var streamingToken =
-      "007eJxTYPA3cQ3/seQZ0+PCuUnS7BpFl30VOxbU+F3n6J1uwa3zo0KBIc3CwjzN0Dw11STRwsTEONUyxcwg1SAlzczCyCQ5Oc38zGTZlIZARgY9i3pWRgZGBhYgBvGZwCQzmGQBk7wMwSVFqYm5mXnpAfnFJQwMAAcGI2Q=".obs;
+      "007eJxTYGAyXq18gefCsYCvfZna+3/+esK0QVHz1VTp5wlcLxg7QtIVGNIsLMzTDM1TU00SLUxMjFMtU8wMUg1S0swsjEySk9PMlV/LpTQEMjJk1H9nYmRgZGABYhCfCUwyg0kWMMnLEFxSlJqYm5mXHpBfXMLAAADi6iXI"
+          .obs;
   var chatToken =
-      "007eJxTYCh83Cvn/NtvjenNWacmJ1rE/9r7vv5aZWVGLt/B8J/P74coMKRZWJinGZqnppokWpiYGKdappgZpBqkpJlZGJkkJ6eZq06RTWkIZGS40qTHwsjAysAIhCC+CoOJQWJSmnGKgW5SWlqarqFhaopuYpKZma5xUpJhSlKaZZpFkiEAkC4qwQ=="
+      "007eJxTYLBou26XnrE/K18mKHHO8suRJ7W+PX5m9dUnf2Wj86u5pzYoMKRZWJinGZqnppokWpiYGKdappgZpBqkpJlZGJkkJ6eZ+7yWS2kIZGTQrjBiZmRgZWAEQhBfhcHEIDEpzTjFQDcpLS1N19AwNUU3McnMTNc4KckwJSnNMs0iyRAALzsp4w=="
           .obs;
   var chatList = <ChatModel>[].obs;
   var streamingAudienceList = <LiveAudienceModel>[].obs;
@@ -59,19 +64,113 @@ class LiveController extends GetxController {
   var users = <int>[].obs;
   final _infoStrings = <String>[];
 
-
   @override
   onInit() {
     getUserData();
-
+    //  checkLiveRequestAcceptance();
     //if(streamingToken.value == null || streamingToken.value == ""){
-      //tokenGeneration();
-  //  }
+    //tokenGeneration();
+    //  }
+    showDebugPrint("----------controller staretd-------------  ");
 
     followText.value = follow.tr;
     initAgoraChatSDK();
     super.onInit();
   }
+
+  /*--------------------VIDEO STREAMING START--------------------------------*/
+
+  Future<void> setupVideoSDKEngine() async {
+    await [Permission.microphone, Permission.camera].request();
+    users.clear();
+    //create an instance of the Agora engine
+    agoraEngine.value = createAgoraRtcEngine();
+    await agoraEngine.value
+        .initialize(const RtcEngineContext(appId: ApiEndPoints.agoraAppId));
+
+    Future.delayed(Duration(seconds: 2), () async {
+      await agoraEngine.value.enableVideo();
+
+      // Register the event handler
+      agoraEngine.value.registerEventHandler(
+        RtcEngineEventHandler(
+          onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
+            showMessage(
+                "Local user uid:${connection.localUid} joined the channel");
+            showDebugPrint(
+                "connection.localUid id is -remoteUid1---------------  ${connection.localUid}");
+            uid.value = connection.localUid!;
+            isJoined.value = true;
+            if (isHost.value == true) {
+              streamingUserId.value = userID.value;
+              updateLiveStreamingData();
+            }
+          },
+          onUserJoined:
+              (RtcConnection connection, int remoteUid1, int elapsed) {
+            showMessage("Remote user uid:$remoteUid joined the channel");
+            // if (groupStreaming.value == true) {
+            users.add(remoteUid1);
+            //   }
+
+            remoteUid.value = remoteUid1;
+            //    addStreamingAudience();
+            showDebugPrint(
+                "Remote id is -remoteUid1---------------  ${remoteUid1}");
+            users.refresh();
+          },
+          onUserOffline: (RtcConnection connection, int remoteUid1,
+              UserOfflineReasonType reason) {
+            users.clear();
+            users.refresh();
+            showMessage("Remote user uid:$remoteUid left the channel");
+            remoteUid.value = 1;
+          },
+        ),
+      );
+      showDebugPrint("Remote id is ----------------  ${remoteUid.value}");
+      showDebugPrint("uid id is ----------------  ${uid.value}");
+      join();
+    });
+  }
+
+  void join() async {
+    // Set channel options
+    ChannelMediaOptions options;
+
+    // Set channel profile and client role
+    if (isHost.value == true) {
+      options = const ChannelMediaOptions(
+        clientRoleType: ClientRoleType.clientRoleBroadcaster,
+        channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
+      );
+      await agoraEngine.value.startPreview();
+    } else {
+      options = const ChannelMediaOptions(
+        clientRoleType: ClientRoleType.clientRoleBroadcaster,
+        channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
+      );
+    }
+    isLoadingVideoView.value = true;
+    await agoraEngine.value.joinChannel(
+        token: streamingToken.value,
+        channelId: channelName,
+        options: options,
+        uid: uid.value);
+    showDebugPrint("-------------check is token is expired--------------");
+  }
+
+  void leave() {
+    isJoined.value = false;
+    remoteUid.value = 1;
+    users.clear();
+    goOffline();
+    agoraEngine.value.leaveChannel();
+    agoraEngine.value.release();
+  }
+
+  /*--------------------VIDEO STREAMING END--------------------------------*/
+  /*--------------------AGORA CHAT START--------------------------------*/
 
   void initAgoraChatSDK() async {
     ChatOptions options = ChatOptions(
@@ -84,6 +183,21 @@ class LiveController extends GetxController {
     addChatListener();
   }
 
+  void signInToAgora(String userId) async {
+    try {
+      await ChatClient.getInstance.loginWithAgoraToken(
+        "101",
+        chatToken.value,
+      );
+      _addLogToConsole("login succeed, userId: $userId");
+      joinChatRoom("1234567890");
+    } on ChatError catch (e) {
+      _addLogToConsole("login failed, code: ${e.code}, desc: ${e.description}");
+      //  getAgoraRegisterApi(agoraAppChatToken.value, userId.value);
+    }
+    //  joinChatRoom("1234567890");
+  }
+
   void addChatListener() {
     ChatClient.getInstance.chatManager.addEventHandler(
       "UNIQUE_HANDLER_ID",
@@ -91,18 +205,6 @@ class LiveController extends GetxController {
     );
   }
 
-  /*void tokenGeneration(){
-    streamingToken.value = RtcTokenBuilder.build(
-      appId: ApiEndPoints.agoraAppId,
-      appCertificate: ApiEndPoints.agoraAppCertificates,
-      channelName: channelName,
-      uid: "101",
-      role: RtcRole.publisher,
-      expireTimestamp: 1710397585,
-    );
-
-    showDebugPrint("Generated token is -> ------------   ${streamingToken.value}");
-  }*/
   void onMessagesReceived(List<ChatMessage> messages) {
     for (var msg in messages) {
       switch (msg.body.type) {
@@ -115,10 +217,10 @@ class LiveController extends GetxController {
             chatList
                 .add(ChatModel(msg.from.toString(), body.content, colorYellow));
             chatList.refresh();
-            Timer(
+            /*    Timer(
                 const Duration(milliseconds: 500),
                     () => scrollController.value
-                    .jumpTo(scrollController.value.position.maxScrollExtent));
+                    .jumpTo(scrollController.value.position.maxScrollExtent));*/
           }
           break;
         case MessageType.IMAGE:
@@ -172,22 +274,6 @@ class LiveController extends GetxController {
     }
   }
 
-  void signInToAgora(String userId) async {
-    try {
-      await ChatClient.getInstance.loginWithAgoraToken(
-        "101",
-        chatToken.value,
-      );
-      _addLogToConsole("login succeed, userId: $userId");
-      joinChatRoom("1234567890");
-
-    } on ChatError catch (e) {
-      _addLogToConsole("login failed, code: ${e.code}, desc: ${e.description}");
-      //  getAgoraRegisterApi(agoraAppChatToken.value, userId.value);
-    }
-  //  joinChatRoom("1234567890");
-  }
-
   void sendMessage() async {
     var firstAttempt = true;
     if (messageController.value.text == "") {
@@ -211,7 +297,7 @@ class LiveController extends GetxController {
               chatList.refresh();
               Timer(
                   const Duration(milliseconds: 500),
-                      () => scrollController.value
+                  () => scrollController.value
                       .jumpTo(scrollController.value.position.maxScrollExtent));
               messageController.value.clear();
             },
@@ -253,121 +339,8 @@ class LiveController extends GetxController {
     }
   }
 
-  /* void getAgoraRegisterApi(String appToken, String userId) {
-    GoLiveRepo().agoraRegisterUser(appToken, userId).then((value) async {
-      if (value.applicationName != "") {
-        try {
-          await ChatClient.getInstance.loginWithAgoraToken(
-           userId,
-            chatToken.value,
-          );
-          _addLogToConsole("login succeed, userId: $userId");
-        } on ChatError catch (e) {
-          _addLogToConsole("login failed, code: ${e.code}, desc: ${e.description}");
-        }
-      } else {
-        return;
-      }
-    });
-  }*/
-
-  Future<void> setupVideoSDKEngine() async {
-    // retrieve or request camera and microphone permissions
-    await [Permission.microphone, Permission.camera].request();
-
-    //create an instance of the Agora engine
-    agoraEngine.value = createAgoraRtcEngine();
-    await agoraEngine.value
-        .initialize(const RtcEngineContext(appId: ApiEndPoints.agoraAppId));
-
-    Future.delayed(Duration(seconds: 2), () async {
-      await agoraEngine.value.enableVideo();
-
-      // Register the event handler
-      agoraEngine.value.registerEventHandler(
-        RtcEngineEventHandler(
-          onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
-            /* showMessage(
-                  "Local user uid:${connection.localUid} joined the channel");*/
-            showDebugPrint("connection.localUid id is -remoteUid1---------------  ${connection.localUid}");
-            uid.value = connection.localUid!;
-            isJoined.value = true;
-            if (isHost.value == true) {
-              streamingUserId.value = userID.value;
-              updateLiveStreamingData();
-            }
-            users.value.add(connection.localUid!);
-          },
-          onUserJoined:
-              (RtcConnection connection, int remoteUid1, int elapsed) {
-            /* showMessage("Remote user uid:$remoteUid joined the channel");*/
-                if(groupStreaming.value == true){
-                   users.add(remoteUid1);
-                }
-
-            remoteUid.value = remoteUid1;
-            addStreamingAudience();
-                showDebugPrint("Remote id is -remoteUid1---------------  ${remoteUid1}");
-            users.refresh();
-          },
-          onUserOffline: (RtcConnection connection, int remoteUid1,
-              UserOfflineReasonType reason) {
-         //   users.clear();
-         //   users.refresh();
-            /*  showMessage("Remote user uid:$remoteUid left the channel");*/
-
-            remoteUid.value = 1;
-          },
-        ),
-      );
-showDebugPrint("Remote id is ----------------  ${remoteUid.value}");
-showDebugPrint("uid id is ----------------  ${uid.value}");
-      join();
-    });
-  }
-
-  void join() async {
-    // Set channel options
-    ChannelMediaOptions options;
-
-    // Set channel profile and client role
-    if (isHost.value) {
-      options = const ChannelMediaOptions(
-        clientRoleType: ClientRoleType.clientRoleBroadcaster,
-        channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
-      );
-      await agoraEngine.value.startPreview();
-    } else {
-      options = const ChannelMediaOptions(
-        clientRoleType: ClientRoleType.clientRoleAudience,
-        channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
-      );
-    }
-    isLoadingVideoView.value = true;
-    await agoraEngine.value.joinChannel(
-      token: streamingToken.value,
-      channelId: channelName,
-      options: options,
-      uid: 0);
-    showDebugPrint("-------------check is token is expired--------------");
-  }
-
-  void leave() {
-    isJoined.value = false;
-    remoteUid.value = 1;
-    users.clear();
-    goOffline();
-    agoraEngine.value.leaveChannel();
-    agoraEngine.value.release();
-  }
-
-  Future<void> backPressButton() async {
-    await agoraEngine.value.leaveChannel();
-    agoraEngine.value.release();
-    leave();
-    Get.back();
-  }
-
+  /*--------------------AGORA CHAT END--------------------------------*/
+  /*--------------------FIREBASE DATA FETCHING START--------------------------------*/
   void goOffline() {
     FirebaseFirestore.instance
         .collection("live_streaming")
@@ -394,18 +367,18 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
       "user_name": userData.value.username,
     }, SetOptions(merge: true)).then((res) {
       isLoading.value = false;
-      showMessage(dataUpdatedSuccessfully.tr);
+      // showMessage(dataUpdatedSuccessfully.tr);
     });
   }
 
- Future<void> addStreamingAudience() async {
-   streamingAudienceList.add(LiveAudienceModel(remoteUid.value.toString()));
+  Future<void> addStreamingAudience() async {
+    streamingAudienceList.add(LiveAudienceModel(remoteUid.value.toString()));
     await FirebaseFirestore.instance
         .collection('live_audience')
         .doc(userID.value)
         .set({
-          "requests": streamingAudienceList.value.map((e) => e.toMap()).toList(),
-        }, SetOptions(merge: true)).then((res) {
+      "requests": streamingAudienceList.value.map((e) => e.toMap()).toList(),
+    }, SetOptions(merge: true)).then((res) {
       isLoading.value = false;
       streamingAudienceList.refresh();
       showMessage(dataUpdatedSuccessfully.tr);
@@ -421,27 +394,30 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
         .doc(userID)
         .get()
         .then((value) {
-     streamingAudienceList.clear();
-     if (value.data() != null && value.data()!['requests'] != null) {
-       if (value.data()!['requests'] != null &&
-           value.data()!['requests'] != []) {
-         for (int j = 0; j < value.data()!['requests'].length; j++) {
-           streamingAudienceList.add(LiveAudienceModel(
-               value.data()!['requests'][j]['userId']));}
-       }
-     }
-     streamingAudienceList.refresh();
-     Future.delayed(Duration(seconds: 2), () {
-       if(groupStreaming.value == true){
-         print("firebase remote user id ------->  ${streamingAudienceList.value[0].userId.toString()}");
-         users.value.add(int.parse(streamingAudienceList.value[0].userId.toString()));
-         users.refresh();
-       }
-     });
+      streamingAudienceList.clear();
+      if (value.data() != null && value.data()!['requests'] != null) {
+        if (value.data()!['requests'] != null &&
+            value.data()!['requests'] != []) {
+          for (int j = 0; j < value.data()!['requests'].length; j++) {
+            streamingAudienceList
+                .add(LiveAudienceModel(value.data()!['requests'][j]['userId']));
+          }
+        }
+      }
+      streamingAudienceList.refresh();
+      Future.delayed(Duration(seconds: 2), () {
+        if (groupStreaming.value == true) {
+          print(
+              "firebase remote user id ------->  ${streamingAudienceList.value[0].userId.toString()}");
+          users.value
+              .add(int.parse(streamingAudienceList.value[0].userId.toString()));
+          users.refresh();
+        }
+      });
     });
   }
 
- fetchUserData(String userID) async {
+  fetchUserData(String userID) async {
     isLoading.value = true;
     fetchFollowingRequests(userID);
     fetchFollowers(userID);
@@ -504,8 +480,8 @@ showDebugPrint("uid id is ----------------  ${uid.value}");
     });
   }
 
-fetchStreamingRequests(String userID) async {
-  streamingRequestsList.clear();
+  fetchStreamingRequests(String userID) async {
+    streamingRequestsList.clear();
     await FirebaseFirestore.instance
         .collection("live_streaming_requests")
         .doc(userID)
@@ -516,17 +492,16 @@ fetchStreamingRequests(String userID) async {
             value.data()!['requests'] != []) {
           for (int j = 0; j < value.data()!['requests'].length; j++) {
             streamingRequestsList.add(StreamingRequestsModel(
-                value.data()!['requests'][j]['senderUserId'],
-                value.data()!['requests'][j]['receiverUserId'],
-                value.data()!['requests'][j]['senderUsername'],
-                value.data()!['requests'][j]['senderUserCountry'],
-                value.data()!['requests'][j]['senderUserImage'],
-                value.data()!['requests'][j]['streamingToken'],
-                value.data()!['requests'][j]['streamingChannel'],
-                value.data()!['requests'][j]['chatToken'],
-                value.data()!['requests'][j]['remoteID'],
-                value.data()!['requests'][j]['hostID'],
-
+              value.data()!['requests'][j]['senderUserId'],
+              value.data()!['requests'][j]['receiverUserId'],
+              value.data()!['requests'][j]['senderUsername'],
+              value.data()!['requests'][j]['senderUserCountry'],
+              value.data()!['requests'][j]['senderUserImage'],
+              value.data()!['requests'][j]['streamingToken'],
+              value.data()!['requests'][j]['streamingChannel'],
+              value.data()!['requests'][j]['chatToken'],
+              value.data()!['requests'][j]['remoteID'],
+              value.data()!['requests'][j]['hostID'],
             ));
           }
         }
@@ -577,6 +552,15 @@ fetchStreamingRequests(String userID) async {
         showLoginDialog();
       }
     });
+  }
+
+  /*--------------------FIREBASE DATA FETCHING END--------------------------------*/
+
+  Future<void> backPressButton() async {
+    await agoraEngine.value.leaveChannel();
+    agoraEngine.value.release();
+    leave();
+    Get.back();
   }
 
   void showLoginDialog() {
@@ -676,10 +660,8 @@ fetchStreamingRequests(String userID) async {
             .set({
           "requests": followRequests.value.map((e) => e.toMap()).toList(),
         }, SetOptions(merge: true)).then((res) {
-
           showMessage(dataUpdatedSuccessfully.tr);
         });
-
       });
     });
   }
@@ -688,7 +670,17 @@ fetchStreamingRequests(String userID) async {
     showDebugPrint("userid ------------->  ${userID.value}");
     isLoading.value = true;
     var requestList = <StreamingRequestsModel>[].obs;
-    requestList.add(StreamingRequestsModel(userID.value, streamingUserId.value, GetStorage().read(userName), GetStorage().read(userCountry), GetStorage().read(userImage), streamingToken.value, channelName, chatToken.value, uid.value.toString(), remoteUid.value.toString()));
+    requestList.add(StreamingRequestsModel(
+        userID.value,
+        streamingUserId.value,
+        GetStorage().read(userName),
+        GetStorage().read(userCountry),
+        GetStorage().read(userImage),
+        streamingToken.value,
+        channelName,
+        chatToken.value,
+        uid.value.toString(),
+        remoteUid.value.toString()));
 
     FirebaseFirestore.instance
         .collection('live_streaming_requests')
@@ -701,4 +693,60 @@ fetchStreamingRequests(String userID) async {
     });
     //});
   }
+
+  Future<void> checkLiveRequestAcceptance() async {
+    Future.delayed(Duration(seconds: 15), () async {
+      await FirebaseFirestore.instance
+          .collection("accepted_live_request")
+          .doc(userID.value)
+          .get()
+          .then((value) {
+        showDebugPrint(
+            "-----------------sender id user ------- ${userID.value}");
+        if (value.data() != null &&
+            value.data()!['senderId'] != null &&
+            value.data()!['senderId'] == userID.value) {
+          showDebugPrint(
+              "-----------------sender id ------- ${value.data()!['senderId']}");
+          isPartnerJoin.value = true;
+
+          Get.to(() => LivePartnerScreen(true, "", "",
+              remoteUid.value.toString(), true, hostId.value.toString()));
+        } else {
+          checkLiveRequestAcceptance();
+        }
+      });
+    });
+  }
+
+/*void tokenGeneration(){
+    streamingToken.value = RtcTokenBuilder.build(
+      appId: ApiEndPoints.agoraAppId,
+      appCertificate: ApiEndPoints.agoraAppCertificates,
+      channelName: channelName,
+      uid: "101",
+      role: RtcRole.publisher,
+      expireTimestamp: 1710397585,
+    );
+
+    showDebugPrint("Generated token is -> ------------   ${streamingToken.value}");
+  }*/
+
+/* void getAgoraRegisterApi(String appToken, String userId) {
+    GoLiveRepo().agoraRegisterUser(appToken, userId).then((value) async {
+      if (value.applicationName != "") {
+        try {
+          await ChatClient.getInstance.loginWithAgoraToken(
+           userId,
+            chatToken.value,
+          );
+          _addLogToConsole("login succeed, userId: $userId");
+        } on ChatError catch (e) {
+          _addLogToConsole("login failed, code: ${e.code}, desc: ${e.description}");
+        }
+      } else {
+        return;
+      }
+    });
+  }*/
 }

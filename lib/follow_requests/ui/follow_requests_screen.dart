@@ -82,7 +82,7 @@ class FollowRequestsScreen extends StatelessWidget {
               Spacer(),
               InkWell(
                   onTap: (){
-                    controller.acceptFollowRequest(index, model.remoteID.toString(), model.hostID.toString());
+                    controller.acceptFollowRequest(index, model.remoteID.toString(), model.hostID.toString(), model.senderUserId.toString());
                   },
                   child: Image.asset(checked, width: 40,height: 40,)),
               SizedBox(

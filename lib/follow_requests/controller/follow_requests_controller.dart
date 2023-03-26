@@ -7,11 +7,11 @@ import '../../common/widgets.dart';
 import '../../constants/string_constants.dart';
 import '../../live_screen/ui/live_screen.dart';
 
-class FollowRequestsController extends GetxController{
+class FollowRequestsController extends GetxController {
   var userID = "".obs;
+
   //var requestsList = <Followers>[].obs;
   var requestsList = <StreamingRequestsModel>[].obs;
-
 
   fetchFollowingRequests(String userID) async {
     await FirebaseFirestore.instance
@@ -24,16 +24,16 @@ class FollowRequestsController extends GetxController{
             value.data()!['requests'] != []) {
           for (int j = 0; j < value.data()!['requests'].length; j++) {
             requestsList.add(StreamingRequestsModel(
-                value.data()!['requests'][j]['senderUserId'],
-                value.data()!['requests'][j]['receiverUserId'],
-                value.data()!['requests'][j]['senderUsername'],
-                value.data()!['requests'][j]['senderUserCountry'],
-                value.data()!['requests'][j]['senderUserImage'],
-                value.data()!['requests'][j]['streamingToken'],
-                value.data()!['requests'][j]['streamingChannel'],
-                value.data()!['requests'][j]['chatToken'],
-                value.data()!['requests'][j]['remoteID'],
-                value.data()!['requests'][j]['hostID'],
+              value.data()!['requests'][j]['senderUserId'],
+              value.data()!['requests'][j]['receiverUserId'],
+              value.data()!['requests'][j]['senderUsername'],
+              value.data()!['requests'][j]['senderUserCountry'],
+              value.data()!['requests'][j]['senderUserImage'],
+              value.data()!['requests'][j]['streamingToken'],
+              value.data()!['requests'][j]['streamingChannel'],
+              value.data()!['requests'][j]['chatToken'],
+              value.data()!['requests'][j]['remoteID'],
+              value.data()!['requests'][j]['hostID'],
             ));
           }
         }
@@ -41,7 +41,6 @@ class FollowRequestsController extends GetxController{
       requestsList.refresh();
     });
   }
-
 
   void deleteStreamingRequest(int index) {
     requestsList.removeAt(index);
@@ -53,14 +52,28 @@ class FollowRequestsController extends GetxController{
         .set({
       "requests": requestsList.value.map((e) => e.toMap()).toList(),
     }, SetOptions(merge: true)).then((res) {
-
       showMessage(dataUpdatedSuccessfully.tr);
     });
   }
-void acceptFollowRequest(int index, String remoteId, String hostId) {
- // deleteStreamingRequest(index);
-  showDebugPrint("remote id on request screen---------------------   $remoteId");
-  Get.to(() => LiveScreen(true, "", "", remoteId, true, hostId) );
 
+  void acceptFollowRequest(
+      int index, String remoteId, String hostId, String senderId) {
+    // deleteStreamingRequest(index);
+    showDebugPrint(
+        "remote id on request screen---------------------   $remoteId");
+    setRequestAccept(senderId);
+    //Get.to(() => LiveScreen(true, "", "", remoteId, true, hostId) );
+  }
+
+  setRequestAccept(String senderId) async {
+    FirebaseFirestore.instance
+        .collection('accepted_live_request')
+        .doc(senderId)
+        .set({
+      "senderId": senderId,
+      "accept": "true",
+    }, SetOptions(merge: true)).then((res) {
+      Get.back();
+    });
   }
 }

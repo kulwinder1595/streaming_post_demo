@@ -57,9 +57,8 @@ android {
 
     buildTypes {
         release {
-            debuggable true
-            shrinkResources false
             minifyEnabled false
+            shrinkResources false
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }

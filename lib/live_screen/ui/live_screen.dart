@@ -26,6 +26,7 @@ class LiveScreen extends StatelessWidget {
     controller.hostId.value = hostId;
     controller.groupStreaming.value = groupStreaming;
     print("I am hitting audience");
+
     //controller.fetchAudienceData(controller.streamingUserId.value);
     Future.delayed(Duration(seconds: 2), ()
     {
@@ -33,7 +34,7 @@ class LiveScreen extends StatelessWidget {
       if (controller.groupStreaming.value == true) {
         controller.isHost.value = true;
         controller.setupVideoSDKEngine();
-        /*print("firebase remote user id ------->  ${controller
+       /* print("firebase remote user id ------->  ${controller
             .streamingJoiningId}");
         controller.users.value.add(int.parse(controller.streamingJoiningId.toString()));
         controller.users.value.add(int.parse(controller.hostId.toString()));
@@ -185,12 +186,12 @@ class LiveScreen extends StatelessWidget {
                         SizedBox(
                           height: SizeConfig.blockSizeVertical * 0.5,
                         ),
-                        Container(
+                      Container(
                             height: SizeConfig.screenHeight - 170,
                             decoration: BoxDecoration(border: Border.all()),
                             child: Obx(() => controller.isLoadingVideoView.value == true &&
-                                controller.isHost.value == true ? _viewRows() : controller.isLoadingVideoView.value == true &&
-                                controller.isHost.value == false
+                                controller.isHost.value == true || controller.users.length > 0 ? _viewRows() : controller.isLoadingVideoView.value == true &&
+                                controller.isHost.value == false || controller.users.length > 0
                                 ? AgoraVideoView(
                               controller: VideoViewController.remote(
                                 rtcEngine: controller.agoraEngine.value,
@@ -199,31 +200,13 @@ class LiveScreen extends StatelessWidget {
                               ),
                             )
                                 : commonLoader())),
-                        Align(
+                     Align(
                           alignment: Alignment.bottomRight,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              /*  Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: colorBlack,
-                                      style: BorderStyle.solid,
-                                      width: 1.0,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
-                                    child: headingText(
-                                        "${receiveARequest.tr}(0)",
-                                        SizeConfig.blockSizeHorizontal * 4,
-                                        colorBlack),
-                                  ),
-                                ),
-                              ),*/
+
                               SizedBox(
                                 height: SizeConfig.blockSizeVertical * 2,
                               ),
@@ -250,7 +233,7 @@ class LiveScreen extends StatelessWidget {
                                           const TextStyle(color: colorGrey),
                                       filled: true,
                                       border: InputBorder.none,
-                                      /*prefixIcon: InkWell(
+                                    /* prefixIcon: InkWell(
                                         onTap: () {
                                           // controller.openGallery();
                                         },
@@ -310,7 +293,7 @@ class LiveScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Obx(
+                   Obx(
                       () => controller.isLoading.value == true
                           ? Container(
                               width: SizeConfig.screenWidth,
@@ -318,7 +301,7 @@ class LiveScreen extends StatelessWidget {
                               child: Center(child: commonLoader()))
                           : Container(),
                     ),
-                    Obx(
+                Obx(
                       () => controller.chatList.isNotEmpty
                           ? Align(
                               alignment: Alignment.topCenter,
@@ -342,7 +325,7 @@ class LiveScreen extends StatelessWidget {
                     SizedBox(
                       height: SizeConfig.blockSizeVertical * 2,
                     ),
-                  Obx(() =>  controller.isHost.value == false ?  Row(
+                 Obx(() =>  controller.isHost.value == false ?  Row(
                        children: [
                          const Spacer(),
                          InkWell(
@@ -403,7 +386,7 @@ class LiveScreen extends StatelessWidget {
                   chatList.message.toString(),
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      color: Colors.white,
+                      color: Colors.blueAccent,
                       fontSize: SizeConfig.blockSizeHorizontal * 3.8),
                 ),
               ),
